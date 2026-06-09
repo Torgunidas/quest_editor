@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edytor questów v30.10.19 · Clean Google Docs Export</title>
+<title>Edytor questów v31.16 · Dialog Graph Tree</title>
 <style>
   :root {
     --bg-page: #FAFAF7;
@@ -676,11 +676,76 @@
   .perf-console .perf-row { display:grid; grid-template-columns: 86px 54px 54px 54px 1fr; gap:6px; border-top:1px solid rgba(255,255,255,0.08); padding:3px 0; }
   .perf-console .perf-events { margin-top:8px; color:#CBD5E1; }
 
+
+  /* v31.6: Safe review dropdown + in-app review preview.
+     Existing review button IDs stay intact so legacy handlers keep working. */
+  .review-menu-wrap { position: relative; display: inline-flex; flex-shrink: 0; }
+  .review-menu-btn { display: inline-flex; align-items: center; gap: 6px; }
+  .review-menu-btn::after { content: '▾'; font-size: 10px; color: var(--text-muted); }
+  .review-menu {
+    position: absolute; right: 0; top: calc(100% + 6px); z-index: 80;
+    display: none; min-width: 240px; padding: 6px;
+    background: var(--bg-surface); border: 1px solid var(--border-strong); border-radius: var(--radius);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  }
+  .review-menu.show { display: block; }
+  .review-menu .review-menu-item {
+    display: block; width: 100%; text-align: left; padding: 7px 9px;
+    border: 0; background: transparent; border-radius: 4px; cursor: pointer;
+    color: var(--text-secondary); font: inherit; font-size: 12px; white-space: nowrap;
+  }
+  .review-menu .review-menu-item:hover { background: var(--bg-muted); color: var(--text-primary); }
+  .review-menu .review-menu-item:disabled { opacity: 0.45; cursor: not-allowed; }
+  .review-menu .review-menu-sep { height: 1px; background: var(--border); margin: 5px 4px; }
+  .review-menu .review-menu-status { padding: 6px 9px 8px; color: var(--text-muted); font-size: 11px; line-height: 1.35; }
+  body.focus-night .review-menu { box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
+
+  #review-preview-modal .modal {
+    width: min(980px, calc(100vw - 40px)); height: min(760px, calc(100vh - 40px));
+    max-width: 980px; max-height: calc(100vh - 40px);
+  }
+  #review-preview-modal .review-preview-toolbar {
+    display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+    border-bottom: 1px solid var(--border); background: var(--bg-surface); flex: 0 0 auto;
+  }
+  #review-preview-modal .review-preview-toolbar .spacer { flex: 1; }
+  #review-preview-modal .review-preview-count { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+  #review-preview-modal .review-preview-body { flex: 1 1 auto; min-height: 0; overflow: auto; background: var(--bg-page); padding: 18px 0 32px; }
+  #review-preview-modal .review-preview-meta {
+    max-width: var(--editor-col-width); margin: 0 auto 14px; padding: 10px 12px;
+    border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-surface);
+    color: var(--text-secondary); font-size: 12px;
+  }
+  #review-preview-modal pre.review-preview-content {
+    max-width: var(--editor-col-width); margin: 0 auto; padding: 0;
+    font-family: var(--font-mono); font-size: 15px; line-height: 1.7;
+    white-space: pre-wrap; word-wrap: break-word; tab-size: 2; background: transparent;
+  }
+  .review-line { display: block; min-height: 1.7em; padding: 0 3px; margin: 0 -3px; border-radius: 3px; scroll-margin-top: 18px; }
+  .review-changed { background: #FFF2A8; box-shadow: inset 3px 0 0 #F59E0B; }
+  .review-active-block { outline: 2px solid #F59E0B; outline-offset: 1px; background: #FFE88A !important; }
+  .review-preview-block { margin: 0 0 18px; padding: 8px 10px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-surface); }
+  .review-preview-block.review-active-block { outline: 2px solid #F59E0B; outline-offset: 2px; background: #FFF8D6 !important; }
+  .review-preview-block-head { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); margin: 0 0 6px; }
+  .review-context-line { opacity: 0.70; }
+  body.focus-night .review-changed { background: rgba(245,158,11,0.32); box-shadow: inset 3px 0 0 #F3C27A; }
+  body.focus-night .review-active-block { outline-color: #F3C27A; background: rgba(245,158,11,0.42) !important; }
+
   @media (max-width: 700px) {
     .help-panel .help-grid { grid-template-columns: 1fr; }
     .toolbar { flex-direction: column; align-items: stretch; }
     .toolbar .spacer { display: none; }
   }
+
+  /* v31 Flow Canvas redesign — use monitor space instead of forcing compact map. */
+  #flow-view { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+  #flow-view .graph-outer { flex: 1 1 auto; height: calc(100vh - 178px); min-height: 520px; max-height: none; }
+  body.dual-mode #flow-view .graph-outer { height: 100%; min-height: 0; }
+  #flow-view .graph-inner svg { min-width: 100%; min-height: 100%; }
+  #flow-mount svg .f-stage rect:nth-of-type(2) { filter: drop-shadow(0 3px 5px rgba(15,23,42,0.08)); }
+  #flow-mount svg .f-edge { vector-effect: non-scaling-stroke; }
+  #flow-mount svg .f-flow-lane-label { pointer-events: none; }
+
 </style>
 </head>
 <body>
@@ -690,7 +755,7 @@
   <span class="subtitle" id="quest-length-subtitle">— stron znorm.</span>
   <div class="spacer"></div>
   <button class="help-toggle" id="help-toggle" title="Pokaż/ukryj panel pomocy">? pomoc</button>
-  <span class="version">v30.10.19 · Clean Google Docs Export</span>
+  <span class="version">v31.16 · Dialog Graph Tree</span>
 </header>
 
 <main class="app-main">
@@ -726,8 +791,21 @@
     <div class="tb-right">
       <button class="btn primary" id="save">Zapisz plik</button>
       <button class="btn" id="export-html" title="Eksport HTML z kolorami">Eksport HTML</button>
+      <div class="review-menu-wrap" id="review-menu-wrap">
+        <button class="btn review-menu-btn" id="review-menu-btn" type="button" title="Narzędzia review">Review</button>
+        <div class="review-menu" id="review-menu">
+          <div class="review-menu-status" id="review-menu-status">Brak bazy review</div>
+          <button class="review-menu-item" id="review-preview" type="button" title="Pokaż podgląd zmian bez eksportowania pliku">Podgląd zmian</button>
+          <button class="review-menu-item" id="review-export-html" type="button" title="Eksportuj cały aktualny quest z podświetleniem zmian względem bazy review">Eksport Review HTML</button>
+          <div class="review-menu-sep"></div>
+          <button class="review-menu-item" id="review-set-base" type="button" title="Zapamiętaj bieżący tekst jako bazę porównania dla review">Ustaw aktualny tekst jako bazę</button>
+          <button class="review-menu-item" id="review-save-base" type="button" title="Zapisz bazę review do osobnego pliku .json">Zapisz bazę do pliku</button>
+          <button class="review-menu-item" id="review-load-base" type="button" title="Wczytaj bazę review z pliku .json albo z czystego .txt/.md">Wczytaj bazę z pliku</button>
+        </div>
+      </div>
     </div>
     <input type="file" id="file-input" accept=".txt,.md" style="display:none;" />
+    <input type="file" id="review-base-input" accept=".json,.txt,.md" style="display:none;" />
     <!-- Hidden tabs/status — kept in DOM for legacy code references but invisible -->
     <span style="display:none;">
       <button class="tab active" data-view="edit" id="tab-edit">Tekst</button>
@@ -808,6 +886,9 @@
         <span><span class="swatch" style="background:#FCD34D; border: 1.5px solid #D97706; border-radius:50%; width:9px; height:9px;"></span>wip</span>
         <span><span class="swatch" style="background:#93C5FD; border: 1.5px solid #2563EB; border-radius:50%; width:9px; height:9px;"></span>draft</span>
         <span><span class="swatch" style="background:#6EE7B7; border: 1.5px solid #059669; border-radius:50%; width:9px; height:9px;"></span>done</span>
+        <span><span class="swatch" style="background:#6b7280; width:18px; height:2px;"></span>przebieg</span>
+        <span><span class="swatch" style="background:#059669; width:18px; height:2px;"></span>warunek</span>
+        <span><span class="swatch" style="background:repeating-linear-gradient(90deg,#6b7280 0 4px,transparent 4px 8px); width:18px; height:2px;"></span>powrót</span>
         <span style="color: var(--text-muted); margin-left: 8px; font-size: 10px;">klik w kropkę — cykliczna zmiana · dwuklik w kafelek — otwórz dialog</span>
       </div>
       <div class="graph-inner" id="flow-scroll">
@@ -883,6 +964,28 @@
     <div class="modal-foot">
       <button class="btn" id="modal-cancel">Zamknij</button>
       <button class="btn primary" id="modal-save">Zapisz znormalizowany plik</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-backdrop" id="review-preview-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Podgląd zmian review</h3>
+      <p>Cały aktualny quest z podświetleniem nowych i zmienionych linii względem wczytanej bazy. Usunięte fragmenty nie są pokazywane.</p>
+    </div>
+    <div class="review-preview-toolbar">
+      <button class="btn" id="review-prev-change" type="button">← Poprzednia zmiana</button>
+      <button class="btn" id="review-next-change" type="button">Następna zmiana →</button>
+      <span class="review-preview-count" id="review-preview-count">—</span>
+      <span class="spacer"></span>
+      <button class="btn" id="review-preview-export" type="button">Eksport Review HTML</button>
+      <button class="btn" id="review-preview-close" type="button">Zamknij</button>
+    </div>
+    <div class="review-preview-body" id="review-preview-body">
+      <div class="review-preview-meta" id="review-preview-meta"></div>
+      <pre class="review-preview-content" id="review-preview-content"></pre>
     </div>
   </div>
 </div>
@@ -980,6 +1083,8 @@ Koniec rozmowy.{-1}
         <ul>
           <li>Pokazuje mapę etapów i przejścia między nimi.</li>
           <li>Ułatwia rewizję kolejności, statusów i warunków.</li>
+          <li>Powroty do wcześniejszych etapów są rysowane jako relacje pomocnicze i nie rozpychają głównego układu kolumn.</li>
+          <li>Flow pokazuje wyłącznie przebieg etapów; szczegóły dialogów i warunków zostają poza mapą.</li>
           <li>Kropka w kafelku etapu zmienia status: to do → wip → draft → done.</li>
         </ul>
         <h4>Interakcje</h4>
@@ -1158,6 +1263,26 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
   const previewBtn = document.getElementById('preview');
   const saveBtn = document.getElementById('save');
   const exportSvgBtn = document.getElementById('export-svg');
+  const reviewSetBaseBtn = document.getElementById('review-set-base');
+  const reviewSaveBaseBtn = document.getElementById('review-save-base');
+  const reviewLoadBaseBtn = document.getElementById('review-load-base');
+  const reviewBaseInput = document.getElementById('review-base-input');
+  const reviewExportHtmlBtn = document.getElementById('review-export-html');
+  const reviewMenuBtn = document.getElementById('review-menu-btn');
+  const reviewMenu = document.getElementById('review-menu');
+  const reviewMenuStatus = document.getElementById('review-menu-status');
+  const reviewPreviewBtn = document.getElementById('review-preview');
+  const reviewPreviewModal = document.getElementById('review-preview-modal');
+  const reviewPreviewBody = document.getElementById('review-preview-body');
+  const reviewPreviewMeta = document.getElementById('review-preview-meta');
+  const reviewPreviewContent = document.getElementById('review-preview-content');
+  const reviewPreviewCount = document.getElementById('review-preview-count');
+  const reviewPrevChangeBtn = document.getElementById('review-prev-change');
+  const reviewNextChangeBtn = document.getElementById('review-next-change');
+  const reviewPreviewCloseBtn = document.getElementById('review-preview-close');
+  const reviewPreviewExportBtn = document.getElementById('review-preview-export');
+  let reviewPreviewBlocks = [];
+  let reviewPreviewBlockIndex = -1;
   const focusBtn = document.getElementById('focus-btn');
   const toast = document.getElementById('toast');
   const modal = document.getElementById('modal');
@@ -1194,6 +1319,8 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
   const LS_KEY = 'qed-autosave-v1';
   const LS_FILENAME_KEY = 'qed-autosave-filename';
   const LS_TIMESTAMP_KEY = 'qed-autosave-timestamp';
+  const REVIEW_BASE_KEY = 'qed-review-base-v1';
+  const REVIEW_BASE_META_KEY = 'qed-review-base-meta-v1';
 
   function markDirty() {
     isDirty = true;
@@ -1881,7 +2008,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
           const targetStage = 'ETAP_' + condM[2].replace(/^ETAP[_ ]?/i, '');
           let label = condM[1].replace(/\s*(?:→|-+>|=+>|:|-\s*>|uruchamia(?:\s+etap)?)\s*$/i, '').trim();
           if (!label) label = 'warunek';
-          curStage.conditions.push({ label, target: targetStage });
+          curStage.conditions.push({ label, target: targetStage, sourceLine: i });
           continue;
         }
         // Other generic // comment — collect as stage notes.
@@ -2024,23 +2151,43 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     // Build meta-graph: stage-to-stage edges
     const stageEdges = [];
     const seenEdges = new Set();
-    function addStageEdge(from, to, label, kind) {
-      const key = from + '|' + to + '|' + (label || '');
+    function addStageEdge(from, to, label, kind, meta) {
+      meta = meta || {};
+      const edgeLabel = label || meta.label || null;
+      const key = from + '|' + to + '|' + (edgeLabel || '') + '|' + (kind || '');
       if (seenEdges.has(key)) return;
       seenEdges.add(key);
-      stageEdges.push({ from, to, label: label || null, kind });
+      stageEdges.push(Object.assign({
+        from,
+        to,
+        label: edgeLabel,
+        kind
+      }, meta));
     }
     stages.forEach(stage => {
       // Edges from dialogue jumps
       stage.edges.forEach(e => {
         if (e.crossStage && e.targetStage && stageMap[e.targetStage]) {
-          addStageEdge(stage.id, e.targetStage, null, 'dialog');
+          const dialogLabel = e.kind === 'option' ? (e.label || null) : null;
+          addStageEdge(stage.id, e.targetStage, null, 'dialog', {
+            sourceStageId: stage.id,
+            sourceNodeId: e.from || null,
+            sourceNodeEdgeKind: e.kind || null,
+            dialogLabel,
+            optionId: e.optionId || null,
+            sourceLine: e.optionLine !== undefined ? e.optionLine : (e.sourceLine !== undefined ? e.sourceLine : stage.sourceLine),
+            optionLine: e.optionLine !== undefined ? e.optionLine : null
+          });
         }
       });
       // Edges from //warunek: conditions
       stage.conditions.forEach(c => {
         if (stageMap[c.target]) {
-          addStageEdge(stage.id, c.target, c.label, 'condition');
+          addStageEdge(stage.id, c.target, c.label, 'condition', {
+            sourceStageId: stage.id,
+            sourceLine: c.sourceLine !== undefined ? c.sourceLine : stage.sourceLine,
+            condition: true
+          });
         }
       });
     });
@@ -2703,12 +2850,45 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     return lines;
   }
 
+  function dialogEdgeKey(e) {
+    return (e.from || '') + '|' + (e.to || '') + '|' + (e.optionId || '') + '|' + (e.kind || '') + '|' + (e.optionLine !== undefined ? e.optionLine : '');
+  }
+
+  function dialogNodeOrderValue(node) {
+    if (!node) return 0;
+    const dialogIndex = node.dialogIndex !== undefined && node.dialogIndex !== null ? node.dialogIndex : 0;
+    const line = Number.isFinite(node.sourceLine) ? node.sourceLine : 0;
+    return dialogIndex * 1000000 + line;
+  }
+
+  function isDialogReturnEdge(e, id2node) {
+    if (!e || !e.from || !e.to) return false;
+    const from = id2node[e.from];
+    const to = id2node[e.to];
+    if (!from || !to) return false;
+    if (from.id === to.id) return true;
+    return dialogNodeOrderValue(to) <= dialogNodeOrderValue(from);
+  }
+
   function layoutStage(stage) {
     const nodes = stage.nodes;
     const id2node = {}; nodes.forEach(n => id2node[n.id] = n);
     const incoming = {}; const outgoing = {};
     nodes.forEach(n => { incoming[n.id] = 0; outgoing[n.id] = []; });
-    stage.edges.forEach(e => { if (!e.from || !e.to) return; if (!id2node[e.to]) return; incoming[e.to] = (incoming[e.to] || 0) + 1; outgoing[e.from].push(e.to); });
+    const layoutEdges = [];
+    const returnEdgeKeys = {};
+    stage.edges.forEach(e => {
+      if (!e.from || !e.to) return;
+      if (!id2node[e.from] || !id2node[e.to]) return;
+      if (isDialogReturnEdge(e, id2node)) {
+        returnEdgeKeys[dialogEdgeKey(e)] = true;
+        return;
+      }
+      layoutEdges.push(e);
+      incoming[e.to] = (incoming[e.to] || 0) + 1;
+      outgoing[e.from].push(e.to);
+    });
+    stage._dialogReturnEdgeKeys = returnEdgeKeys;
     const col = {};
     const roots = nodes.filter(n => incoming[n.id] === 0);
     if (roots.length === 0 && nodes.length > 0) roots.push(nodes[0]);
@@ -2718,7 +2898,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       changed = false; iter++;
       nodes.forEach(n => {
         let maxPredCol = -1;
-        stage.edges.forEach(e => { if (e.to === n.id && e.from && id2node[e.from]) { const pc = col[e.from]; if (pc !== undefined && pc > maxPredCol) maxPredCol = pc; } });
+        layoutEdges.forEach(e => { if (e.to === n.id && e.from && id2node[e.from]) { const pc = col[e.from]; if (pc !== undefined && pc > maxPredCol) maxPredCol = pc; } });
         const target = maxPredCol >= 0 ? maxPredCol + 1 : (col[n.id] !== undefined ? col[n.id] : 0);
         if (col[n.id] !== target) { col[n.id] = target; changed = true; }
       });
@@ -2750,7 +2930,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       laneIter++;
       nodes.forEach(n => {
         const baseLane = lane[n.id] !== undefined ? lane[n.id] : 0;
-        const outs = stage.edges
+        const outs = layoutEdges
           .filter(e => e.from === n.id && e.to && id2node[e.to])
           .sort((a, b) => edgeRank(a) - edgeRank(b));
         const isPlayer = (n.speaker || '').toUpperCase() === 'GRACZ';
@@ -2842,12 +3022,13 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     });
 
     const NODE_W = 240;
-    const COL_GAP = 140;
+    const COL_GAP = 136;
     const ROW_GAP = 50;
     const STAGE_HEADER = 42;
     const STAGE_GAP = 50;
     const STAGE_PAD_X = 28;
     const STAGE_PAD_Y = 18;
+    const GHOST_EXIT_SPACE = 340;
     const NODE_PADDING_X = 12;
     const NODE_PADDING_Y = 10;
     const LINE_H = 16;
@@ -2856,17 +3037,41 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     const FS_META = 10;
     const MAX_WRAP = 28;
 
+    function measurePlayerOptions(node) {
+      const optionLayouts = [];
+      let bodyLines = 0;
+      let relLy = 22 + NODE_PADDING_Y + 10;
+      (node.options || []).forEach(o => {
+        const segs = segmentSb(o.text || '(pusta)');
+        const wrapped = wrapSegments(segs, MAX_WRAP - 2);
+        const lineCount = Math.max(1, wrapped.length);
+        bodyLines += lineCount + 0.3;
+        const optionHitTop = relLy - 13;
+        const optionHitH = Math.max(LINE_H, lineCount * LINE_H) + 5;
+        optionLayouts.push({
+          id: o.id,
+          portY: optionHitTop + optionHitH / 2,
+          lineCount
+        });
+        relLy += lineCount * LINE_H + 5;
+      });
+      return { bodyLines, optionLayouts };
+    }
+
     function measureNode(node) {
       const isPlayer = node.speaker.toUpperCase() === 'GRACZ';
       let bodyLines;
+      let optionPorts = null;
       if (isPlayer) {
-        bodyLines = 0;
-        node.options.forEach(o => { const segs = segmentSb(o.text || '(pusta)'); const w = wrapSegments(segs, MAX_WRAP - 2); bodyLines += Math.max(1, w.length) + 0.3; });
+        const optionLayout = measurePlayerOptions(node);
+        bodyLines = optionLayout.bodyLines;
+        optionPorts = {};
+        optionLayout.optionLayouts.forEach(o => { if (o.id) optionPorts[o.id] = o.portY; });
       } else {
         const segs = segmentSb(node.body || ''); const w = wrapSegments(segs, MAX_WRAP); bodyLines = Math.max(1, w.length);
       }
       const h = NODE_PADDING_Y * 2 + 20 + Math.ceil(bodyLines * LINE_H);
-      return { h, isPlayer };
+      return { h, isPlayer, optionPorts };
     }
 
     const positions = {};
@@ -2893,11 +3098,17 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       // full descendants of all parents. Only the primary incoming edge owns the
       // subtree for layout; secondary incoming edges are still rendered, but they do
       // not reserve huge vertical corridors.
-      const BRACKET_NODE_GAP = 54;
-      const BRACKET_ROOT_GAP = 88;
-      const BRACKET_DIALOG_GAP = 118;
+      // v31.16: tree-first dialogue graph.
+      // The graph should read as one trunk with branches. Keep the clipping fix
+      // from v31.15, but let branch subtrees reserve more visible space so they
+      // do not look crushed into one vertical band.
+      const BRACKET_NODE_GAP = 56;
+      const BRACKET_ROOT_GAP = 82;
+      const BRACKET_DIALOG_GAP = 104;
       const BRACKET_MIN_BLOCK = 112;
-      const BRACKET_MAX_SIBLING_GAP = 220; // safety clamp for very large DAG-like branches
+      const BRACKET_BRANCH_FOOTPRINT_MAX = 620;
+      const BRACKET_BRANCH_EXTRA_PAD = 132;
+      const BRACKET_BRANCH_SUBTREE_SHARE = 0.45;
 
       const stageNodeMap = {};
       nodesForMeasure.forEach(n => { stageNodeMap[n.id] = n; });
@@ -2926,18 +3137,21 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
           return ta - tb;
         });
 
+      const returnEdgeKeysForStage = stage._dialogReturnEdgeKeys || {};
+      const structuralEdges = internalEdges.filter(e => !returnEdgeKeysForStage[dialogEdgeKey(e)]);
       const childrenByNode = {};
       const incomingByNode = {};
       const incomingEdgesByNode = {};
-      nodesForMeasure.forEach(n => { childrenByNode[n.id] = []; incomingByNode[n.id] = 0; incomingEdgesByNode[n.id] = []; });
-      internalEdges.forEach(e => {
+      const ownedIncomingByNode = {};
+      nodesForMeasure.forEach(n => { childrenByNode[n.id] = []; incomingByNode[n.id] = 0; incomingEdgesByNode[n.id] = []; ownedIncomingByNode[n.id] = 0; });
+      structuralEdges.forEach(e => {
         incomingByNode[e.to] = (incomingByNode[e.to] || 0) + 1;
         if (!incomingEdgesByNode[e.to]) incomingEdgesByNode[e.to] = [];
         incomingEdgesByNode[e.to].push(e);
       });
 
       function graphEdgeKey(e) {
-        return (e.from || '') + '|' + (e.to || '') + '|' + (e.optionId || '') + '|' + (e.kind || '') + '|' + (e.optionLine !== undefined ? e.optionLine : '');
+        return dialogEdgeKey(e);
       }
 
       function primaryIncomingEdgeForTarget(targetId) {
@@ -2972,8 +3186,13 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       // should remain visible but not have the same visual weight as primary flow.
       // This role map is intentionally visual/layout-local; parser data stays untouched.
       const layoutEdgeRole = {};
+      const treeOwnedEdgeKeys = {};
       internalEdges.forEach(e => {
         const key = graphEdgeKey(e);
+        if (returnEdgeKeysForStage[key]) {
+          layoutEdgeRole[key] = 'return';
+          return;
+        }
         const isPrimary = incomingByNode[e.to] <= 1 || primaryIncomingKey[e.to] === key;
         const fromNode = stageNodeMap[e.from];
         const toNode = stageNodeMap[e.to];
@@ -2990,12 +3209,22 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       // Only primary tree edges participate in bracket subtree sizing.
       // Secondary incoming edges are rendered later as cross/merge links, but they do not
       // make every parent reserve the full height of the shared merge target.
-      internalEdges.forEach(e => {
-        const isPrimary = incomingByNode[e.to] <= 1 || primaryIncomingKey[e.to] === graphEdgeKey(e);
+      structuralEdges.forEach(e => {
+        const key = graphEdgeKey(e);
+        const isPrimary = incomingByNode[e.to] <= 1 || primaryIncomingKey[e.to] === key;
         if (!isPrimary) return;
+        // Primary cross edges are often just long dialogue continuations. Let them
+        // own placement so their follow-up sequence stays near the choice that
+        // triggers it; they still render as secondary/cross overlays.
+        if (layoutEdgeRole[key] !== 'tree' && layoutEdgeRole[key] !== 'cross') return;
         if (!childrenByNode[e.from]) childrenByNode[e.from] = [];
-        if (!childrenByNode[e.from].some(x => x.id === e.to)) childrenByNode[e.from].push({ id: e.to, edge: e });
+        if (!childrenByNode[e.from].some(x => x.id === e.to)) {
+          childrenByNode[e.from].push({ id: e.to, edge: e });
+          treeOwnedEdgeKeys[key] = true;
+          ownedIncomingByNode[e.to] = (ownedIncomingByNode[e.to] || 0) + 1;
+        }
       });
+      stage._dialogTreeEdgeKeys = treeOwnedEdgeKeys;
 
       const dialogGroupsForLayout = {};
       nodesForMeasure.forEach(n => {
@@ -3013,6 +3242,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       const desiredCenterY = {};
       const finalLane = {};
       let contentHeightUsed = 0;
+      const CONTENT_SAFE_PAD = 14;
 
       function sameDialogChildren(nodeId, dialogIndex) {
         return (childrenByNode[nodeId] || []).filter(ch => {
@@ -3022,9 +3252,8 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       }
 
       function siblingGapForChildren(kids) {
-        // Big monologues can make pure subtree sums explode in a DAG. Keep sibling separation
-        // readable, but bounded. Physical node collision is still handled by the later column pass.
-        return Math.min(BRACKET_NODE_GAP, BRACKET_MAX_SIBLING_GAP);
+        if (!kids || kids.length <= 1) return 0;
+        return Math.max(44, BRACKET_NODE_GAP - Math.min(8, kids.length * 2));
       }
 
       dialogOrderForLayout.forEach(dialogIndex => {
@@ -3032,12 +3261,17 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         const groupIds = new Set(group.map(n => n.id));
         const memoHeight = {};
 
+        function ownBlockHeight(nodeId) {
+          const m = nodeMetrics[nodeId];
+          return Math.max(BRACKET_MIN_BLOCK, (m ? m.h : BRACKET_MIN_BLOCK) + BRACKET_NODE_GAP);
+        }
+
         function subtreeHeight(nodeId, stack) {
           if (!groupIds.has(nodeId)) return 0;
           if (memoHeight[nodeId] !== undefined) return memoHeight[nodeId];
-          if (stack && stack.has(nodeId)) return Math.max(BRACKET_MIN_BLOCK, nodeMetrics[nodeId].h + BRACKET_NODE_GAP);
+          if (stack && stack.has(nodeId)) return ownBlockHeight(nodeId);
           const node = stageNodeMap[nodeId];
-          const ownH = Math.max(BRACKET_MIN_BLOCK, nodeMetrics[nodeId].h + BRACKET_NODE_GAP);
+          const ownH = ownBlockHeight(nodeId);
           const nextStack = new Set(stack || []);
           nextStack.add(nodeId);
           const kids = sameDialogChildren(nodeId, dialogIndex);
@@ -3048,11 +3282,22 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
             h = Math.max(ownH, subtreeHeight(kids[0].id, nextStack));
           } else {
             const gap = siblingGapForChildren(kids);
-            const childSum = kids.reduce((sum, ch) => sum + subtreeHeight(ch.id, nextStack), 0) + gap * (kids.length - 1);
+            const childSum = kids.reduce((sum, ch) => sum + branchFootprint(ch.id, nextStack), 0) + gap * (kids.length - 1);
             h = Math.max(ownH, childSum);
           }
           memoHeight[nodeId] = h;
           return h;
+        }
+
+        function branchFootprint(nodeId, stack) {
+          const ownH = ownBlockHeight(nodeId);
+          const fullH = subtreeHeight(nodeId, stack);
+          const nestedH = Math.max(0, fullH - ownH);
+          const compactCap = Math.max(
+            ownH,
+            Math.min(BRACKET_BRANCH_FOOTPRINT_MAX, ownH + BRACKET_BRANCH_EXTRA_PAD + nestedH * BRACKET_BRANCH_SUBTREE_SHARE)
+          );
+          return Math.min(fullH, compactCap);
         }
 
         const placed = new Set();
@@ -3076,12 +3321,14 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
             center = childCenter;
           } else {
             const gap = siblingGapForChildren(kids);
-            const childTotalH = kids.reduce((sum, ch) => sum + subtreeHeight(ch.id, nextStack), 0) + gap * (kids.length - 1);
+            const childTotalH = kids.reduce((sum, ch) => sum + branchFootprint(ch.id, nextStack), 0) + gap * (kids.length - 1);
             let cursorY = topY + Math.max(0, (blockH - childTotalH) / 2);
             const childCenters = [];
             kids.forEach(ch => {
-              const chH = subtreeHeight(ch.id, nextStack);
-              const cc = placeNode(ch.id, cursorY, nextStack);
+              const chH = branchFootprint(ch.id, nextStack);
+              const fullChH = subtreeHeight(ch.id, nextStack);
+              const chTop = cursorY - Math.max(0, (fullChH - chH) / 2);
+              const cc = placeNode(ch.id, chTop, nextStack);
               childCenters.push(cc);
               cursorY += chH + gap;
             });
@@ -3091,7 +3338,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
           return center;
         }
 
-        const rootsForDialog = group.filter(n => (incomingByNode[n.id] || 0) === 0 || !(internalEdges || []).some(e => e.to === n.id && groupIds.has(e.from)));
+        const rootsForDialog = group.filter(n => (ownedIncomingByNode[n.id] || 0) === 0);
         if (!rootsForDialog.length && group.length) rootsForDialog.push(group[0]);
         rootsForDialog.sort((a,b) => (a.sourceLine || 0) - (b.sourceLine || 0));
 
@@ -3122,7 +3369,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
           if (Math.abs(ya - yb) > 0.1) return ya - yb;
           return (a.sourceLine || 0) - (b.sourceLine || 0);
         });
-        let bottom = -Infinity;
+        let bottom = CONTENT_SAFE_PAD - BRACKET_NODE_GAP;
         nodesInCol.forEach(n => {
           const m = nodeMetrics[n.id];
           let top = (desiredCenterY[n.id] !== undefined ? desiredCenterY[n.id] : 0) - m.h / 2;
@@ -3132,6 +3379,32 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
           contentHeightUsed = Math.max(contentHeightUsed, bottom + BRACKET_NODE_GAP);
         });
       });
+
+      // v31.15: after compact placement and per-column collision solving, normalize
+      // the real node bounds. Very tall dialogue tiles can otherwise end up partly
+      // above the stage content area or below the SVG height estimate.
+      let minNodeTop = Infinity;
+      let maxNodeBottom = -Infinity;
+      nodesForMeasure.forEach(n => {
+        const m = nodeMetrics[n.id];
+        const centerY = desiredCenterY[n.id] !== undefined ? desiredCenterY[n.id] : 0;
+        const top = centerY - m.h / 2;
+        const bottom = centerY + m.h / 2;
+        if (top < minNodeTop) minNodeTop = top;
+        if (bottom > maxNodeBottom) maxNodeBottom = bottom;
+      });
+      if (minNodeTop < CONTENT_SAFE_PAD && Number.isFinite(minNodeTop)) {
+        const shiftY = CONTENT_SAFE_PAD - minNodeTop;
+        nodesForMeasure.forEach(n => {
+          desiredCenterY[n.id] = (desiredCenterY[n.id] !== undefined ? desiredCenterY[n.id] : 0) + shiftY;
+        });
+        maxNodeBottom += shiftY;
+        minNodeTop += shiftY;
+        contentHeightUsed += shiftY;
+      }
+      if (Number.isFinite(maxNodeBottom)) {
+        contentHeightUsed = Math.max(contentHeightUsed, maxNodeBottom + BRACKET_NODE_GAP);
+      }
 
       nodesForMeasure.forEach(n => {
         const laneUnit = 136;
@@ -3146,13 +3419,15 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
           const y = contentTop + centerY - m.h / 2;
           positions[n.id] = {
             x, y, w: NODE_W, h: m.h, node: n, isPlayer: m.isPlayer,
-            stageId: stage.id, gridLane: finalLane[n.id], laneCenterY: contentTop + centerY
+            stageId: stage.id, gridLane: finalLane[n.id], laneCenterY: contentTop + centerY,
+            optionPorts: m.optionPorts || null
           };
         });
       });
 
       const stageContentH = Math.max(60, contentHeightUsed);
-      const stageW = STAGE_PAD_X * 2 + colCount * NODE_W + Math.max(0, colCount - 1) * COL_GAP;
+      const hasGhostEdges = (stage.edges || []).some(e => e && e.from && stageNodeMap[e.from] && (e.broken || e.end || e.crossStage || (e.to && !stageNodeMap[e.to])));
+      const stageW = STAGE_PAD_X * 2 + colCount * NODE_W + Math.max(0, colCount - 1) * COL_GAP + (hasGhostEdges ? GHOST_EXIT_SPACE : 0);
       const stageH = STAGE_HEADER + stageContentH + STAGE_PAD_Y;
       stageFrames.push({ stage, x: 0, y: stageTop, w: stageW, h: stageH });
       if (stageW > maxStageWidth) maxStageWidth = stageW;
@@ -3185,6 +3460,9 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       svg += `</g>`;
     });
 
+    const stageFrameById = {};
+    stageFrames.forEach(f => { stageFrameById[f.stage.id] = f; });
+
     // Helper: find free position for ghost label that doesn't collide with any node
     // Track placed ghost labels so they don't overlap each other
     const placedGhosts = [];
@@ -3207,15 +3485,26 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       return [line1, line2];
     }
 
-    function placeGhostLabel(fromPos, preferredX, preferredY, ghostW, ghostH) {
+    function clampToRange(value, min, max) {
+      if (max < min) return min;
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function placeGhostLabel(fromPos, preferredX, preferredY, ghostW, ghostH, bounds) {
+      const minY = bounds ? bounds.y + STAGE_HEADER + ghostH / 2 + 4 : ghostH / 2 + 4;
+      const maxY = bounds ? bounds.y + bounds.h - STAGE_PAD_Y - ghostH / 2 - 4 : totalH - ghostH / 2 - 4;
+      const minX = bounds ? bounds.x + STAGE_PAD_X : 0;
+      const maxX = bounds ? bounds.x + bounds.w - ghostW - STAGE_PAD_X : totalW - ghostW;
+      const baseX = clampToRange(preferredX, minX, maxX);
+      const baseY = clampToRange(preferredY, minY, maxY);
       // Generate many candidates: aligned, then progressively further up and down.
       const candidates = [
-        { x: preferredX, y: preferredY },
+        { x: baseX, y: baseY },
       ];
       for (let step = 1; step <= 6; step++) {
         const dy = step * (ghostH + 10);
-        candidates.push({ x: preferredX, y: preferredY - dy });
-        candidates.push({ x: preferredX, y: preferredY + dy });
+        candidates.push({ x: baseX, y: clampToRange(baseY - dy, minY, maxY) });
+        candidates.push({ x: baseX, y: clampToRange(baseY + dy, minY, maxY) });
       }
       for (const c of candidates) {
         const box = { x: c.x, y: c.y - ghostH / 2, w: ghostW, h: ghostH };
@@ -3247,19 +3536,34 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         const fromX = from.x + from.w;
         let fromY = from.y + from.h / 2;
 
-        // v30.9.2: centerline lane grid. In rest state edges connect through
-        // tile centers, which keeps linear dialogue visually level even when
-        // neighboring tiles have different heights. Option-specific highlighting
-        // still works through row hitboxes and dock/hover state.
+        // v31.12: keep NPC/jump edges on the node centerline, but dock GRACZ
+        // option edges on the specific answer row so branches start where the
+        // writer reads them.
         function optionAnchorY(pos, edge) {
+          if (edge && edge.optionId && pos.optionPorts && pos.optionPorts[edge.optionId] !== undefined) {
+            return pos.y + pos.optionPorts[edge.optionId];
+          }
           return pos.y + pos.h / 2;
         }
         fromY = optionAnchorY(from, e);
 
         if (e.broken) { color = '#dc2626'; marker = 'url(#ar-b)'; dash = ' stroke-dasharray="5 4"'; ghost = { text: e.reason || 'błąd', fg: '#991b1b', bg: '#FEE2E2', bd: '#dc2626' }; }
         else if (e.end) { color = '#ea580c'; marker = 'url(#ar-e)'; ghost = { text: '⊗ koniec dialogu', fg: '#9a3412', bg: '#FFEDD5', bd: '#ea580c' }; }
-        else if (e.crossStage) { color = '#059669'; marker = 'url(#ar-s)'; const labelPrefix = e.label ? (e.label + ' → ') : '→ '; ghost = { text: labelPrefix + (e.targetStage || ''), fg: '#065F46', bg: '#D1FAE5', bd: '#059669' }; }
-        else { const to = positions[e.to]; if (!to) return; toX = to.x; toY = to.y + to.h / 2; if (e.kind === 'option') { color = '#7c3aed'; marker = 'url(#ar-p)'; } if (e.implicit) { color = '#9ca3af'; marker = 'url(#ar-imp)'; dash = ' stroke-dasharray="3 4"'; opacity = 0.6; } }
+        else if (e.crossStage) {
+          color = '#059669';
+          marker = 'url(#ar-s)';
+          const targetStageLabel = e.targetStage || 'ETAP';
+          const labelPrefix = (e.kind !== 'option' && e.label) ? (e.label + ' → ') : '⇥ ';
+          ghost = { text: labelPrefix + targetStageLabel, fg: '#065F46', bg: '#D1FAE5', bd: '#059669' };
+        }
+        else {
+          const to = positions[e.to]; if (!to) return;
+          const backwardOrSameColumn = to.x <= from.x;
+          toX = backwardOrSameColumn ? to.x + to.w : to.x;
+          toY = to.y + to.h / 2;
+          if (e.kind === 'option') { color = '#7c3aed'; marker = 'url(#ar-p)'; }
+          if (e.implicit) { color = '#9ca3af'; marker = 'url(#ar-imp)'; dash = ' stroke-dasharray="3 4"'; opacity = 0.6; }
+        }
 
         // Place ghost label with collision avoidance + wrapping
         if (ghost) {
@@ -3270,7 +3574,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
           const ghostW = maxLineLen * 6.5 + 16;
           const lineH = 14;
           const ghostH = lines.length * lineH + 8;
-          const pos = placeGhostLabel(from, fromX + 50, fromY, ghostW, ghostH);
+          const pos = placeGhostLabel(from, fromX + 50, fromY, ghostW, ghostH, stageFrameById[from.stageId] || null);
           toX = pos.x;
           toY = pos.y;
           ghost._x = pos.x;
@@ -3287,14 +3591,18 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         // The bracket/grid layout gives the primary reading order. Edges now have a
         // hierarchy: tree edges are structural and clear; merge/cross edges are visual
         // overlays, calmer in rest state and stronger only on hover/dock.
-        const edgeRoleKey = (e.from || '') + '|' + (e.to || '') + '|' + (e.optionId || '') + '|' + (e.kind || '') + '|' + (e.optionLine !== undefined ? e.optionLine : '');
+        const edgeRoleKey = dialogEdgeKey(e);
         const edgeRole = (stage._dialogEdgeRoles && stage._dialogEdgeRoles[edgeRoleKey]) || (e.crossStage ? 'stage' : (ghost ? 'ghost' : 'tree'));
+        const isTreeOwnedEdge = !!(stage._dialogTreeEdgeKeys && stage._dialogTreeEdgeKeys[edgeRoleKey]);
         const isMergeEdge = edgeRole === 'merge';
         const isCrossEdge = edgeRole === 'cross';
-        const isSecondaryEdge = (isMergeEdge || isCrossEdge) && !e.broken && !e.end && !e.crossStage;
+        const isReturnEdge = edgeRole === 'return' && !ghost && !e.broken && !e.end && !e.crossStage;
+        const isSecondaryEdge = (isMergeEdge || isCrossEdge || isReturnEdge) && !isTreeOwnedEdge && !e.broken && !e.end && !e.crossStage;
+        const isTreeEdge = isTreeOwnedEdge || (!isSecondaryEdge && !ghost && !e.broken && !e.end && !e.crossStage);
 
         const COLUMN_SPAN = NODE_W + COL_GAP;
-        const dx = Math.max(1, toX - fromX);
+        const rawDx = toX - fromX;
+        const dx = Math.max(1, rawDx);
         const dy = toY - fromY;
         const absDy = Math.abs(dy);
         const isLongEdge = !ghost && dx > COLUMN_SPAN * 1.35;
@@ -3307,24 +3615,38 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         // Tree edges keep the soft readable curve. Secondary merge/cross overlays are
         // flatter and lighter; they should explain the extra connection without stealing
         // the first-read geometry from the main flow.
-        const horizontalPull = isSecondaryEdge
-          ? Math.min(Math.max(dx * 0.46, 100), 210)
-          : (isDistant ? Math.min(Math.max(dx * 0.38, 90), 170) : Math.min(Math.max(dx * 0.48, 55), 110));
-        const verticalLift = isSecondaryEdge
-          ? Math.max(-22, Math.min(22, -dy * 0.06 + parallelSpread))
-          : (isDistant ? Math.max(-34, Math.min(34, -dy * 0.12 + parallelSpread)) : parallelSpread * 0.35);
-        const ctrl1X = fromX + horizontalPull;
-        const ctrl2X = toX - horizontalPull;
-        const ctrl1Y = fromY + verticalLift;
-        const ctrl2Y = toY + verticalLift;
-        let path = `M ${fromX} ${fromY} C ${ctrl1X} ${ctrl1Y}, ${ctrl2X} ${ctrl2Y}, ${toX} ${toY}`;
+        let path;
+        if (isReturnEdge) {
+          const backDx = Math.abs(rawDx);
+          const returnPull = Math.min(Math.max(backDx * 0.34, 64), 180);
+          const returnLift = Math.max(-32, Math.min(32, -dy * 0.04 + parallelSpread));
+          const ctrl1X = fromX + returnPull;
+          const ctrl2X = toX + returnPull;
+          path = `M ${fromX} ${fromY} C ${ctrl1X} ${fromY + returnLift}, ${ctrl2X} ${toY + returnLift}, ${toX} ${toY}`;
+        } else {
+          const horizontalPull = isSecondaryEdge
+            ? Math.min(Math.max(dx * 0.46, 100), 210)
+            : (isDistant ? Math.min(Math.max(dx * 0.38, 90), 170) : Math.min(Math.max(dx * 0.48, 55), 110));
+          const verticalLift = isSecondaryEdge
+            ? Math.max(-22, Math.min(22, -dy * 0.06 + parallelSpread))
+            : (isDistant ? Math.max(-34, Math.min(34, -dy * 0.12 + parallelSpread)) : parallelSpread * 0.35);
+          const ctrl1X = fromX + horizontalPull;
+          const ctrl2X = toX - horizontalPull;
+          const ctrl1Y = fromY + verticalLift;
+          const ctrl2Y = toY + verticalLift;
+          path = `M ${fromX} ${fromY} C ${ctrl1X} ${ctrl1Y}, ${ctrl2X} ${ctrl2Y}, ${toX} ${toY}`;
+        }
+        if (isTreeEdge && e.implicit) {
+          opacity = Math.max(opacity, 0.72);
+          dash = '';
+        }
         if (isSecondaryEdge) {
-          opacity = Math.min(opacity, isMergeEdge ? 0.34 : 0.28);
+          opacity = Math.min(opacity, isReturnEdge ? 0.3 : (isMergeEdge ? 0.34 : 0.28));
           if (!dash) dash = ' stroke-dasharray="4 5"';
         } else if (isDistant && !e.broken && !e.end && !e.crossStage) {
-          opacity = Math.min(opacity, e.implicit ? 0.36 : 0.64);
+          opacity = Math.min(opacity, e.implicit ? 0.72 : 0.76);
         }
-        const strokeWidth = isSecondaryEdge ? 1.0 : (isDistant && !e.broken ? 1.15 : 1.4);
+        const strokeWidth = isSecondaryEdge ? 1.0 : (isTreeEdge ? 1.45 : (isDistant && !e.broken ? 1.15 : 1.4));
         const edgeDataFrom = e.from || '';
         const edgeDataTo = e.to || ('_ghost_' + eidx);
         const edgeOptionAttr = e.optionId ? ' data-option-id="' + escXml(e.optionId) + '" data-option-line="' + (e.optionLine !== undefined ? e.optionLine : '') + '"' : '';
@@ -4665,11 +4987,11 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
   const FLOW_TUNING = {
     // Vertical unit spacing between unrelated root scenarios. 1.0 means
     // exactly one tile-height apart; >1.0 leaves visible air.
-    rootGap: 1.15,
+    rootGap: 1.65,
     // Minimum tile-unit clearance between two tiles in the same column,
     // so a busy column never visually stacks cards on top of each other.
     // Derived from (72px tile + ~34px gap) / 92px unit ≈ 1.16.
-    minColumnTileGap: 1.16,
+    minColumnTileGap: 1.45,
     // Branch chaos score → vertical step between sibling scenarios.
     // Higher score = more visual room around the split.
     // Score is computed in branchChaosScore(): contributions from large
@@ -4680,53 +5002,22 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       medium:   3,   // score ≥ 3 → step 1.25
       // default (low chaos)         → step 1.00
     },
-    chaosSteps: { veryHigh: 1.75, high: 1.5, medium: 1.25, low: 1.0 },
+    chaosSteps: { veryHigh: 2.6, high: 2.15, medium: 1.75, low: 1.35 },
     // Depth limit when probing a branch's primary chain to score chaos.
     // Higher = considers more downstream context per child; cheap to compute.
     primaryChainProbeDepth: 5,
   };
 
   function layoutFlow(parsed) {
-    // v30.10.1: Equal Scenario Lanes + Compact Fixed Grid.
-    // Flow is a narrative scenario map. There is no privileged "mainline":
-    // every outgoing branch gets an equal lane. Terminals are NOT forced to a
-    // global ending rail; each branch ends where it naturally ends. This keeps
-    // Flow compact and preserves the original strength of the view.
+    // v31.11: Flow Short Routes.
+    // Separate narrative/layout edges from visual-only relations. Return/cycle
+    // edges stay visible, but they no longer push the longest-path columns to
+    // the right. This keeps hub returns and reused stages from turning Flow into
+    // a wide cable map.
     const stages = parsed.stages || [];
-    const stageEdges = parsed.stageEdges || [];
+    const rawStageEdges = parsed.stageEdges || [];
     const byId = {};
     stages.forEach(s => { byId[s.id] = s; });
-
-    const incoming = {};
-    const outgoing = {};
-    stages.forEach(s => { incoming[s.id] = []; outgoing[s.id] = []; });
-    stageEdges.forEach((e, idx) => {
-      if (!byId[e.from] || !byId[e.to]) return;
-      const edge = Object.assign({ _index: idx }, e);
-      outgoing[e.from].push(edge);
-      incoming[e.to].push(edge);
-    });
-
-    // X-axis: longest-path layering. Sinks stay on their natural layer; do NOT
-    // pull endings to the far right, because that creates huge distracting arcs.
-    const col = {};
-    const roots = stages.filter(s => incoming[s.id].length === 0);
-    if (roots.length === 0 && stages.length > 0) roots.push(stages[0]);
-    roots.forEach(r => { col[r.id] = 0; });
-    let changed = true;
-    let iter = 0;
-    while (changed && iter < 300) {
-      changed = false;
-      iter++;
-      stages.forEach(s => {
-        let maxPred = -1;
-        incoming[s.id].forEach(e => {
-          if (col[e.from] !== undefined && col[e.from] > maxPred) maxPred = col[e.from];
-        });
-        const target = maxPred >= 0 ? maxPred + 1 : (col[s.id] !== undefined ? col[s.id] : 0);
-        if (col[s.id] !== target) { col[s.id] = target; changed = true; }
-      });
-    }
 
     function stageIdNumById(id) {
       const m = String(id || '').match(/^ETAP_(\d+)$/);
@@ -4742,13 +5033,86 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       if (na !== nb) return na - nb;
       return String(sa.id || a).localeCompare(String(sb.id || b));
     }
+    function stageSourceRank(id) {
+      const s = byId[id];
+      if (!s) return 999999;
+      if (s.sourceLine !== undefined) return s.sourceLine;
+      return stageIdNumById(id);
+    }
+
+    const incoming = {};
+    const outgoing = {};
+    stages.forEach(s => { incoming[s.id] = []; outgoing[s.id] = []; });
+    const stageEdges = [];
+    rawStageEdges.forEach((e, idx) => {
+      if (!byId[e.from] || !byId[e.to]) return;
+      const edge = Object.assign({ _index: idx }, e);
+      stageEdges.push(edge);
+      outgoing[e.from].push(edge);
+      incoming[e.to].push(edge);
+    });
+
+    function edgeLooksBackward(e) {
+      if (e.from === e.to) return true;
+      const fromRank = stageSourceRank(e.from);
+      const toRank = stageSourceRank(e.to);
+      if (toRank !== fromRank) return toRank < fromRank;
+      return stageOrder(e.to, e.from) < 0;
+    }
+
+    const layoutEdges = stageEdges.filter(e => !edgeLooksBackward(e));
+    const layoutIncoming = {};
+    const layoutOutgoing = {};
+    stages.forEach(s => { layoutIncoming[s.id] = []; layoutOutgoing[s.id] = []; });
+    layoutEdges.forEach(e => {
+      layoutOutgoing[e.from].push(e);
+      layoutIncoming[e.to].push(e);
+    });
+
+    // X-axis: longest-path layering. Sinks stay on their natural layer; do NOT
+    // pull endings to the far right, because that creates huge distracting arcs.
+    const col = {};
+    const roots = stages.filter(s => layoutIncoming[s.id].length === 0);
+    if (roots.length === 0 && stages.length > 0) roots.push(stages[0]);
+    roots.forEach(r => { col[r.id] = 0; });
+    let changed = true;
+    let iter = 0;
+    while (changed && iter < 300) {
+      changed = false;
+      iter++;
+      stages.forEach(s => {
+        let maxPred = -1;
+        layoutIncoming[s.id].forEach(e => {
+          if (col[e.from] !== undefined && col[e.from] > maxPred) maxPred = col[e.from];
+        });
+        const target = maxPred >= 0 ? maxPred + 1 : (col[s.id] !== undefined ? col[s.id] : 0);
+        if (col[s.id] !== target) { col[s.id] = target; changed = true; }
+      });
+    }
+
+    const relationCounts = { forward: 0, merge: 0, return: 0, cross: 0, condition: 0 };
+    stageEdges.forEach(e => {
+      const fromCol = col[e.from] !== undefined ? col[e.from] : 0;
+      const toCol = col[e.to] !== undefined ? col[e.to] : 0;
+      if (edgeLooksBackward(e) || toCol <= fromCol) e.flowRelation = 'return';
+      else if ((layoutIncoming[e.to] || []).length > 1) e.flowRelation = 'merge';
+      else if (toCol - fromCol > 1) e.flowRelation = 'cross';
+      else e.flowRelation = 'forward';
+      relationCounts[e.flowRelation] = (relationCounts[e.flowRelation] || 0) + 1;
+      if (e.kind === 'condition') relationCounts.condition++;
+    });
+
+    const parentEdges = stageEdges.filter(e => e.flowRelation !== 'return');
+    const parentIncoming = {};
+    stages.forEach(s => { parentIncoming[s.id] = []; });
+    parentEdges.forEach(e => { parentIncoming[e.to].push(e); });
 
     // Choose one owner for merge layout stability. Other incoming edges remain
     // visible, but they do not steal/reassign scenario lanes.
     const primaryParent = {};
     stages.forEach(s => {
-      if (!incoming[s.id].length) return;
-      const candidates = incoming[s.id].slice().sort((a, b) => {
+      if (!parentIncoming[s.id].length) return;
+      const candidates = parentIncoming[s.id].slice().sort((a, b) => {
         const ca = col[a.from] || 0;
         const cb = col[b.from] || 0;
         if (ca !== cb) return cb - ca; // closest previous layer wins
@@ -4768,8 +5132,8 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     });
     Object.keys(ownedChildren).forEach(id => {
       ownedChildren[id].sort((a, b) => {
-        const ea = stageEdges.findIndex(e => e.from === id && e.to === a);
-        const eb = stageEdges.findIndex(e => e.from === id && e.to === b);
+        const ea = parentEdges.findIndex(e => e.from === id && e.to === a);
+        const eb = parentEdges.findIndex(e => e.from === id && e.to === b);
         const byEdge = (ea < 0 ? 999999 : ea) - (eb < 0 ? 999999 : eb);
         if (byEdge !== 0) return byEdge;
         return stageOrder(a, b);
@@ -4922,7 +5286,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     const vals = Object.values(flowYUnits);
     const minY = vals.length ? Math.min(...vals) : 0;
     const maxY = vals.length ? Math.max(...vals) : 0;
-    return { columns, col, flowYUnits, primaryParent, ownedChildren, scenarioUnitCount: Math.max(1, maxY - minY + 1) };
+    return { columns, col, flowYUnits, primaryParent, ownedChildren, stageEdges, relationCounts, scenarioUnitCount: Math.max(1, maxY - minY + 1) };
   }
 
   function ensureStageTooltipEl() {
@@ -4997,17 +5361,38 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       return;
     }
 
-    const STAGE_W = 230;
-    const STAGE_H = 72;
-    const COL_GAP = 130;
-    const ROW_GAP = 34;
-    const PAD_X = 40;
-    const PAD_Y = 60;
-    const BIT_PAD = 14;
-    const BIT_HEADER_H = 22;
+    let STAGE_W = 260;
+    let STAGE_H = 78;
+    let COL_GAP = 180;
+    const ROW_GAP = 42;
+    let PAD_X = 70;
+    let PAD_Y = 78;
+    const BIT_PAD = 18;
+    const BIT_HEADER_H = 24;
 
     const layout = layoutFlow(parsed);
+    const flowEdges = layout.stageEdges || parsed.stageEdges || [];
     const colKeys = Object.keys(layout.columns).map(Number).sort((a, b) => a - b);
+
+    // v31 Flow Canvas: use the visible monitor/panel area as a layout budget.
+    // The previous Flow favored compactness, which was efficient but caused
+    // overlaid circuit-board paths on wide monitors. Here we expand column gaps
+    // and scenario lanes when there is room, while preserving scrollability.
+    const flowOuterEl = document.querySelector('#flow-view .graph-outer');
+    const viewportW = flowOuterEl ? Math.max(900, flowOuterEl.clientWidth || 0) : 1200;
+    const viewportH = flowOuterEl ? Math.max(560, flowOuterEl.clientHeight || 0) : 720;
+    const colCount = Math.max(1, colKeys.length);
+    const layoutUnitVals = Object.values(layout.flowYUnits || {});
+    const layoutUnitMin = layoutUnitVals.length ? Math.min(...layoutUnitVals) : 0;
+    const layoutUnitMax = layoutUnitVals.length ? Math.max(...layoutUnitVals) : 0;
+    const unitSpanForBudget = Math.max(1, layoutUnitMax - layoutUnitMin + 1);
+    const desiredContentW = Math.max(viewportW - 60, colCount * STAGE_W + (colCount - 1) * 180 + PAD_X * 2);
+    if (colCount > 1) {
+      COL_GAP = Math.max(180, Math.min(360, (desiredContentW - PAD_X * 2 - colCount * STAGE_W) / (colCount - 1)));
+    }
+    PAD_X = Math.max(70, Math.min(120, viewportW * 0.06));
+    PAD_Y = Math.max(78, Math.min(130, viewportH * 0.12));
+    const FLOW_CANVAS_LANE_H = Math.max(116, Math.min(178, (viewportH - PAD_Y * 2) / unitSpanForBudget));
 
     // v30.10.15: Flow Switchboard detection.
     // Production shortcuts sometimes reuse the same follow-up stages for several
@@ -5032,7 +5417,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       return false;
     }
     const rawSwitchPairs = {};
-    parsed.stageEdges.forEach((e, idx) => {
+    flowEdges.forEach((e, idx) => {
       if (e.kind !== 'condition') return;
       const fc = layout.col && layout.col[e.from] !== undefined ? layout.col[e.from] : null;
       const tc = layout.col && layout.col[e.to] !== undefined ? layout.col[e.to] : null;
@@ -5047,7 +5432,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       const targets = Array.from(new Set(g.edges.map(e => e.to)));
       if (sources.length >= 2 && targets.length >= 2 && g.edges.length >= 3 && hasCrossingInPair(g.edges)) {
         switchboardPairs[key] = g;
-        extraGapAfterColumn[g.fromCol] = Math.max(extraGapAfterColumn[g.fromCol] || 0, 170);
+        extraGapAfterColumn[g.fromCol] = Math.max(extraGapAfterColumn[g.fromCol] || 0, Math.max(210, COL_GAP * 0.75));
       }
     });
 
@@ -5055,7 +5440,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     // column-stacking anymore: narrative branches keep their own lanes across columns,
     // so endings/scenarios are easier to read at a glance.
     const positions = {};
-    const SCENARIO_UNIT_H = 92;
+    const SCENARIO_UNIT_H = FLOW_CANVAS_LANE_H;
     const minUnit = Math.min(...parsed.stages.map(s => layout.flowYUnits && layout.flowYUnits[s.id] !== undefined ? layout.flowYUnits[s.id] : 0));
     const maxUnit = Math.max(...parsed.stages.map(s => layout.flowYUnits && layout.flowYUnits[s.id] !== undefined ? layout.flowYUnits[s.id] : 1));
     const columnX = {};
@@ -5098,6 +5483,14 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       <marker id="far-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/></marker>
     </defs>`;
 
+    // v31: very soft horizontal lane bands make parallel branches scannable
+    // without turning Flow into a heavy swimlane diagram.
+    for (let lane = Math.floor(minUnit); lane <= Math.ceil(maxUnit); lane++) {
+      const y = PAD_Y + (lane - minUnit) * SCENARIO_UNIT_H - STAGE_H / 2 - 18;
+      const fill = (lane - Math.floor(minUnit)) % 2 === 0 ? 'rgba(15,23,42,0.025)' : 'rgba(15,23,42,0.012)';
+      svg += `<rect class="f-flow-lane-label" x="${Math.max(8, PAD_X - 48)}" y="${y}" width="${Math.max(0, totalW - PAD_X)}" height="${SCENARIO_UNIT_H}" rx="12" fill="${fill}"/>`;
+    }
+
     // Bit backgrounds FIRST (behind everything)
     bitRects.forEach(br => {
       svg += `<g>`;
@@ -5131,9 +5524,9 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     }
 
 
-    // v30.10.3: Flow edge routing should not make it harder to judge the lane
-    // heuristic. Prefer compact orthogonal/soft paths, but if a segment would run
-    // through a stage tile, try a small local bus above/below the two endpoints.
+    // v31.11: Flow edge routing should prefer the visually shortest readable
+    // relation. A direct line wins whenever it does not cross another stage tile;
+    // orthogonal detours are only fallback candidates.
     function segmentIntersectsRect(x1, y1, x2, y2, r) {
       const minX = Math.min(x1, x2), maxX = Math.max(x1, x2);
       const minY = Math.min(y1, y2), maxY = Math.max(y1, y2);
@@ -5162,6 +5555,15 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         rects.forEach(r => { if (segmentIntersectsRect(a.x, a.y, b.x, b.y, r)) count++; });
       }
       return count;
+    }
+
+    function routeLength(points) {
+      let len = 0;
+      for (let i = 0; i < points.length - 1; i++) {
+        const a = points[i], b = points[i + 1];
+        len += Math.hypot(b.x - a.x, b.y - a.y);
+      }
+      return len;
     }
 
     function cleanRoutePoints(points) {
@@ -5200,10 +5602,11 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       const xDistance = toX - fromX;
       const isBackward = toX < fromX - 20;
       const elbow = Math.max(34, Math.min(70, Math.abs(xDistance) / 3));
+      const direct = [{x: fromX, y: fromY}, {x: toX, y: toY}];
       const base = isBackward
         ? [{x: fromX, y: fromY}, {x: fromX + elbow, y: fromY}, {x: fromX + elbow, y: toY}, {x: toX, y: toY}]
         : [{x: fromX, y: fromY}, {x: midX, y: fromY}, {x: midX, y: toY}, {x: toX, y: toY}];
-      const candidates = [base];
+      const candidates = [direct, base];
       const localTop = Math.min(from.y, to.y) - 26;
       const localBottom = Math.max(from.y + from.h, to.y + to.h) + 26;
       const leftExit = fromX + elbow;
@@ -5214,13 +5617,47 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       let bestScore = Infinity;
       candidates.forEach((pts, idx) => {
         const collisions = routeCollisionCount(pts, from.stage.id, to.stage.id);
-        // Prefer fewer collisions, then fewer detours.
-        const bendPenalty = idx === 0 ? 0 : 0.35;
-        const score = collisions * 10 + bendPenalty;
+        // Prefer no tile collisions, then the shortest route. Direct gets a small
+        // preference so simple diagonal relations do not become big overhead buses.
+        const bendPenalty = Math.max(0, pts.length - 2) * 18;
+        const directBonus = idx === 0 ? -12 : 0;
+        const score = collisions * 100000 + routeLength(pts) + bendPenalty + directBonus;
         if (score < bestScore) { bestScore = score; best = pts; }
       });
-      const path = routePointsToRoundedPath(best, 14);
+      const path = best.length === 2
+        ? `M ${best[0].x} ${best[0].y} L ${best[1].x} ${best[1].y}`
+        : routePointsToRoundedPath(best, 14);
       const anchor = best[Math.floor(best.length / 2)] || {x: midX, y: (fromY + toY) / 2};
+      return { path, labelAnchorX: anchor.x, labelAnchorY: anchor.y };
+    }
+
+    function chooseFlowReturnRoute(from, to, fromX, fromY, toX, toY, edgeIndex) {
+      const rail = 46 + (edgeIndex % 4) * 12;
+      const stagger = (edgeIndex % 3) * 16;
+      const localTop = Math.min(from.y, to.y) - 50 - stagger;
+      const localBottom = Math.max(from.y + from.h, to.y + to.h) + 50 + stagger;
+      const direct = [{x: fromX, y: fromY}, {x: toX, y: toY}];
+      const candidates = [direct].concat([localTop, localBottom].map(busY => ([
+        {x: fromX, y: fromY},
+        {x: fromX - rail, y: fromY},
+        {x: fromX - rail, y: busY},
+        {x: toX + rail, y: busY},
+        {x: toX + rail, y: toY},
+        {x: toX, y: toY}
+      ])));
+      let best = candidates[0];
+      let bestScore = Infinity;
+      candidates.forEach((pts, idx) => {
+        const collisions = routeCollisionCount(pts, from.stage.id, to.stage.id);
+        const bendPenalty = Math.max(0, pts.length - 2) * 18;
+        const directBonus = idx === 0 ? -10 : 0;
+        const score = collisions * 100000 + routeLength(pts) + bendPenalty + directBonus;
+        if (score < bestScore) { bestScore = score; best = pts; }
+      });
+      const path = best.length === 2
+        ? `M ${best[0].x} ${best[0].y} L ${best[1].x} ${best[1].y}`
+        : routePointsToRoundedPath(best, 12);
+      const anchor = best[2] || {x: (fromX + toX) / 2, y: (fromY + toY) / 2};
       return { path, labelAnchorX: anchor.x, labelAnchorY: anchor.y };
     }
 
@@ -5256,7 +5693,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     const flowOutPorts = {};
     const flowInPorts = {};
     Object.keys(positions).forEach(id => { flowOutPorts[id] = []; flowInPorts[id] = []; });
-    parsed.stageEdges.forEach((edge, edgeIndex) => {
+    flowEdges.forEach((edge, edgeIndex) => {
       if (!positions[edge.from] || !positions[edge.to]) return;
       flowOutPorts[edge.from].push({ edge, edgeIndex, other: positions[edge.to] });
       flowInPorts[edge.to].push({ edge, edgeIndex, other: positions[edge.from] });
@@ -5340,29 +5777,38 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     });
 
     // Edges
-    parsed.stageEdges.forEach((e, edgeIndex) => {
+    flowEdges.forEach((e, edgeIndex) => {
       const from = positions[e.from]; const to = positions[e.to];
       if (!from || !to) return;
-      const fromX = from.x + from.w;
+      const relation = e.flowRelation || 'forward';
+      const isReturn = relation === 'return';
+      const fromX = isReturn ? from.x : from.x + from.w;
       const fromY = portYForStage(from, outPortIndex[edgeIndex]);
-      const toX = to.x;
+      const toX = isReturn ? to.x + to.w : to.x;
       const toY = portYForStage(to, inPortIndex[edgeIndex]);
       const midX = (fromX + toX) / 2 + edgeMidOffset(edgeIndex);
       const isCondition = e.kind === 'condition';
       const color = isCondition ? '#059669' : '#6b7280';
       const marker = isCondition ? 'url(#far-c)' : 'url(#far-n)';
-      const dash = isCondition ? ' stroke-dasharray="6 3"' : '';
+      const dash = isReturn ? ' stroke-dasharray="4 4"' : (isCondition ? ' stroke-dasharray="6 3"' : '');
+      const opacity = isReturn ? 0.6 : ((relation === 'merge' || relation === 'cross') ? 0.66 : 0.78);
+      const strokeWidth = isReturn ? 1.25 : ((relation === 'merge' || relation === 'cross') ? 1.35 : 1.5);
+      const edgeAttrs = `data-edge-from="${e.from}" data-edge-to="${e.to}" data-flow-relation="${relation}" data-edge-kind="${e.kind || ''}"`;
+      const visibleEdgeLabel = null;
+      const labelFill = isCondition ? '#F0FDF4' : '#F9FAFB';
+      const labelStroke = isCondition ? '#059669' : '#9CA3AF';
+      const labelText = isCondition ? '#065F46' : '#374151';
 
-      const switchBox = switchboardEdgeBox[flowEdgeKey(e)];
+      const switchBox = null;
       if (switchBox) {
         const leftX = switchBox.x;
         const rightX = switchBox.x + switchBox.w;
         const cy = switchBox.cy;
         const outPath = routePointsToRoundedPath([{x: fromX, y: fromY}, {x: leftX - 18, y: fromY}, {x: leftX - 18, y: cy}, {x: leftX, y: cy}], 10);
         const inPath = routePointsToRoundedPath([{x: rightX, y: cy}, {x: rightX + 18, y: cy}, {x: rightX + 18, y: toY}, {x: toX, y: toY}], 10);
-        svg += `<path class="f-edge" data-edge-from="${e.from}" data-edge-to="${e.to}" d="${outPath}" fill="none" stroke="${color}" stroke-width="1.35"${dash} opacity="0.75"/>`;
-        svg += `<path class="f-edge" data-edge-from="${e.from}" data-edge-to="${e.to}" d="${inPath}" fill="none" stroke="${color}" stroke-width="1.35"${dash} marker-end="${marker}" opacity="0.75"/>`;
-        svg += `<g class="f-edge f-switchboard-label" data-edge-from="${e.from}" data-edge-to="${e.to}">`;
+        svg += `<path class="f-edge" ${edgeAttrs} d="${outPath}" fill="none" stroke="${color}" stroke-width="1.35"${dash} opacity="${opacity}"/>`;
+        svg += `<path class="f-edge" ${edgeAttrs} d="${inPath}" fill="none" stroke="${color}" stroke-width="1.35"${dash} marker-end="${marker}" opacity="${opacity}"/>`;
+        svg += `<g class="f-edge f-switchboard-label" ${edgeAttrs}>`;
         svg += `<rect x="${switchBox.x}" y="${switchBox.y}" width="${switchBox.w}" height="${switchBox.h}" rx="4" fill="#F0FDF4" stroke="#059669" stroke-width="0.9"/>`;
         const textY = switchBox.y + 12;
         svg += `<text x="${switchBox.x + switchBox.w/2}" y="${textY}" font-size="11" fill="#065F46" text-anchor="middle">`;
@@ -5371,17 +5817,19 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         return;
       }
 
-      const routed = chooseFlowRoute(from, to, fromX, fromY, toX, toY, midX);
+      const routed = isReturn
+        ? chooseFlowReturnRoute(from, to, fromX, fromY, toX, toY, edgeIndex)
+        : chooseFlowRoute(from, to, fromX, fromY, toX, toY, midX);
       const path = routed.path;
       const labelAnchorX = routed.labelAnchorX;
       const labelAnchorY = routed.labelAnchorY;
 
-      svg += `<path class="f-edge" data-edge-from="${e.from}" data-edge-to="${e.to}" d="${path}" fill="none" stroke="${color}" stroke-width="1.5"${dash} marker-end="${marker}" opacity="0.75"/>`;
+      svg += `<path class="f-edge" ${edgeAttrs} d="${path}" fill="none" stroke="${color}" stroke-width="${strokeWidth}"${dash} marker-end="${marker}" opacity="${opacity}"/>`;
 
       // Label with wrapping and collision avoidance
-      if (e.label) {
+      if (visibleEdgeLabel) {
         const MAX_CHARS_PER_LINE = 28;
-        const lines = wrapLabel(e.label, MAX_CHARS_PER_LINE);
+        const lines = wrapLabel(visibleEdgeLabel, MAX_CHARS_PER_LINE);
         const maxLineLen = Math.max(...lines.map(l => l.length));
         const lblW = maxLineLen * 6.5 + 16;
         const lineH = 14;
@@ -5407,14 +5855,14 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         }
         placedLabels.push({ x: chosen.x, y: chosen.y, w: lblW, h: lblH });
 
-        svg += `<g class="f-edge" data-edge-from="${e.from}" data-edge-to="${e.to}">`;
-        svg += `<rect x="${chosen.x}" y="${chosen.y}" width="${lblW}" height="${lblH}" rx="4" fill="#F0FDF4" stroke="#059669" stroke-width="0.8"/>`;
+        svg += `<g class="f-edge" ${edgeAttrs}>`;
+        svg += `<rect x="${chosen.x}" y="${chosen.y}" width="${lblW}" height="${lblH}" rx="4" fill="${labelFill}" stroke="${labelStroke}" stroke-width="0.8"/>`;
         // Multi-line text
         const textY = chosen.y + 12;
         if (lines.length === 1) {
-          svg += `<text x="${chosen.x + lblW/2}" y="${textY}" font-size="11" fill="#065F46" text-anchor="middle">${escXml(lines[0])}</text>`;
+          svg += `<text x="${chosen.x + lblW/2}" y="${textY}" font-size="11" fill="${labelText}" text-anchor="middle">${escXml(lines[0])}</text>`;
         } else {
-          svg += `<text x="${chosen.x + lblW/2}" y="${textY}" font-size="11" fill="#065F46" text-anchor="middle">`;
+          svg += `<text x="${chosen.x + lblW/2}" y="${textY}" font-size="11" fill="${labelText}" text-anchor="middle">`;
           lines.forEach((ln, i) => {
             svg += `<tspan x="${chosen.x + lblW/2}" dy="${i === 0 ? 0 : lineH}">${escXml(ln)}</tspan>`;
           });
@@ -5445,7 +5893,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       svg += `<rect x="${p.x}" y="${p.y}" width="4" height="${p.h}" rx="2" fill="${accent}"/>`;
       svg += `<text x="${p.x + 14}" y="${p.y + 20}" font-size="12" font-weight="600" fill="${accent}">${escXml(s.id)}</text>`;
       const title = s.title || '';
-      const titleTrim = title.length > 32 ? title.slice(0, 30) + '…' : title;
+      const titleTrim = title.length > 38 ? title.slice(0, 36) + '…' : title;
       svg += `<text x="${p.x + 14}" y="${p.y + 38}" font-size="13" font-weight="500" fill="#1F2937">${escXml(titleTrim)}</text>`;
       const nodeCount = s.nodes.length;
       if (nodeCount > 0) {
@@ -5479,9 +5927,15 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     }
 
     const bitCount = parsed.bits.length;
-    const condCount = parsed.stageEdges.filter(e => e.kind === 'condition').length;
+    const condCount = flowEdges.filter(e => e.kind === 'condition').length;
+    const rel = layout.relationCounts || {};
+    const relBits = [];
+    if (rel.return) relBits.push(`<strong>${rel.return}</strong> powrotów`);
+    if (rel.merge) relBits.push(`<strong>${rel.merge}</strong> merge`);
+    if (rel.cross) relBits.push(`<strong>${rel.cross}</strong> cross`);
+    const relText = relBits.length ? ` · ${relBits.join(', ')}` : '';
     flowIssues.innerHTML = `<div class="issues" style="background: var(--bg-muted); color: var(--text-secondary);">
-      <strong>${parsed.stages.length}</strong> etapów, <strong>${parsed.stageEdges.length}</strong> przejść ${condCount ? `(${condCount} z //warunek:)` : ''}, <strong>${bitCount}</strong> bit(ów)
+      <strong>${parsed.stages.length}</strong> etapów, <strong>${flowEdges.length}</strong> przejść ${condCount ? `(${condCount} z //warunek:)` : ''}, <strong>${bitCount}</strong> bit(ów)${relText}
     </div>`;
   }
 
@@ -6517,6 +6971,487 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     if (e.key === 'Escape' && document.body.classList.contains('focus-mode')) { toggleFocus(); }
   });
 
+
+  // --- Review base / changed-lines export ---
+  // v31.6 Review Preview Fix:
+  // localStorage is only a convenience cache. The reliable review base is a user-saved file.
+  // Review export/preview uses one block element per source line without extra text-node newlines.
+  // The diff deliberately ignores deleted base-only content and highlights only current changed/new lines.
+  function getReviewBaseText() {
+    try { return localStorage.getItem(REVIEW_BASE_KEY) || ''; } catch(e) { return ''; }
+  }
+
+  function getReviewBaseMeta() {
+    try {
+      const raw = localStorage.getItem(REVIEW_BASE_META_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch(e) { return null; }
+  }
+
+  function makeReviewBaseMeta(text, source) {
+    const value = String(text || '');
+    return {
+      kind: 'quest-editor-review-base',
+      version: 1,
+      savedAt: new Date().toISOString(),
+      chars: value.length,
+      lines: value.split('\n').length,
+      filename: currentFilename || suggestQuestFilename(value) || 'quest.txt',
+      source: source || 'current-text'
+    };
+  }
+
+  function storeReviewBase(text, meta) {
+    const value = String(text || '');
+    const safeMeta = Object.assign(makeReviewBaseMeta(value), meta || {}, {
+      chars: value.length,
+      lines: value.split('\n').length
+    });
+    localStorage.setItem(REVIEW_BASE_KEY, value);
+    localStorage.setItem(REVIEW_BASE_META_KEY, JSON.stringify(safeMeta));
+    updateReviewButtons();
+    return safeMeta;
+  }
+
+  function setReviewBaseText(text) {
+    try {
+      const meta = storeReviewBase(text, makeReviewBaseMeta(text, 'current-text'));
+      showToast('Ustawiono bazę review: ' + meta.lines + ' linii. Dla stabilności zapisz ją też do pliku.');
+    } catch(e) {
+      showToast('Nie udało się zapisać bazy review w przeglądarce');
+    }
+  }
+
+  function getReviewBaseStatusText(meta) {
+    if (!meta) return 'baza bez metadanych';
+    const date = meta.savedAt ? new Date(meta.savedAt).toLocaleString('pl-PL') : 'brak daty';
+    const file = meta.filename ? ', ' + meta.filename : '';
+    return date + file + ', ' + (meta.lines || 0) + ' linii';
+  }
+
+  function updateReviewButtons() {
+    const meta = getReviewBaseMeta();
+    const hasBase = !!getReviewBaseText();
+    if (reviewMenuStatus) {
+      reviewMenuStatus.textContent = hasBase ? 'Baza: ' + getReviewBaseStatusText(meta) : 'Brak bazy review';
+    }
+    if (reviewPreviewBtn) {
+      reviewPreviewBtn.disabled = !hasBase;
+      reviewPreviewBtn.title = hasBase
+        ? 'Pokaż podgląd zmian względem bazy review: ' + getReviewBaseStatusText(meta)
+        : 'Najpierw ustaw albo wczytaj bazę review';
+    }
+    if (reviewExportHtmlBtn) {
+      reviewExportHtmlBtn.disabled = !hasBase;
+      reviewExportHtmlBtn.title = hasBase
+        ? 'Eksportuj cały aktualny quest z podświetleniem zmian względem bazy review: ' + getReviewBaseStatusText(meta)
+        : 'Najpierw ustaw albo wczytaj bazę review';
+    }
+    if (reviewSaveBaseBtn) {
+      reviewSaveBaseBtn.disabled = !hasBase;
+      reviewSaveBaseBtn.title = hasBase
+        ? 'Zapisz obecną bazę review do pliku. Baza: ' + getReviewBaseStatusText(meta)
+        : 'Najpierw ustaw albo wczytaj bazę review';
+    }
+    if (reviewSetBaseBtn) {
+      reviewSetBaseBtn.title = meta
+        ? 'Nadpisz bazę review aktualnym tekstem. Obecna baza: ' + getReviewBaseStatusText(meta)
+        : 'Zapamiętaj bieżący tekst jako bazę porównania dla review';
+    }
+    if (reviewLoadBaseBtn) {
+      reviewLoadBaseBtn.title = 'Wczytaj bazę review z pliku .json albo użyj czystego .txt/.md jako bazy';
+    }
+  }
+
+  function makeReviewBaseSnapshot(text, meta) {
+    return {
+      kind: 'quest-editor-review-base',
+      version: 1,
+      meta: Object.assign({}, meta || makeReviewBaseMeta(text), {
+        exportedAt: new Date().toISOString()
+      }),
+      text: String(text || '')
+    };
+  }
+
+  function exportReviewBaseFile() {
+    const baseText = getReviewBaseText();
+    const meta = getReviewBaseMeta();
+    if (!baseText || !meta) {
+      showToast('Najpierw ustaw albo wczytaj bazę review');
+      return;
+    }
+    const snapshot = makeReviewBaseSnapshot(baseText, meta);
+    const json = JSON.stringify(snapshot, null, 2);
+    const blob = new Blob([json], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const baseName = (meta.filename || suggestQuestFilename(baseText) || 'quest.txt').replace(/\.(txt|md)$/i, '');
+    a.href = url;
+    a.download = baseName + '_review-base.json';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showToast('Zapisano bazę review do pliku');
+  }
+
+  function parseReviewBaseFileContent(raw, filename) {
+    const content = String(raw || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+    const fallbackMeta = makeReviewBaseMeta(content, 'file');
+    fallbackMeta.filename = filename || fallbackMeta.filename;
+
+    if (/\.json$/i.test(filename || '')) {
+      try {
+        const obj = JSON.parse(content);
+        if (obj && obj.kind === 'quest-editor-review-base' && typeof obj.text === 'string') {
+          const meta = Object.assign(makeReviewBaseMeta(obj.text, 'snapshot-file'), obj.meta || {}, {
+            filename: filename || (obj.meta && obj.meta.filename) || fallbackMeta.filename,
+            loadedAt: new Date().toISOString()
+          });
+          return { text: obj.text, meta };
+        }
+      } catch(e) {
+        throw new Error('Nie udało się odczytać pliku JSON bazy review');
+      }
+    }
+
+    // Allow selecting the original v1 .txt/.md directly as a stable review base.
+    return { text: content, meta: fallbackMeta };
+  }
+
+  function loadReviewBaseFromFile(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsedBase = parseReviewBaseFileContent(reader.result, file.name || 'review-base');
+        const meta = storeReviewBase(parsedBase.text, parsedBase.meta);
+        showToast('Wczytano bazę review: ' + meta.lines + ' linii');
+      } catch(e) {
+        showToast(e && e.message ? e.message : 'Nie udało się wczytać bazy review');
+      } finally {
+        if (reviewBaseInput) reviewBaseInput.value = '';
+      }
+    };
+    reader.onerror = () => {
+      showToast('Nie udało się odczytać pliku bazy review');
+      if (reviewBaseInput) reviewBaseInput.value = '';
+    };
+    reader.readAsText(file, 'UTF-8');
+  }
+
+  function splitReviewStages(text) {
+    const lines = String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    while (lines.length > 1 && lines[lines.length - 1] === '') lines.pop();
+    const entries = [];
+    for (let i = 0; i < lines.length; i++) {
+      const m = lines[i].match(/^\s*(ETAP_[A-Za-z0-9_\-]+)\b/);
+      if (!m) continue;
+      let start = i;
+      for (let j = i - 1; j >= 0; j--) {
+        const t = lines[j].trim();
+        if (t === '###ETAP') { start = j; break; }
+        if (t === '' || t.startsWith('//status:') || t.startsWith('//status ') || t.startsWith('//')) {
+          start = j;
+          continue;
+        }
+        break;
+      }
+      if (entries.length && start <= entries[entries.length - 1].idLine) start = i;
+      entries.push({ id: m[1], idLine: i, start });
+    }
+    const chunks = [];
+    for (let k = 0; k < entries.length; k++) {
+      const e = entries[k];
+      const end = k + 1 < entries.length ? entries[k + 1].start : lines.length;
+      chunks.push({ id: e.id, start: e.start, end, lines: lines.slice(e.start, end) });
+    }
+    return { lines, chunks };
+  }
+
+  function getChangedRelativeLinesExact(baseLines, currentLines) {
+    const a = baseLines || [];
+    const b = currentLines || [];
+    // Hunt-Szymanski LCS within one ETAP/block. No global frequency cap here:
+    // inside one stage, repeated lines such as *GRACZ* are limited enough to be useful anchors.
+    const positions = new Map();
+    for (let i = 0; i < a.length; i++) {
+      const line = a[i];
+      if (!positions.has(line)) positions.set(line, []);
+      positions.get(line).push(i);
+    }
+    const tails = [];
+    const prev = [];
+    const pairs = [];
+    for (let j = 0; j < b.length; j++) {
+      const arr = positions.get(b[j]);
+      if (!arr) continue;
+      for (let k = arr.length - 1; k >= 0; k--) {
+        const i = arr[k];
+        let lo = 0, hi = tails.length;
+        while (lo < hi) {
+          const mid = (lo + hi) >> 1;
+          if (pairs[tails[mid]].i < i) lo = mid + 1;
+          else hi = mid;
+        }
+        const idx = pairs.length;
+        prev[idx] = lo > 0 ? tails[lo - 1] : -1;
+        pairs.push({ i, j });
+        tails[lo] = idx;
+      }
+    }
+    const unchanged = new Set();
+    let idx = tails.length ? tails[tails.length - 1] : -1;
+    while (idx !== -1 && idx !== undefined) {
+      unchanged.add(pairs[idx].j);
+      idx = prev[idx];
+    }
+    const changed = new Set();
+    for (let j = 0; j < b.length; j++) {
+      if (String(b[j] || '').trim() === '') continue;
+      if (!unchanged.has(j)) changed.add(j);
+    }
+    return changed;
+  }
+
+  function getLineChangeSetByLcs(baseText, currentText) {
+    const base = splitReviewStages(baseText);
+    const current = splitReviewStages(currentText);
+    const changed = new Set();
+    const baseById = new Map();
+    base.chunks.forEach(ch => { if (!baseById.has(ch.id)) baseById.set(ch.id, ch); });
+
+    if (!current.chunks.length || !base.chunks.length) {
+      const rel = getChangedRelativeLinesExact(base.lines, current.lines);
+      rel.forEach(i => changed.add(i));
+      return changed;
+    }
+
+    // Preamble before the first ETAP, if any.
+    const baseFirst = base.chunks[0] ? base.chunks[0].start : base.lines.length;
+    const curFirst = current.chunks[0] ? current.chunks[0].start : current.lines.length;
+    if (curFirst > 0 || baseFirst > 0) {
+      const rel = getChangedRelativeLinesExact(base.lines.slice(0, baseFirst), current.lines.slice(0, curFirst));
+      rel.forEach(i => changed.add(i));
+    }
+
+    for (const curChunk of current.chunks) {
+      const baseChunk = baseById.get(curChunk.id);
+      if (!baseChunk) {
+        for (let i = curChunk.start; i < curChunk.end; i++) {
+          if (String(current.lines[i] || '').trim() !== '') changed.add(i);
+        }
+        continue;
+      }
+      const rel = getChangedRelativeLinesExact(baseChunk.lines, curChunk.lines);
+      rel.forEach(i => changed.add(curChunk.start + i));
+    }
+    return changed;
+  }
+
+  function buildReviewPreviewBody(currentText, changedLines, blocks) {
+    const lines = String(currentText || '').split('\n');
+    if (!blocks || !blocks.length) {
+      return '<div class="review-preview-block"><div class="review-preview-block-head">Brak zmian względem wczytanej bazy.</div></div>';
+    }
+    const context = 2;
+    return blocks.map((block, blockIdx) => {
+      const from = Math.max(0, block.start - context);
+      const to = Math.min(lines.length - 1, block.end + context);
+      const rows = [];
+      rows.push('<div class="review-preview-block" data-review-block="' + blockIdx + '">');
+      rows.push('<div class="review-preview-block-head">Zmiana ' + (blockIdx + 1) + ' · linie ' + (block.start + 1) + (block.start === block.end ? '' : '–' + (block.end + 1)) + '</div>');
+      for (let i = from; i <= to; i++) {
+        if (i > from && i === block.start && block.start - from > 0) {}
+        const rendered = highlightLine(lines[i] || '').replace(/\n$/, '') || '&nbsp;';
+        const cls = changedLines.has(i) ? 'review-line review-changed' : 'review-line review-context-line';
+        rows.push('<span class="' + cls + '" data-line="' + (i + 1) + '">' + rendered + '</span>');
+      }
+      rows.push('</div>');
+      return rows.join('');
+    }).join('');
+  }
+
+  function buildHighlightedReviewBody(currentText, changedLines) {
+    const lines = String(currentText || '').split('\n');
+    return lines.map((line, idx) => {
+      const rendered = highlightLine(line).replace(/\n$/, '') || '&nbsp;';
+      const cls = changedLines.has(idx) ? 'review-line review-changed' : 'review-line';
+      return `<span class="${cls}" data-line="${idx + 1}">${rendered}</span>`;
+    }).join('');
+  }
+
+  function downloadHtmlFile(html, filename) {
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+
+  function closeReviewMenu() {
+    if (reviewMenu) reviewMenu.classList.remove('show');
+  }
+
+  function toggleReviewMenu() {
+    if (!reviewMenu) return;
+    reviewMenu.classList.toggle('show');
+  }
+
+  function getReviewChangeBlocks(changedLines) {
+    const nums = Array.from(changedLines || []).sort((a, b) => a - b);
+    const blocks = [];
+    for (const n of nums) {
+      const last = blocks[blocks.length - 1];
+      if (last && n === last.end + 1) last.end = n;
+      else blocks.push({ start: n, end: n });
+    }
+    return blocks;
+  }
+
+  function setReviewPreviewActiveBlock(index, shouldScroll) {
+    if (!reviewPreviewContent) return;
+    reviewPreviewContent.querySelectorAll('.review-active-block').forEach(el => el.classList.remove('review-active-block'));
+    if (!reviewPreviewBlocks.length) {
+      reviewPreviewBlockIndex = -1;
+      if (reviewPreviewCount) reviewPreviewCount.textContent = 'Brak zmian';
+      return;
+    }
+    if (index < 0) index = reviewPreviewBlocks.length - 1;
+    if (index >= reviewPreviewBlocks.length) index = 0;
+    reviewPreviewBlockIndex = index;
+    const block = reviewPreviewBlocks[index];
+    const blockEl = reviewPreviewContent.querySelector('[data-review-block="' + index + '"]');
+    if (blockEl) blockEl.classList.add('review-active-block');
+    if (reviewPreviewCount) {
+      const label = block.start === block.end
+        ? 'linia ' + (block.start + 1)
+        : 'linie ' + (block.start + 1) + '–' + (block.end + 1);
+      reviewPreviewCount.textContent = 'Zmiana ' + (index + 1) + ' / ' + reviewPreviewBlocks.length + ' · ' + label;
+    }
+    if (blockEl && shouldScroll !== false) blockEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  function openReviewPreview() {
+    const baseText = getReviewBaseText();
+    if (!baseText) {
+      showToast('Najpierw ustaw albo wczytaj bazę review');
+      return;
+    }
+    if (!reviewPreviewModal || !reviewPreviewContent) {
+      showToast('Nie znaleziono okna podglądu zmian w HTML');
+      return;
+    }
+    const currentText = ta.value;
+    const meta = getReviewBaseMeta();
+    const baseInfo = meta ? getReviewBaseStatusText(meta) : 'brak informacji';
+
+    closeReviewMenu();
+    if (reviewPreviewMeta) {
+      reviewPreviewMeta.innerHTML = '<strong>Podgląd review</strong><br>Buduję listę zmienionych bloków…';
+    }
+    reviewPreviewContent.innerHTML = '<div class="review-preview-block"><div class="review-preview-block-head">Buduję podgląd zmian…</div></div>';
+    if (reviewPreviewCount) reviewPreviewCount.textContent = '—';
+    if (reviewPrevChangeBtn) reviewPrevChangeBtn.disabled = true;
+    if (reviewNextChangeBtn) reviewNextChangeBtn.disabled = true;
+    reviewPreviewModal.classList.add('show');
+    if (reviewPreviewBody) reviewPreviewBody.scrollTop = 0;
+
+    // Let the modal paint first, then compute. This prevents the old behavior where the user only saw a toast.
+    setTimeout(() => {
+      try {
+        const changedLines = getLineChangeSetByLcs(baseText, currentText);
+        reviewPreviewBlocks = getReviewChangeBlocks(changedLines);
+        reviewPreviewBlockIndex = reviewPreviewBlocks.length ? 0 : -1;
+        if (reviewPreviewMeta) {
+          reviewPreviewMeta.innerHTML = '<strong>Podgląd review</strong><br>'
+            + 'Baza: ' + escapeHtml(baseInfo) + '<br>'
+            + 'Podświetlone linie: ' + changedLines.size.toLocaleString('pl-PL')
+            + ' · bloki zmian: ' + reviewPreviewBlocks.length.toLocaleString('pl-PL')
+            + ' · podgląd pokazuje tylko zmienione bloki z krótkim kontekstem. Usunięte fragmenty z bazy nie są pokazywane.';
+        }
+        reviewPreviewContent.innerHTML = buildReviewPreviewBody(currentText, changedLines, reviewPreviewBlocks);
+        if (reviewPrevChangeBtn) reviewPrevChangeBtn.disabled = !reviewPreviewBlocks.length;
+        if (reviewNextChangeBtn) reviewNextChangeBtn.disabled = !reviewPreviewBlocks.length;
+        setReviewPreviewActiveBlock(reviewPreviewBlockIndex, false);
+        if (reviewPreviewBody) reviewPreviewBody.scrollTop = 0;
+      } catch(e) {
+        if (reviewPreviewMeta) reviewPreviewMeta.textContent = 'Nie udało się zbudować podglądu zmian.';
+        reviewPreviewContent.textContent = e && e.message ? e.message : String(e || 'Błąd');
+        showToast('Nie udało się zbudować podglądu zmian');
+      }
+    }, 20);
+  }
+
+  function exportReviewHtml() {
+    const baseText = getReviewBaseText();
+    if (!baseText) {
+      showToast('Najpierw ustaw albo wczytaj bazę review');
+      return;
+    }
+    const currentText = ta.value;
+    const changedLines = getLineChangeSetByLcs(baseText, currentText);
+    const body = buildHighlightedReviewBody(currentText, changedLines);
+    const colWidth = getComputedStyle(document.documentElement).getPropertyValue('--editor-col-width').trim() || '720px';
+    const meta = getReviewBaseMeta();
+    const now = new Date();
+    const dateStr = now.toLocaleString('pl-PL', { dateStyle: 'medium', timeStyle: 'short' });
+    const baseDate = meta && meta.savedAt ? new Date(meta.savedAt).toLocaleString('pl-PL') : 'brak daty';
+    const baseSource = meta && meta.source ? meta.source : 'brak informacji';
+    const title = 'Quest · review zmian';
+    const style = `
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: #fff; color: #1F2937; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
+      .review-meta { max-width: ${colWidth}; margin: 0 auto 18px; padding: 10px 12px; border: 1px solid #E5E7EB; border-radius: 6px; color: #4B5563; font-size: 12px; background: #FAFAF7; }
+      .wrap { padding: 20px 0 32px; background: #fff; }
+      .col { max-width: ${colWidth}; margin: 0 auto; background: transparent; border: none; border-radius: 0; padding: 0; }
+      pre.content { font-family: "JetBrains Mono", "SF Mono", "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word; tab-size: 2; margin: 0; background: transparent; }
+      .review-line { display: block; min-height: 1.7em; padding: 0 3px; margin: 0 -3px; border-radius: 3px; }
+      .review-changed { background: #FFF2A8; box-shadow: inset 3px 0 0 #F59E0B; }
+      .tok-character { font-weight: 600; }
+      .tok-player { font-weight: 600; color: #7c3aed; }
+      .tok-sb { color: #9CA3AF; font-style: italic; }
+      .tok-anchor { color: #9333EA; font-weight: 500; }
+      .tok-jump-stage { color: #059669; font-weight: 500; }
+      .tok-jump-end { color: #EA580C; font-weight: 500; }
+      .tok-comment { color: #9CA3AF; font-style: italic; }
+      .tok-etap-header { color: #1F2937; font-weight: 600; background: transparent; padding: 0; border-radius: 0; }
+      .tok-dialog-header { color: #9CA3AF; }
+      .tok-hash { color: #9CA3AF; }
+      .tok-mark { color: #9CA3AF; }
+      @media print { .wrap { padding: 0; } .review-meta { margin-bottom: 12px; } }
+    `.trim();
+    const html = `<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escXml(title)}</title>
+<style>${style}</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="review-meta">
+    <strong>Review zmian</strong><br>
+    Plik: ${escXml(currentFilename || suggestQuestFilename(currentText) || 'quest.txt')}<br>
+    Baza review: ${escXml(baseDate)} · źródło: ${escXml(baseSource)} · eksport: ${escXml(dateStr)}<br>
+    Podświetlone linie: ${changedLines.size.toLocaleString('pl-PL')} · usunięte fragmenty z bazy nie są pokazywane.
+  </div>
+  <div class="col">
+    <pre class="content">${body}</pre>
+  </div>
+</div>
+</body>
+</html>
+`;
+    const baseName = (suggestQuestFilename(currentText) || currentFilename || 'quest.txt').replace(/\.txt$/i, '');
+    downloadHtmlFile(html, baseName + '_review.html');
+    showToast('Wyeksportowano review HTML: ' + changedLines.size + ' podświetlonych linii');
+  }
+
   // --- HTML export for team review ---
   function exportHtml() {
     const text = ta.value;
@@ -6583,6 +7518,32 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     showToast('Wyeksportowano HTML');
   }
   document.getElementById('export-html').addEventListener('click', exportHtml);
+  if (reviewMenuBtn) reviewMenuBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleReviewMenu(); });
+  if (reviewMenu) reviewMenu.addEventListener('click', (e) => { e.stopPropagation(); });
+  document.addEventListener('click', closeReviewMenu);
+  if (reviewPreviewBtn) reviewPreviewBtn.addEventListener('click', () => { closeReviewMenu(); openReviewPreview(); });
+  if (reviewPrevChangeBtn) reviewPrevChangeBtn.addEventListener('click', () => setReviewPreviewActiveBlock(reviewPreviewBlockIndex - 1, true));
+  if (reviewNextChangeBtn) reviewNextChangeBtn.addEventListener('click', () => setReviewPreviewActiveBlock(reviewPreviewBlockIndex + 1, true));
+  if (reviewPreviewCloseBtn && reviewPreviewModal) reviewPreviewCloseBtn.addEventListener('click', () => reviewPreviewModal.classList.remove('show'));
+  if (reviewPreviewModal) reviewPreviewModal.addEventListener('click', (e) => { if (e.target === reviewPreviewModal) reviewPreviewModal.classList.remove('show'); });
+  if (reviewPreviewExportBtn) reviewPreviewExportBtn.addEventListener('click', exportReviewHtml);
+  if (reviewSetBaseBtn) reviewSetBaseBtn.addEventListener('click', () => {
+    closeReviewMenu();
+    const meta = getReviewBaseMeta();
+    const hasBase = !!getReviewBaseText();
+    const currentLines = String(ta.value || '').split('\n').length;
+    const currentChars = String(ta.value || '').length;
+    const msg = hasBase
+      ? 'Nadpisać obecną bazę review aktualnym tekstem?\n\nObecna baza: ' + getReviewBaseStatusText(meta) + '\nNowa baza: ' + currentLines + ' linii, ' + currentChars + ' znaków.\n\nTego używaj dopiero wtedy, gdy aktualna wersja ma stać się nowym punktem odniesienia.'
+      : 'Ustawić aktualny tekst jako bazę review?\n\nBaza będzie punktem odniesienia dla podglądu i eksportu zmian.';
+    if (!confirm(msg)) return;
+    setReviewBaseText(ta.value);
+  });
+  if (reviewSaveBaseBtn) reviewSaveBaseBtn.addEventListener('click', () => { closeReviewMenu(); exportReviewBaseFile(); });
+  if (reviewLoadBaseBtn && reviewBaseInput) reviewLoadBaseBtn.addEventListener('click', () => { closeReviewMenu(); reviewBaseInput.click(); });
+  if (reviewBaseInput) reviewBaseInput.addEventListener('change', () => loadReviewBaseFromFile(reviewBaseInput.files && reviewBaseInput.files[0]));
+  if (reviewExportHtmlBtn) reviewExportHtmlBtn.addEventListener('click', () => { closeReviewMenu(); exportReviewHtml(); });
+  updateReviewButtons();
   const NEW_QUEST_TEMPLATE = `//nazwa_questa
 ##QUEST###id_questa
 ##NPC
