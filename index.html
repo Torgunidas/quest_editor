@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edytor questów v31.16 · Dialog Graph Tree</title>
+<title>Edytor questów v31.22 · Review GDocs Layout</title>
 <style>
   :root {
     --bg-page: #FAFAF7;
@@ -228,6 +228,39 @@
   .tok-mark { color: var(--text-muted); }
 
   .graph-outer { position: relative; height: 680px; max-height: 80vh; overflow: hidden; background: var(--bg-code); min-width: 0; min-height: 0; }
+
+  /* Character Lens */
+  #character-view { flex-direction: column; min-height: 0; }
+  body.dual-mode .panel-body > #character-view { display: flex !important; flex-direction: column; }
+  .character-subtoolbar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--border); background: var(--bg-surface); flex-shrink: 0; }
+  .character-subtoolbar strong { font-size: 13px; font-weight: 600; }
+  .character-summary { color: var(--text-muted); font-size: 12px; }
+  .character-subtoolbar label { color: var(--text-muted); font-size: 12px; }
+  .character-pick { min-width: 260px; max-width: 440px; }
+  .character-layout { flex: 1 1 auto; min-height: 0; background: var(--bg-page); overflow: hidden; display: flex; flex-direction: column; }
+  .character-block-list { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 18px 24px 40px; }
+  .character-block-inner { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .character-block { border: 1px solid var(--border); border-left: 4px solid var(--accent-player); border-radius: var(--radius); background: var(--bg-surface); box-shadow: 0 1px 2px rgba(0,0,0,0.03); overflow: hidden; }
+  .character-block.related { border-left-color: #059669; background: rgba(5,150,105,0.025); }
+  .character-block-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--border); background: var(--bg-code); color: var(--text-secondary); font-size: 12px; }
+  .character-block-speaker { color: var(--text-primary); font-weight: 600; }
+  .character-block-role { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--accent-player); font-weight: 600; }
+  .character-block.related .character-block-role { color: #059669; }
+  .character-block-lines { color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .character-block-stage { color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .character-block-spacer { flex: 1 1 auto; min-width: 0; }
+  .character-block-save { padding: 4px 9px; }
+  .character-block-editor { display: block; width: 100%; min-height: 88px; border: 0; outline: none; resize: vertical; padding: 11px 12px 13px; background: transparent; color: var(--text-primary); font-family: var(--font-mono); font-size: 13px; line-height: 1.55; tab-size: 2; }
+  .character-block.dirty .character-block-head { background: #FEF3C7; }
+  .character-block.dirty .character-block-save { background: var(--text-primary); color: #fff; border-color: var(--text-primary); }
+  .character-empty { color: var(--text-muted); font-style: italic; padding: 48px 8px; text-align: center; }
+  .character-clear-spacer { flex: 1 1 auto; }
+  @media (max-width: 1100px) {
+    .character-subtoolbar { align-items: stretch; flex-wrap: wrap; }
+    .character-pick { flex: 1 1 260px; max-width: none; }
+    .character-block-list { padding: 14px 12px 32px; }
+    .character-block-head { flex-wrap: wrap; }
+  }
 
   /* Play mode */
   .play-toolbar { padding: 10px 18px; background: var(--bg-surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; font-size: 13px; }
@@ -755,7 +788,7 @@
   <span class="subtitle" id="quest-length-subtitle">— stron znorm.</span>
   <div class="spacer"></div>
   <button class="help-toggle" id="help-toggle" title="Pokaż/ukryj panel pomocy">? pomoc</button>
-  <span class="version">v31.16 · Dialog Graph Tree</span>
+  <span class="version">v31.22 · Review GDocs Layout</span>
 </header>
 
 <main class="app-main">
@@ -773,6 +806,7 @@
         <option value="edit">Tekst</option>
         <option value="graph">Graf</option>
         <option value="flow">Flow questa</option>
+        <option value="character">Character Lens</option>
         <option value="play">Play</option>
       </select>
       <button class="btn btn-icon panel-back-btn" id="toolbar-left-back" type="button" title="Wróć do poprzedniego widoku lewego panelu">←</button>
@@ -783,6 +817,7 @@
         <option value="edit">Tekst</option>
         <option value="graph">Graf</option>
         <option value="flow">Flow questa</option>
+        <option value="character">Character Lens</option>
         <option value="play">Play</option>
       </select>
       <button class="btn btn-icon panel-back-btn" id="toolbar-right-back" type="button" title="Wróć do poprzedniego widoku prawego panelu">←</button>
@@ -811,6 +846,7 @@
       <button class="tab active" data-view="edit" id="tab-edit">Tekst</button>
       <button class="tab" data-view="graph" id="tab-graph">Graf</button>
       <button class="tab" data-view="flow" id="tab-flow">Flow questa</button>
+      <button class="tab" data-view="character" id="tab-character">Character Lens</button>
       <button class="tab" data-view="play" id="tab-play">Play</button>
       <span class="status" id="status">—</span>
     </span>
@@ -897,6 +933,26 @@
     </div>
   </div>
 
+  <div id="character-view" class="stage" style="display:none;">
+    <div class="character-subtoolbar" id="character-subtoolbar">
+      <strong>Character Lens</strong>
+      <label for="character-pick">Postać:</label>
+      <select id="character-pick" class="select character-pick">
+        <option value="">— wybierz postać —</option>
+      </select>
+      <span class="character-summary" id="character-summary">—</span>
+      <span class="character-clear-spacer"></span>
+      <button class="btn" id="character-clear-lens" type="button">Clear Lens</button>
+    </div>
+    <div class="character-layout" id="character-layout">
+      <div class="character-block-list" id="character-block-list">
+        <div class="character-block-inner" id="character-block-inner">
+          <div class="character-empty">Wybierz postać, żeby zobaczyć tylko jej kwestie i najbliższe interakcje.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="play-view" class="stage" style="display:none; padding: 0; overflow: hidden;">
     <div class="play-toolbar">
       <div class="play-toolbar-inner">
@@ -924,6 +980,7 @@
           <option value="edit">Tekst</option>
           <option value="graph">Graf</option>
           <option value="flow">Flow questa</option>
+          <option value="character">Character Lens</option>
           <option value="play">Play</option>
         </select>
         <div class="panel-controls" id="panel-left-controls"></div>
@@ -938,6 +995,7 @@
           <option value="edit">Tekst</option>
           <option value="graph">Graf</option>
           <option value="flow">Flow questa</option>
+          <option value="character">Character Lens</option>
           <option value="play">Play</option>
         </select>
         <div class="panel-controls" id="panel-right-controls"></div>
@@ -1251,6 +1309,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
   const tabGraph = document.getElementById('tab-graph');
   const editView = document.getElementById('edit-view');
   const graphView = document.getElementById('graph-view');
+  const characterView = document.getElementById('character-view');
   const stagePick = document.getElementById('stage-pick');
   const textStageJump = document.getElementById('text-stage-jump');
   const graphScopeModeSelect = document.getElementById('graph-scope-mode');
@@ -1303,6 +1362,9 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
   let currentStageId = '__all__';
   let graphScopeMode = 'auto'; // auto = etap z kursora, selected = ręczny wybór, all = pełny graf
   let graphSelectedStageId = null;
+  let selectedCharacterLens = null;
+  let characterSortField = 'name';
+  let characterSortDir = 1;
   let zoomLevel = 1;
   try {
     const savedGraphScope = localStorage.getItem('qed-graph-scope-mode');
@@ -2195,6 +2257,118 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     return { stages, stageMap, bits, stageEdges, _rawText: text };
   }
 
+  function stripQuestMarkupForCharacterLens(text) {
+    return String(text || '')
+      .replace(/\[[^\]]+\]/g, ' ')
+      .replace(/\{[^}]+\}/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function countWordsForCharacterLens(text) {
+    const clean = stripQuestMarkupForCharacterLens(text);
+    if (!clean) return 0;
+    try {
+      return (clean.match(/[\p{L}\p{N}]+(?:[-'][\p{L}\p{N}]+)*/gu) || []).length;
+    } catch (e) {
+      return (clean.match(/[A-Za-zÀ-ž0-9]+(?:[-'][A-Za-zÀ-ž0-9]+)*/g) || []).length;
+    }
+  }
+
+  function makeCharacterSnippet(text) {
+    const clean = stripQuestMarkupForCharacterLens(text);
+    if (!clean) return '—';
+    return clean.length > 140 ? clean.slice(0, 137).trimEnd() + '...' : clean;
+  }
+
+  function getCharacterKey(name) {
+    return String(name || '').trim().toLocaleUpperCase('pl-PL');
+  }
+
+  function deriveCharacterIndex(parsedQuest) {
+    const entries = new Map();
+    const stages = parsedQuest && Array.isArray(parsedQuest.stages) ? parsedQuest.stages : [];
+
+    function ensureEntry(name) {
+      const cleanName = String(name || '').trim();
+      if (!cleanName || cleanName === '— bez dialogu —') return null;
+      const key = getCharacterKey(cleanName);
+      if (!entries.has(key)) {
+        entries.set(key, {
+          key,
+          name: cleanName,
+          blockCount: 0,
+          wordCount: 0,
+          stageIds: new Set(),
+          firstLine: null,
+          lastLine: null,
+          occurrences: []
+        });
+      }
+      return entries.get(key);
+    }
+
+    function addOccurrence(entry, stage, line, endLine, text, nodeId, optionId) {
+      if (!entry || !stage) return;
+      const safeLine = Number.isFinite(line) ? line : (Number.isFinite(stage.sourceLine) ? stage.sourceLine : 0);
+      const safeEndLine = Number.isFinite(endLine) ? endLine : safeLine;
+      const words = countWordsForCharacterLens(text);
+      entry.blockCount += 1;
+      entry.wordCount += words;
+      entry.stageIds.add(stage.id);
+      entry.firstLine = entry.firstLine === null ? safeLine : Math.min(entry.firstLine, safeLine);
+      entry.lastLine = entry.lastLine === null ? safeEndLine : Math.max(entry.lastLine, safeEndLine);
+      entry.occurrences.push({
+        stageId: stage.id,
+        stageTitle: stage.title || '',
+        line: safeLine,
+        endLine: safeEndLine,
+        snippet: makeCharacterSnippet(text),
+        wordCount: words,
+        nodeId: nodeId || null,
+        optionId: optionId || null
+      });
+    }
+
+    stages.forEach(stage => {
+      (stage.nodes || []).forEach(node => {
+        const entry = ensureEntry(node.speaker);
+        if (!entry) return;
+        const isPlayer = getCharacterKey(node.speaker) === 'GRACZ';
+        if (isPlayer && Array.isArray(node.options) && node.options.length) {
+          node.options.forEach(opt => {
+            addOccurrence(
+              entry,
+              stage,
+              Number.isFinite(opt.sourceLine) ? opt.sourceLine : node.sourceLine,
+              Number.isFinite(opt.sourceLine) ? opt.sourceLine : node.endLine,
+              opt.text || '',
+              node.id,
+              opt.id
+            );
+          });
+        } else {
+          addOccurrence(entry, stage, node.sourceLine, node.endLine, node.body || '', node.id, null);
+        }
+      });
+    });
+
+    return Array.from(entries.values()).map(entry => {
+      const stageIds = Array.from(entry.stageIds).sort((a, b) => String(a).localeCompare(String(b), 'pl', { numeric: true, sensitivity: 'base' }));
+      return {
+        key: entry.key,
+        name: entry.name,
+        blockCount: entry.blockCount,
+        wordCount: entry.wordCount,
+        stageCount: stageIds.length,
+        stageIds,
+        firstLine: entry.firstLine === null ? 0 : entry.firstLine,
+        lastLine: entry.lastLine === null ? 0 : entry.lastLine,
+        occurrences: entry.occurrences.sort((a, b) => a.line - b.line || String(a.stageId).localeCompare(String(b.stageId), 'pl', { numeric: true, sensitivity: 'base' }))
+      };
+    }).sort((a, b) => a.name.localeCompare(b.name, 'pl', { sensitivity: 'base' }));
+  }
+
   function lint(parsed) {
     const issues = [];
     parsed.stages.forEach(stage => {
@@ -2576,12 +2750,14 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     if (!force && derivedCache && derivedCache.text === text) return derivedCache;
     const nextParsed = parse(text);
     const nextIssues = lint(nextParsed);
+    const nextCharacterIndex = deriveCharacterIndex(nextParsed);
     const chars = countCharactersForTranslation(text);
     updateQuestLengthSubtitle(chars);
     derivedCache = {
       text,
       parsed: nextParsed,
       issues: nextIssues,
+      characterIndex: nextCharacterIndex,
       chars,
       pagesStr: formatPagesNormalized(chars) + ' znorm. (' + chars.toLocaleString('pl-PL') + ' znaków)'
     };
@@ -2668,12 +2844,19 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       const bitCount = data.parsed.bits.length;
       statusEl.textContent = data.parsed.stages.length + ' etap(y), ' + data.parsed.stageEdges.length + ' przejść, ' + bitCount + ' bit(ów) · ' + data.pagesStr;
       statusEl.title = statusEl.textContent;
+    } else if (viewKey === 'character') {
+      const index = data.characterIndex || [];
+      const blocks = index.reduce((acc, entry) => acc + (entry.blockCount || 0), 0);
+      const words = index.reduce((acc, entry) => acc + (entry.wordCount || 0), 0);
+      statusEl.textContent = index.length + ' postaci, ' + blocks + ' kwestii, ' + words + ' słów · ' + data.pagesStr;
+      statusEl.title = statusEl.textContent;
     }
   }
 
   function refreshDerivedViews(reason) {
     const data = parseAndLint(true);
     refreshTextStageJump(data);
+    if (selectedCharacterLens) applyCharacterLensFocus(data);
     if (!dualMode) {
       if (currentSingleView === 'graph') {
         refreshStageList();
@@ -2682,6 +2865,9 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       } else if (currentSingleView === 'flow') {
         renderStageGraph(data.parsed);
         updateStatusForDerivedView('flow', data);
+      } else if (currentSingleView === 'character') {
+        renderCharacterLensPreservingViewport(data);
+        updateStatusForDerivedView('character', data);
       } else if (currentSingleView === 'edit') {
         updateStatusForDerivedView('edit', data);
       } else if (currentSingleView === 'play') {
@@ -2702,6 +2888,9 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
         refreshed.add(viewKey);
       } else if (viewKey === 'flow') {
         renderStageGraph(data.parsed);
+        refreshed.add(viewKey);
+      } else if (viewKey === 'character') {
+        renderCharacterLensPreservingViewport(data);
         refreshed.add(viewKey);
       } else if (viewKey === 'play') {
         statusEl.textContent = 'Tekst się zmienił — zrestartuj Play, żeby przetestować aktualną wersję';
@@ -6633,6 +6822,399 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     showToast('Prawy tekst: ' + stageId);
   }
 
+  function sortCharacterIndex(index) {
+    const field = characterSortField || 'name';
+    const dir = characterSortDir || 1;
+    return (index || []).slice().sort((a, b) => {
+      let result = 0;
+      if (field === 'name') {
+        result = String(a.name || '').localeCompare(String(b.name || ''), 'pl', { sensitivity: 'base' });
+      } else {
+        const av = Number(a[field] || 0);
+        const bv = Number(b[field] || 0);
+        result = av - bv;
+      }
+      if (result === 0) result = String(a.name || '').localeCompare(String(b.name || ''), 'pl', { sensitivity: 'base' });
+      return result * dir;
+    });
+  }
+
+  function getSelectedCharacterLensKey() {
+    return selectedCharacterLens ? getCharacterKey(selectedCharacterLens) : null;
+  }
+
+  function getTextLines() {
+    return ta.value.split('\n');
+  }
+
+  function normalizeCharacterBlockText(text) {
+    return String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  }
+
+  function getTextLineRange(startLine, endLine) {
+    const lines = getTextLines();
+    const start = Math.max(0, Number(startLine) || 0);
+    const end = Math.max(start, Number(endLine) || start);
+    return lines.slice(start, Math.min(lines.length - 1, end) + 1).join('\n');
+  }
+
+  function formatCharacterLensStage(stage) {
+    if (!stage) return 'ETAP_?';
+    return stage.id + (stage.title ? ' — ' + stage.title : '');
+  }
+
+  function collectNodeLinesForCharacterLens(node) {
+    if (!node) return [];
+    const start = Number.isFinite(node.sourceLine) ? node.sourceLine : null;
+    if (start === null || start < 0) return [];
+    const end = Number.isFinite(node.endLine) ? Math.max(start, node.endLine) : start;
+    const lines = [];
+    for (let line = start; line <= end; line++) lines.push(line);
+    return lines;
+  }
+
+  function deriveCharacterLensFocus(parsedQuest, characterName) {
+    const key = getCharacterKey(characterName);
+    const focused = new Set();
+    const related = new Set();
+    if (!key) return { focusedLines: [], relatedLines: [] };
+    const stages = parsedQuest && Array.isArray(parsedQuest.stages) ? parsedQuest.stages : [];
+
+    function addLines(target, lines) {
+      (lines || []).forEach(line => {
+        if (Number.isInteger(line) && line >= 0) target.add(line);
+      });
+    }
+
+    stages.forEach(stage => {
+      const nodes = stage.nodes || [];
+      nodes.forEach((node, idx) => {
+        if (getCharacterKey(node.speaker) !== key) return;
+        addLines(focused, collectNodeLinesForCharacterLens(node));
+        const selectedIsPlayer = key === 'GRACZ' || key === 'GRACZKA';
+        [idx - 1, idx + 1].forEach(nextIdx => {
+          const neighbor = nodes[nextIdx];
+          if (!neighbor) return;
+          if (neighbor.dialogIndex !== node.dialogIndex) return;
+          const neighborKey = getCharacterKey(neighbor.speaker);
+          const neighborIsPlayer = neighborKey === 'GRACZ' || neighborKey === 'GRACZKA';
+          if ((!selectedIsPlayer && neighborIsPlayer) || (selectedIsPlayer && neighborKey && neighborKey !== key)) {
+            addLines(related, collectNodeLinesForCharacterLens(neighbor));
+          }
+        });
+      });
+    });
+
+    focused.forEach(line => related.delete(line));
+    return {
+      focusedLines: Array.from(focused),
+      relatedLines: Array.from(related)
+    };
+  }
+
+  function deriveCharacterLensBlocks(parsedQuest, characterName) {
+    const key = getCharacterKey(characterName);
+    if (!key) return [];
+    const stages = parsedQuest && Array.isArray(parsedQuest.stages) ? parsedQuest.stages : [];
+    const blocks = new Map();
+
+    function addBlock(stage, node, role) {
+      if (!stage || !node || !Number.isFinite(node.sourceLine)) return;
+      const id = stage.id + '|' + node.id;
+      const startLine = node.sourceLine;
+      const endLine = Number.isFinite(node.endLine) ? Math.max(startLine, node.endLine) : startLine;
+      const existing = blocks.get(id);
+      if (existing) {
+        if (existing.role !== 'focus' && role === 'focus') existing.role = 'focus';
+        return;
+      }
+      blocks.set(id, {
+        id,
+        role,
+        stageId: stage.id,
+        stageTitle: stage.title || '',
+        stageLabel: formatCharacterLensStage(stage),
+        speaker: node.speaker || '',
+        startLine,
+        endLine,
+        dialogIndex: Number.isFinite(node.dialogIndex) ? node.dialogIndex : 0
+      });
+    }
+
+    stages.forEach(stage => {
+      const nodes = stage.nodes || [];
+      nodes.forEach((node, idx) => {
+        if (getCharacterKey(node.speaker) !== key) return;
+        addBlock(stage, node, 'focus');
+        const selectedIsPlayer = key === 'GRACZ' || key === 'GRACZKA';
+        [idx - 1, idx + 1].forEach(nextIdx => {
+          const neighbor = nodes[nextIdx];
+          if (!neighbor) return;
+          if (neighbor.dialogIndex !== node.dialogIndex) return;
+          const neighborKey = getCharacterKey(neighbor.speaker);
+          const neighborIsPlayer = neighborKey === 'GRACZ' || neighborKey === 'GRACZKA';
+          if ((!selectedIsPlayer && neighborIsPlayer) || (selectedIsPlayer && neighborKey && neighborKey !== key)) {
+            addBlock(stage, neighbor, 'related');
+          }
+        });
+      });
+    });
+
+    return Array.from(blocks.values()).sort((a, b) => a.startLine - b.startLine || (a.role === 'focus' ? -1 : 1));
+  }
+
+  function applyCharacterLensFocus(data) {
+    if (!selectedCharacterLens) {
+      if (isCharacterLensTextFocusActive()) clearTextFocus();
+      return;
+    }
+    const d = data || parseAndLint(false);
+    const index = d && d.characterIndex ? d.characterIndex : deriveCharacterIndex(d.parsed);
+    const selectedKey = getSelectedCharacterLensKey();
+    const entry = (index || []).find(item => item.key === selectedKey);
+    if (!entry) {
+      selectedCharacterLens = null;
+      if (isCharacterLensTextFocusActive()) clearTextFocus();
+      return;
+    }
+    selectedCharacterLens = entry.name;
+    const focus = deriveCharacterLensFocus(d && d.parsed, selectedCharacterLens);
+    if (!focus.focusedLines.length) {
+      if (isCharacterLensTextFocusActive()) clearTextFocus();
+      return;
+    }
+    setTextFocus(focus.focusedLines, focus.relatedLines, 'Character Lens: ' + selectedCharacterLens, true);
+  }
+
+  function isCharacterLensTextFocusActive() {
+    return !!(textFocusState && textFocusState.label && String(textFocusState.label).indexOf('Character Lens:') === 0);
+  }
+
+  function clearCharacterLens(showMessage) {
+    selectedCharacterLens = null;
+    if (isCharacterLensTextFocusActive()) clearTextFocus();
+    renderCharacterLens(parseAndLint(false));
+    if (showMessage) showToast('Character Lens wyczyszczony');
+  }
+
+  function captureCharacterLensViewportState() {
+    const blockList = document.getElementById('character-block-list');
+    if (!blockList) return null;
+    return {
+      scrollTop: blockList.scrollTop,
+      scrollLeft: blockList.scrollLeft
+    };
+  }
+
+  function restoreCharacterLensViewportState(state) {
+    if (!state) return;
+    const apply = () => {
+      const blockList = document.getElementById('character-block-list');
+      if (!blockList) return;
+      if (typeof state.scrollLeft === 'number') blockList.scrollLeft = state.scrollLeft;
+      if (typeof state.scrollTop === 'number') blockList.scrollTop = state.scrollTop;
+    };
+    apply();
+    requestAnimationFrame(() => {
+      apply();
+      requestAnimationFrame(apply);
+    });
+  }
+
+  function renderCharacterLensPreservingViewport(data, savedViewportState) {
+    const viewportState = savedViewportState || captureCharacterLensViewportState();
+    renderCharacterLens(data);
+    restoreCharacterLensViewportState(viewportState);
+  }
+
+  function autoSizeCharacterBlockEditor(editor) {
+    if (!editor) return;
+    editor.style.height = 'auto';
+    editor.style.height = Math.max(88, editor.scrollHeight + 2) + 'px';
+  }
+
+  function isEditViewCurrentlyVisible() {
+    const el = document.getElementById('edit-view');
+    if (!el || el.style.display === 'none') return false;
+    return !!(el.getClientRects && el.getClientRects().length);
+  }
+
+  function replaceTextLineRangeFromCharacterLens(startLine, endLine, originalText, nextText) {
+    const lines = getTextLines();
+    const start = Math.max(0, Number(startLine) || 0);
+    const end = Math.max(start, Number(endLine) || start);
+    const current = lines.slice(start, Math.min(lines.length - 1, end) + 1).join('\n');
+    if (current !== originalText) {
+      showToast('Ten fragment zmienił się w głównym tekście. Odświeżam Lens.');
+      renderCharacterLensPreservingViewport(parseAndLint(true));
+      return false;
+    }
+    const replacement = normalizeCharacterBlockText(nextText).split('\n');
+    lines.splice(start, end - start + 1, ...replacement);
+    ta.value = lines.join('\n');
+    return true;
+  }
+
+  function handleCharacterLensSourceUpdate(savedViewportState) {
+    invalidateDerivedCache();
+    syncSecondaryTextareaFromMain();
+    if (isEditViewCurrentlyVisible()) renderHighlight();
+    if (typeof scheduleSecondaryHighlightRender === 'function') scheduleSecondaryHighlightRender(0);
+    markDirty();
+    scheduleCharCountUpdate();
+    const data = parseAndLint(true);
+    refreshTextStageJump(data);
+    if (selectedCharacterLens) applyCharacterLensFocus(data);
+    renderCharacterLensPreservingViewport(data, savedViewportState);
+    updateStatusForDerivedView('character', data);
+  }
+
+  function saveCharacterLensBlock(blockEl) {
+    if (!blockEl) return;
+    const viewportState = captureCharacterLensViewportState();
+    const editor = blockEl.querySelector('.character-block-editor');
+    if (!editor) return;
+    const startLine = parseInt(blockEl.getAttribute('data-start-line') || '-1', 10);
+    const endLine = parseInt(blockEl.getAttribute('data-end-line') || '-1', 10);
+    if (isNaN(startLine) || isNaN(endLine) || startLine < 0 || endLine < startLine) return;
+    const original = editor.defaultValue;
+    const next = normalizeCharacterBlockText(editor.value);
+    if (next === original) {
+      blockEl.classList.remove('dirty');
+      return;
+    }
+    if (!replaceTextLineRangeFromCharacterLens(startLine, endLine, original, next)) return;
+    showToast('Zapisano fragment do tekstu');
+    handleCharacterLensSourceUpdate(viewportState);
+  }
+
+  function renderCharacterLens(data) {
+    const d = data || parseAndLint(false);
+    const index = sortCharacterIndex(d && d.characterIndex ? d.characterIndex : deriveCharacterIndex(d.parsed));
+    const summaryEl = document.getElementById('character-summary');
+    const pick = document.getElementById('character-pick');
+    const blockInner = document.getElementById('character-block-inner');
+    if (!pick || !blockInner) return;
+
+    const keys = new Set(index.map(entry => entry.key));
+    const selectedKey = getSelectedCharacterLensKey();
+    if (selectedCharacterLens && !keys.has(selectedKey)) {
+      selectedCharacterLens = null;
+      if (isCharacterLensTextFocusActive()) clearTextFocus();
+    }
+    const activeKey = getSelectedCharacterLensKey();
+    const totalBlocks = index.reduce((sum, entry) => sum + (entry.blockCount || 0), 0);
+    const totalWords = index.reduce((sum, entry) => sum + (entry.wordCount || 0), 0);
+    const activeEntry = activeKey ? index.find(entry => entry.key === activeKey) : null;
+    if (summaryEl) {
+      summaryEl.textContent = activeEntry
+        ? activeEntry.blockCount + ' kwestii · ' + activeEntry.wordCount + ' słów · ' + activeEntry.stageCount + ' etap(y) · linie ' + (activeEntry.firstLine + 1) + '-' + (activeEntry.lastLine + 1)
+        : index.length + ' postaci · ' + totalBlocks + ' kwestii · ' + totalWords + ' słów';
+    }
+
+    pick.replaceChildren();
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = '— wybierz postać —';
+    pick.appendChild(placeholder);
+    index.forEach(entry => {
+      const opt = document.createElement('option');
+      opt.value = entry.key;
+      opt.textContent = entry.name + ' · ' + entry.blockCount + ' kwestii · ' + entry.wordCount + ' słów · ' + entry.stageCount + ' etap(y)';
+      pick.appendChild(opt);
+    });
+    pick.value = activeKey || '';
+
+    blockInner.replaceChildren();
+    if (!index.length) {
+      const empty = document.createElement('div');
+      empty.className = 'character-empty';
+      empty.textContent = 'Brak speakerów w aktualnym tekście.';
+      blockInner.appendChild(empty);
+      return;
+    }
+    if (!activeEntry) {
+      const empty = document.createElement('div');
+      empty.className = 'character-empty';
+      empty.textContent = 'Wybierz postać, żeby zobaczyć tylko jej kwestie i najbliższe interakcje.';
+      blockInner.appendChild(empty);
+      return;
+    }
+
+    const blocks = deriveCharacterLensBlocks(d.parsed, activeEntry.name);
+    if (!blocks.length) {
+      const empty = document.createElement('div');
+      empty.className = 'character-empty';
+      empty.textContent = 'Nie znaleziono bloków dla wybranej postaci.';
+      blockInner.appendChild(empty);
+      return;
+    }
+
+    blocks.forEach(block => {
+      const el = document.createElement('section');
+      el.className = 'character-block' + (block.role === 'related' ? ' related' : '');
+      el.setAttribute('data-start-line', String(block.startLine));
+      el.setAttribute('data-end-line', String(block.endLine));
+
+      const head = document.createElement('div');
+      head.className = 'character-block-head';
+
+      const role = document.createElement('span');
+      role.className = 'character-block-role';
+      role.textContent = block.role === 'related' ? 'interakcja' : 'postać';
+      head.appendChild(role);
+
+      const speaker = document.createElement('span');
+      speaker.className = 'character-block-speaker';
+      speaker.textContent = block.speaker || '—';
+      head.appendChild(speaker);
+
+      const lines = document.createElement('span');
+      lines.className = 'character-block-lines';
+      lines.textContent = 'linie ' + (block.startLine + 1) + '-' + (block.endLine + 1);
+      head.appendChild(lines);
+
+      const stage = document.createElement('span');
+      stage.className = 'character-block-stage';
+      stage.textContent = block.stageLabel;
+      head.appendChild(stage);
+
+      const spacer = document.createElement('span');
+      spacer.className = 'character-block-spacer';
+      head.appendChild(spacer);
+
+      const save = document.createElement('button');
+      save.className = 'btn character-block-save';
+      save.type = 'button';
+      save.textContent = 'Zapisz';
+      save.addEventListener('click', () => saveCharacterLensBlock(el));
+      head.appendChild(save);
+
+      const editor = document.createElement('textarea');
+      editor.className = 'character-block-editor';
+      editor.spellcheck = false;
+      const rawText = getTextLineRange(block.startLine, block.endLine);
+      editor.value = rawText;
+      editor.defaultValue = rawText;
+      editor.addEventListener('input', () => {
+        autoSizeCharacterBlockEditor(editor);
+        el.classList.toggle('dirty', normalizeCharacterBlockText(editor.value) !== editor.defaultValue);
+      });
+      editor.addEventListener('keydown', ev => {
+        if ((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter') {
+          ev.preventDefault();
+          ev.stopPropagation();
+          saveCharacterLensBlock(el);
+        }
+      });
+
+      el.appendChild(head);
+      el.appendChild(editor);
+      blockInner.appendChild(el);
+      autoSizeCharacterBlockEditor(editor);
+    });
+  }
+
   function refreshStageList(data) {
     const d = data || parseAndLint(false);
     if (!stagePick || !d || !d.parsed || !d.parsed.stages.length) return;
@@ -6660,6 +7242,11 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     if (prevSingle && prevSingle !== v) {
       viewportMemory.single[prevSingle] = captureViewportState(prevSingle);
     }
+    // Character Lens also pins a text focus. In single-panel mode that focus
+    // should not leak into the normal text view after leaving the Lens.
+    if (!dualMode && v === 'edit' && prevSingle === 'character' && !options.keepCharacterLens) {
+      clearCharacterLens(false);
+    }
     previousMountedView.single = v;
     // Track current single view for toolbar dropdown sync
     if (typeof currentSingleView !== 'undefined') currentSingleView = v;
@@ -6668,6 +7255,7 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     const flowView = document.getElementById('flow-view');
     const playView = document.getElementById('play-view');
     const tabFlow = document.getElementById('tab-flow');
+    const tabCharacter = document.getElementById('tab-character');
     const tabPlay = document.getElementById('tab-play');
     const backToFlowBtn = document.getElementById('back-to-flow');
 
@@ -6675,11 +7263,13 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     tabEdit.classList.remove('active');
     tabGraph.classList.remove('active');
     tabFlow.classList.remove('active');
+    tabCharacter.classList.remove('active');
     tabPlay.classList.remove('active');
     // Hide all views
     editView.style.display = 'none';
     graphView.style.display = 'none';
     flowView.style.display = 'none';
+    characterView.style.display = 'none';
     playView.style.display = 'none';
     stagePick.style.display = 'none';
     backToFlowBtn.style.display = 'none';
@@ -6710,6 +7300,14 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
       renderStageGraph(data.parsed);
       updateStatusForDerivedView('flow', data);
       if (!options.keepCameFromFlow) cameFromFlow = false;
+    } else if (v === 'character') {
+      tabCharacter.classList.add('active');
+      characterView.style.display = 'flex';
+      const data = parseAndLint(false);
+      renderCharacterLens(data);
+      if (selectedCharacterLens) applyCharacterLensFocus(data);
+      updateStatusForDerivedView('character', data);
+      if (!options.keepCameFromFlow) cameFromFlow = false;
     } else if (v === 'play') {
       tabPlay.classList.add('active');
       playView.style.display = '';
@@ -6732,8 +7330,24 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
   tabEdit.addEventListener('click', () => showView('edit'));
   tabGraph.addEventListener('click', () => showView('graph'));
   document.getElementById('tab-flow').addEventListener('click', () => showView('flow'));
+  document.getElementById('tab-character').addEventListener('click', () => showView('character'));
   document.getElementById('tab-play').addEventListener('click', () => showView('play'));
   document.getElementById('back-to-flow').addEventListener('click', () => showView('flow'));
+  const characterClearLensBtn = document.getElementById('character-clear-lens');
+  if (characterClearLensBtn) characterClearLensBtn.addEventListener('click', () => clearCharacterLens(true));
+  const characterPick = document.getElementById('character-pick');
+  if (characterPick) {
+    characterPick.addEventListener('change', () => {
+      const data = parseAndLint(false);
+      const index = data.characterIndex || [];
+      const entry = index.find(item => item.key === characterPick.value);
+      selectedCharacterLens = entry ? entry.name : null;
+      if (selectedCharacterLens) applyCharacterLensFocus(data);
+      else if (isCharacterLensTextFocusActive()) clearTextFocus();
+      renderCharacterLens(data);
+      updateStatusForDerivedView('character', data);
+    });
+  }
   if (textStageJump) {
     textStageJump.addEventListener('change', () => {
       jumpToStageInText(textStageJump.value);
@@ -7168,6 +7782,31 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     return { lines, chunks };
   }
 
+  function normalizeReviewLineTargets(line) {
+    return String(line || '').replace(/\{ETAP[_ ]?(\w+)\}/gi, (_, id) => '{ETAP_' + id + '}');
+  }
+
+  function normalizeReviewLineForComparison(line) {
+    const raw = String(line || '').replace(/\r$/, '');
+    const trimmed = raw.trim();
+
+    if (trimmed === '##ETAP') return '###ETAP';
+    if (trimmed === '##END') return '##END';
+
+    const dialog = raw.match(/^\s*##DIALOG\s+\*?([A-ZĄĆĘŁŃÓŚŻŹ][A-ZĄĆĘŁŃÓŚŻŹ0-9_ ]*?)\*?\s*$/);
+    if (dialog) return '##DIALOG|' + dialog[1].trim();
+
+    const pureDotAnchor = trimmed.match(/^\.((?:\d+\.)+\d+|\d+)\.\s*$/);
+    if (pureDotAnchor) return '{' + pureDotAnchor[1] + '}';
+
+    const speaker = tryParseSpeakerLine(raw);
+    if (speaker && isLikelyCharacterLine(raw)) {
+      return 'SPEAKER|' + (speaker.anchor || '') + '|' + speaker.name.trim();
+    }
+
+    return normalizeReviewLineTargets(raw);
+  }
+
   function getChangedRelativeLinesExact(baseLines, currentLines) {
     const a = baseLines || [];
     const b = currentLines || [];
@@ -7175,15 +7814,15 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     // inside one stage, repeated lines such as *GRACZ* are limited enough to be useful anchors.
     const positions = new Map();
     for (let i = 0; i < a.length; i++) {
-      const line = a[i];
-      if (!positions.has(line)) positions.set(line, []);
-      positions.get(line).push(i);
+      const key = normalizeReviewLineForComparison(a[i]);
+      if (!positions.has(key)) positions.set(key, []);
+      positions.get(key).push(i);
     }
     const tails = [];
     const prev = [];
     const pairs = [];
     for (let j = 0; j < b.length; j++) {
-      const arr = positions.get(b[j]);
+      const arr = positions.get(normalizeReviewLineForComparison(b[j]));
       if (!arr) continue;
       for (let k = arr.length - 1; k >= 0; k--) {
         const i = arr[k];
@@ -7208,6 +7847,8 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     const changed = new Set();
     for (let j = 0; j < b.length; j++) {
       if (String(b[j] || '').trim() === '') continue;
+      const key = normalizeReviewLineForComparison(b[j]);
+      if (key === '##END' && !positions.has('##END')) continue;
       if (!unchanged.has(j)) changed.add(j);
     }
     return changed;
@@ -7271,12 +7912,67 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     }).join('');
   }
 
+  const REVIEW_INLINE_STYLE_BY_CLASS = {
+    'tok-character': 'font-weight:600;',
+    'tok-player': 'font-weight:600;color:#7c3aed;',
+    'tok-sb': 'color:#9CA3AF;font-style:italic;',
+    'tok-anchor': 'color:#9333EA;font-weight:500;',
+    'tok-jump-stage': 'color:#059669;font-weight:500;',
+    'tok-jump-end': 'color:#EA580C;font-weight:500;',
+    'tok-comment': 'color:#9CA3AF;font-style:italic;',
+    'tok-etap-header': 'color:#1F2937;font-weight:600;',
+    'tok-dialog-header': 'color:#9CA3AF;',
+    'tok-hash': 'color:#9CA3AF;',
+    'tok-mark': 'color:#9CA3AF;'
+  };
+
+  function mergeInlineCss(baseStyle, existingStyle) {
+    const parts = [];
+    if (baseStyle) parts.push(String(baseStyle).trim().replace(/;?$/, ';'));
+    if (existingStyle) parts.push(String(existingStyle).trim().replace(/;?$/, ';'));
+    return parts.join('');
+  }
+
+  function inlineReviewTokenStyles(html) {
+    return String(html || '').replace(/<span class="([^"]+)"(?: style="([^"]*)")?>/g, (match, className, existingStyle) => {
+      const baseStyle = String(className || '')
+        .split(/\s+/)
+        .map(cls => REVIEW_INLINE_STYLE_BY_CLASS[cls] || '')
+        .join('');
+      const mergedStyle = mergeInlineCss(baseStyle, existingStyle || '');
+      if (!mergedStyle) return '<span class="' + className + '">';
+      return '<span class="' + className + '" style="' + mergedStyle + '">';
+    });
+  }
+
+  function reviewLineInlineStyle(isChanged) {
+    return [
+      'margin:0;',
+      'padding:0 3px;',
+      'min-height:19pt;',
+      "font-family:'Courier New',Consolas,monospace;",
+      'font-size:11pt;',
+      'line-height:19pt;',
+      'color:#1F2937;',
+      'white-space:pre-wrap;',
+      isChanged ? 'background-color:#FFF2A8;' : ''
+    ].join('');
+  }
+
+  function getReviewExportColumnWidthPx(colWidth) {
+    const raw = String(colWidth || '').trim();
+    const px = raw.match(/^(\d+(?:\.\d+)?)px$/);
+    if (px) return Math.max(320, Math.round(parseFloat(px[1])));
+    return 480;
+  }
+
   function buildHighlightedReviewBody(currentText, changedLines) {
     const lines = String(currentText || '').split('\n');
     return lines.map((line, idx) => {
-      const rendered = highlightLine(line).replace(/\n$/, '') || '&nbsp;';
+      const rendered = inlineReviewTokenStyles(highlightLine(line).replace(/\n$/, '') || '&nbsp;');
       const cls = changedLines.has(idx) ? 'review-line review-changed' : 'review-line';
-      return `<span class="${cls}" data-line="${idx + 1}">${rendered}</span>`;
+      const lineStyle = reviewLineInlineStyle(changedLines.has(idx));
+      return `<div class="${cls}" style="${lineStyle}" data-line="${idx + 1}">${rendered}</div>`;
     }).join('');
   }
 
@@ -7401,15 +8097,43 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
     const baseDate = meta && meta.savedAt ? new Date(meta.savedAt).toLocaleString('pl-PL') : 'brak daty';
     const baseSource = meta && meta.source ? meta.source : 'brak informacji';
     const title = 'Quest · review zmian';
+    const colWidthPx = getReviewExportColumnWidthPx(colWidth);
+    const metaCellStyle = [
+      'width:' + colWidthPx + 'px;',
+      'border:1px solid #E5E7EB;',
+      'padding:10px 12px;',
+      'color:#4B5563;',
+      'font-family:Arial,sans-serif;',
+      'font-size:10pt;',
+      'line-height:1.45;',
+      'background-color:#FAFAF7;'
+    ].join('');
+    const contentCellStyle = [
+      'width:' + colWidthPx + 'px;',
+      'border:none;',
+      'padding:0;',
+      "font-family:'Courier New',Consolas,monospace;",
+      'font-size:11pt;',
+      'line-height:19pt;',
+      'color:#1F2937;'
+    ].join('');
+    const tableStyle = [
+      'border-collapse:collapse;',
+      'table-layout:fixed;',
+      'width:' + colWidthPx + 'px;',
+      'margin-left:auto;',
+      'margin-right:auto;',
+      'border:none;'
+    ].join('');
     const style = `
       :root { color-scheme: light; }
       * { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; background: #fff; color: #1F2937; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
-      .review-meta { max-width: ${colWidth}; margin: 0 auto 18px; padding: 10px 12px; border: 1px solid #E5E7EB; border-radius: 6px; color: #4B5563; font-size: 12px; background: #FAFAF7; }
       .wrap { padding: 20px 0 32px; background: #fff; }
-      .col { max-width: ${colWidth}; margin: 0 auto; background: transparent; border: none; border-radius: 0; padding: 0; }
-      pre.content { font-family: "JetBrains Mono", "SF Mono", "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word; tab-size: 2; margin: 0; background: transparent; }
-      .review-line { display: block; min-height: 1.7em; padding: 0 3px; margin: 0 -3px; border-radius: 3px; }
+      .review-layout { border-collapse: collapse; table-layout: fixed; width: ${colWidthPx}px; margin: 0 auto; border: none; }
+      .review-layout td { vertical-align: top; }
+      .content { font-family: "Courier New", Consolas, monospace; font-size: 11pt; line-height: 19pt; white-space: pre-wrap; word-wrap: break-word; tab-size: 2; margin: 0; background: transparent; }
+      .review-line { display: block; min-height: 19pt; padding: 0 3px; margin: 0; border-radius: 3px; white-space: pre-wrap; }
       .review-changed { background: #FFF2A8; box-shadow: inset 3px 0 0 #F59E0B; }
       .tok-character { font-weight: 600; }
       .tok-player { font-weight: 600; color: #7c3aed; }
@@ -7434,15 +8158,22 @@ ETAP_4 ###Zdemaskuj Zethara ###Przekaż dowody Kharosowi.
 </head>
 <body>
 <div class="wrap">
-  <div class="review-meta">
-    <strong>Review zmian</strong><br>
-    Plik: ${escXml(currentFilename || suggestQuestFilename(currentText) || 'quest.txt')}<br>
-    Baza review: ${escXml(baseDate)} · źródło: ${escXml(baseSource)} · eksport: ${escXml(dateStr)}<br>
-    Podświetlone linie: ${changedLines.size.toLocaleString('pl-PL')} · usunięte fragmenty z bazy nie są pokazywane.
-  </div>
-  <div class="col">
-    <pre class="content">${body}</pre>
-  </div>
+  <table class="review-layout" align="center" width="${colWidthPx}" cellpadding="0" cellspacing="0" style="${tableStyle}">
+    <tr>
+      <td style="${metaCellStyle}">
+        <strong>Review zmian</strong><br>
+        Plik: ${escXml(currentFilename || suggestQuestFilename(currentText) || 'quest.txt')}<br>
+        Baza review: ${escXml(baseDate)} · źródło: ${escXml(baseSource)} · eksport: ${escXml(dateStr)}<br>
+        Podświetlone linie: ${changedLines.size.toLocaleString('pl-PL')} · usunięte fragmenty z bazy nie są pokazywane.
+      </td>
+    </tr>
+    <tr><td style="height:18px;line-height:18px;border:none;padding:0;">&nbsp;</td></tr>
+    <tr>
+      <td style="${contentCellStyle}">
+        <div class="content">${body}</div>
+      </td>
+    </tr>
+  </table>
 </div>
 </body>
 </html>
@@ -8964,7 +9695,7 @@ ETAP_1 ###  ###
   // ============================================================
   // DUAL PANEL MODE
   // ============================================================
-  // Strategy: views (edit-view, graph-view, flow-view, play-view) remain singular DOM nodes.
+  // Strategy: views (edit-view, graph-view, flow-view, character-view, play-view) remain singular DOM nodes.
   // We "mount" them into either the single-container OR into one of the two panel-body slots.
   // Exception: Tekst | Tekst — we create a SECOND textarea that mirrors ta.value.
 
@@ -8972,7 +9703,7 @@ ETAP_1 ###  ###
   let currentSingleView = 'edit';
   let panelState = { left: 'edit', right: 'graph' };
   const panelViewHistory = { left: [], right: [] };
-  const VIEW_IDS = { edit: 'edit-view', graph: 'graph-view', flow: 'flow-view', play: 'play-view' };
+  const VIEW_IDS = { edit: 'edit-view', graph: 'graph-view', flow: 'flow-view', character: 'character-view', play: 'play-view' };
   let secondaryTextarea = null; // for Tekst | Tekst mode
   let secondaryHighlight = null;
   let secondaryScroller = null;
@@ -9072,7 +9803,7 @@ ETAP_1 ###  ###
     // Move all views back to single-container (order doesn't matter, showView will display correct one)
     // They could be in: panel-left-body, panel-right-body, or view-stash.
     const single = document.getElementById('single-container');
-    ['edit', 'graph', 'flow', 'play'].forEach(v => {
+    ['edit', 'graph', 'flow', 'character', 'play'].forEach(v => {
       const el = document.getElementById(VIEW_IDS[v]);
       if (el && el.parentNode !== single) {
         single.appendChild(el); // automatically removes from old parent
@@ -9111,7 +9842,7 @@ ETAP_1 ###  ###
 
   // ============================================================
   // VIEWPORT MEMORY — remember scroll/zoom per (slot, view).
-  // Slots: 'left', 'right', 'single'. Views: 'edit', 'graph', 'flow'.
+  // Slots: 'left', 'right', 'single'. Views: 'edit', 'graph', 'flow', 'character'.
   // Play is NOT remembered — restart resets the session anyway.
   // ============================================================
   const viewportMemory = {
@@ -9135,6 +9866,10 @@ ETAP_1 ###  ###
       const sc = document.getElementById('flow-scroll');
       if (sc) { state.scrollLeft = sc.scrollLeft; state.scrollTop = sc.scrollTop; }
       if (typeof flowZoomLevel !== 'undefined') state.zoom = flowZoomLevel;
+    } else if (viewKey === 'character') {
+      const blockList = document.getElementById('character-block-list');
+      if (blockList) { state.scrollTop = blockList.scrollTop; state.scrollLeft = blockList.scrollLeft; }
+      state.selectedCharacterLens = selectedCharacterLens;
     }
     return state;
   }
@@ -9177,6 +9912,19 @@ ETAP_1 ###  ###
         if (typeof state.zoom === 'number' && typeof flowZoomLevel !== 'undefined') {
           flowZoomLevel = state.zoom;
           if (typeof applyFlowZoom === 'function') applyFlowZoom();
+        }
+      });
+    } else if (viewKey === 'character') {
+      requestAnimationFrame(() => {
+        if (state.selectedCharacterLens) {
+          selectedCharacterLens = state.selectedCharacterLens;
+          if (typeof renderCharacterLens === 'function') renderCharacterLens(parseAndLint(false));
+          if (typeof applyCharacterLensFocus === 'function') applyCharacterLensFocus(parseAndLint(false));
+        }
+        const blockList = document.getElementById('character-block-list');
+        if (blockList) {
+          if (typeof state.scrollLeft === 'number') blockList.scrollLeft = state.scrollLeft;
+          if (typeof state.scrollTop === 'number') blockList.scrollTop = state.scrollTop;
         }
       });
     }
@@ -9315,6 +10063,11 @@ ETAP_1 ###  ###
         const data = parseAndLint(false);
         renderStageGraph(data.parsed);
         updateStatusForDerivedView('flow', data);
+      } else if (viewKey === 'character') {
+        const data = parseAndLint(false);
+        renderCharacterLens(data);
+        if (selectedCharacterLens) applyCharacterLensFocus(data);
+        updateStatusForDerivedView('character', data);
       } else if (viewKey === 'play') {
         body.classList.add('has-play');
         const data = parseAndLint(false);
