@@ -1,0 +1,2561 @@
+##QUEST###tkacze_snow
+##NPC
+KIRIN###???
+GWIAZDA ZARANNA###???
+JASKINIA###???
+SILVIO###???
+KALECZĄCY ŚPIEWAK###???
+LAWAPEŁZACZ###???
+FLORENT###???
+POSZUKIWACZ PRAWDY###???
+NIOSĄCY NADZIEJĘ###???
+POWIEW WIATRU###???
+WZNIOSŁA MELODIA###???
+RUMIANA DRWINA###???
+NERWOWY JELEŃ###???
+SŁANIAJĄCA SIĘ ŁANIA###???
+BŁĄDZĄCY WZROK###???
+ŚPIEW PRZESTRZENI###???
+AMRIL CARTEL###???
+AMBROZJA###???
+ONIR###???
+SKRYTKA###???
+SUMIENIE###???
+ZIUTEK###???
+KUFER###???
+ZWŁOKI###???
+KOŁYSZĄCY WIATR###???
+INICJACJA###???
+OJCIEC###???
+KWIAT LOTOSU###???
+SZALEJĄCY OGIEŃ###???
+NIEOCZEKIWANY ZWROT###???
+POCZĄTKI WIELKOŚCI###???
+SZEMRZĄCY STRUMIEŃ###???
+PYZATY PEJS###???
+JĘCZĄCA ZAJĘCZYCA###???
+
+
+##ETAP
+ETAP_1 ###Porozmawiaj z Ziutkiem ###Pojawiamy się w osadzie zbieraczy. Questa bierzemy od Ziutka — stałego NPC wystawionego przy wejściu.
+##DIALOG *ZIUTEK*
+*ZIUTEK*
+[sb]Stoi i obwąchuje dłonie, które ma pokryte jakąś żywicą.[/sb]
+*GRACZ*
+Co ty robisz z tymi rękami?
+*ZIUTEK*
+[sb]Chłopak rozpromienia się.[/sb] Aaa, pan naczelnik pozwolił mi przeładować resztki viverii na ostatni transport do miasta, a ona tak pięknie pachnie, aż się chce, aż się chce... [sb]Chłopak wraca do wąchania dłoni.[/sb]
+*GRACZ*
+Dobra, daj powąchać.{1.1}
+Viverię? Co to takiego?{1.2}
+{1.1}*ZIUTEK*
+[sb]Chowa ręce do kieszeni.[/sb] Ooo niee! Dopóki nie odnajdzie się Florent i jego zbieracze, nie wychodzimy na zbiory, a magazyny są puste. To ostatnie, co mam.
+*GRACZ*
+Dlaczego?{1.3}
+{1.2}*ZIUTEK*
+[sb]Patrzy na ciebie jakbyś dopiero co przyszedł na świat.[/sb] Ziele Niksy. Truje, leczy i... i... [sb]Zaciąga się aromatem żywicy, po czym zerka na ciebie podejrzliwie.[/sb] Na razie tylko to mi zostało, że nawet szkoda mi odbić dłoń na ścianie w domu zbieraczy. Dopóki nie wróci Florent i jego ludzie, nie wychodzimy na zbiory.
+*GRACZ*
+Dlaczego?{1.3}
+{1.3}*ZIUTEK*
+[sb]Wzrusza ramionami.[/sb] Decyzja naczelnika. Boi się, że co się mogło tam stać. A sam wariuje, bo bez zbiorów viverii miastowi nie będą zadowoleni i naczelnik boi się o posadę. Albo i o co więcej.
+*GRACZ*
+Gdzie znajdę tego naczelnika? Może coś pomogę?
+*ZIUTEK*
+[sb]Nie wyciągając rąk z kieszeni, nosem wskazuje kierunek.[/sb] A tam, ta chata, to dom rady zbieraczy. Tam przewodnicy dostają mapy z trasami i meldują powroty. No, meldowali, póki Florent się nie zawieruszył.
+*GRACZ*
+Bywaj w zdrowiu, może pomogę, żebyś miał więcej tej viverii do wąchania.{ETAP_2}
+
+##ETAP
+ETAP_2 ###Idź do domu zbieraczy i zapytaj o naczelnika. ###Dowiedziałeś się, że w wiosce zbieraczy dzieją się niepokojące rzeczy. Naczelnik wioski będzie wiedział więcej. Porozmawiaj z nim.
+
+//W domu gracz najpierw natyka się na Kirina i Ambrozję pogrążonych w intymnej rozmowie. Rozmowa startuje zanim gracz znajdzie się w ich zasięgu wzroku — mimowolnie trochę podsłuchuje.
+##DIALOG *KIRIN*
+
+*KIRIN*
+[sb]Do Ambrozji.[/sb] Ambrozja, kotek, wszystko będzie dobrze. Wiesz, jaki był Florent. Dziwię się, że wcześniej nie przepadł.
+*AMBROZJA*
+[sb]Ma delikatny, dziewczęcy głos.[/sb] Wiem, ale mimo wszystko nie opuszcza mnie to dziwne przeczucie.
+*GRACZ*
+Halo, dzień dobry!
+*KIRIN*
+[sb]Pogrążona w rozmowie para ignoruje twoje wołanie.[/sb] Aj, te przeczucia. Naprawdę, nie musisz się martwić.
+*AMBROZJA*
+Nigdy wcześniej tak nie miałam, a przecież wychodziłeś na rozlewiska milion razy. Tym razem... Kirin, ja zawsze widziałam naszą przyszłość, zawsze. Odkąd się poznaliśmy. Pierwsze spacery, zaręczyny, nasze mieszkanie w Zakątku Płukaczy. [sb]Dziewczyna zaczyna szlochać.[/sb]
+*KIRIN*
+Kotek, ciii...
+*AMBROZJA*
+A teraz nic! Nic nie widzę. Tylko mgła i nic więcej!
+*KIRIN*
+Uspokój się, proszę. Ach te... [sb]Przykłada dłoń do jej brzucha.[/sb] A może te humory przez to?
+*AMBROZJA*
+[sb]Odpycha jego dłoń.[/sb] Nie rób ze mnie wariatki!
+*KIRIN*
+Wszystko. Będzie. Dobrze. Amril obiecał mi taką premię za znalezienie Florenta, że możesz już wybierać mieszkanie z widokiem na Rozpadlinę! To spełnienie naszych marzeń.
+*AMBROZJA*
+Tak, wiem, nawet mi się to śniło, ale teraz... Mgła Kirin, tylko mgła.
+*GRACZ*
+//Uwaga produkcyjna: w tym momencie w przedsionku pojawia się Amril Cartel — zarządca wioski zbieraczy.
+[sb]Widzisz, jak do pomieszczenia wchodzi ktoś jeszcze.[/sb]
+*AMRIL CARTEL*
+[sb]Przygląda ci się badawczo, ale widzisz, że jest nieco roztrzęsiony. Kirin i Ambrozja dopiero teraz cię zauważają.[/sb] Ty w sprawie ogłoszenia o zaginięciu?
+*GRACZ*
+Można tak przyjąć.{1.1}
+{1.1}*AMRIL CARTEL*
+[sb]Wzdycha i nerwowo pociera czoło.[/sb] Przejdźmy do mojego biurka. Wyjaśnię szczegóły.
+*GRACZ*
+Posłuchać zawsze można.{ETAP_3}
+
+##ETAP
+ETAP_3 ###Porozmawiaj z Amrilem. ###Porozmawiaj z Amrilem Cartelem w domu zbieraczy na rozlewiskach Niksy. Cutscenka: Amril mija Kirina i Ambrozję i wita się z nimi dymkami. Ambrozja żegna się z Kirinem i wychodzi. Kirin idzie za Amrilem do biurka.
+##DIALOG *AMRIL CARTEL*
+*AMRIL CARTEL*
+[sb]Do Kirina.[/sb] Z Ambrozją wszystko w porządku?
+*KIRIN*
+Próbowałem wyjaśnić jej, że nie ma się czym martwić, ale kobieta to kobieta.
+*AMRIL CARTEL*
+[sb]Zwraca się do ciebie.[/sb] A ty w sprawie zlecenia?
+*KIRIN*
+[sb]Zerka na ciebie podejrzliwie.[/sb]
+*GRACZ*
+Jestem [imie] i nic nie wiem o żadnym zleceniu, ale chętnie się dowiem.
+*KIRIN*
+[sb]Jego spojrzenie jeszcze bardziej tężeje.[/sb] Przecież to ktoś z zewnątrz. Nie zna rozlewisk.
+*AMRIL CARTEL*
+[sb]Drżącą dłonią ociera pot z czoła.[/sb] I nie musi. Od tego jesteś ty. [sb]Zwraca się do ciebie.[/sb] Witaj, [imie]. Ja jestem Amril Cartel, zarządca tej wioski, a to Kirin — nasz najlepszy przewodnik. Najlepszy, bo w tej chwili jedyny. Jeden kuruje się po ataku śluzinek, a drugi — przepadł.
+*GRACZ*
+Falrent, tak?{1.1}
+Florent?{1.2}
+Więc co jest do roboty?{1.3}
+Po ataku CZEGO?!{1.5}
+{1.5}*AMRIL CARTEL*
+Śluzinek — zbieracze tak je nazywają. Naukowej nazwy nie znam. Zabójcze kurestwo. Nie chcesz, żeby wlazło ci to na twarz.
+*GRACZ*
+Aha. No więc co jest tutaj do roboty?{1.3}
+{1.1}*KIRIN*
+[sb]Syczy przez zęby.[/sb] Florent. Jak już podsłuchujesz, to chociaż rób to dobrze.
+*GRACZ*
+Nie podsłuchiwałem. Ziutek powiedział mi przed wejściem.{1.4}
+{1.2}*AMRIL CARTEL*
+[sb]Unosi brwi, zaskoczony.[/sb] Tak, Florent, skąd wiesz?
+*KIRIN*
+Bo podsłuchiwał mnie i Ambrozję.
+*GRACZ*
+Nie podsłuchiwałem. Ziutek mi przed wejściem powiedział.{1.4}
+{1.3}*KIRIN*
+Ty nic tutaj nie masz do roboty.
+*GRACZ*
+[sb]Spoglądasz to na Kirina to na Amrila.[/sb] Odnoszę przeciwne wrażenie.{1.4}
+{1.4}*AMRIL CARTEL*
+Kirin! Jeśli się nie uspokoisz, odsunę cię od tego! [imie] jest tutaj, by pomóc.
+*KIRIN*
+[imie] jest tutaj, żeby zgarnąć moją premię za tę misję.
+*AMRIL CARTEL*
+Aa, to to cię tak męczy. Jak tylko zrobisz, co do ciebie należy, dostaniesz obiecaną premię. Fakt, że [imie] jest z nami, tylko ułatwi ci zadanie.
+*GRACZ*
+[sb]Widzisz, że po tych słowach Kirin nieco się rozluźnia.[/sb] Ale ja jeszcze nie jestem z wami. O co tutaj dokładnie chodzi?
+*AMRIL CARTEL*
+[sb]Bierze głęboki wdech.[/sb] Trzeba odnaleźć Florenta, jego grupę zbieraczy i ładunek. Wyszli na rutynowe zbiory i nie wracają już od kilku dni. Taki czas na rozlewiskach, na polach viverii, bez filtrów, to...
+*KIRIN*
+To pewna śmierć dla kogoś takiego jak on. [sb]Wskazuje na ciebie.[/sb] Ale Florent i zbieracze mogą wytrzymać tam dłużej.
+*AMRIL CARTEL*
+Dlatego jeszcze mamy nadzieję znaleźć ich żywych, ale oprócz tego równie ważny jest ich ładunek — Florent miał zdobyć Wielką Szypułkę.
+*GRACZ*
+Wielka Szypułka?
+*KIRIN*
+[sb]Jest równie zdziwiony co ty.[/sb] Wielka Szypułka? Przecież ona pojawia się raz za kilkadziesiąt lat.
+*AMRIL CARTEL*
+Tak jest. I dlatego musimy znaleźć Florenta i wszystko, co zebrali. Inaczej ci z miasta... No, to już moja sprawa, co mi zrobią.
+*KIRIN*
+Dzieci Mgły od barona?
+*AMRIL CARTEL*
+[sb]Nerwowość wraca na jego twarz.[/sb] Tak, właśnie oni. Dlatego Kirin — masz to załatwić i przyjmiesz każdą pomoc, jaką się da. [sb]Amril Cartel wskazuje na ciebie.[/sb]
+*GRACZ*
+Jesteście w trudnym położeniu. Co ja z tego dostanę?{2.1}
+Mam jakieś dziwne przeczucie, że powinienem wam pomóc.{2.2}
+{2.1}*AMRIL CARTEL*
+Wystarczająco dużo, żeby ci się opłaciło poświęcić swój czas.
+*KIRIN*
+[sb]Patrzy na ciebie spode łba.[/sb]
+*AMRIL CARTEL*
+Nie patrz tak na niego. Nic ci nie zabraknie. Ani tobie ani Ambrozji — tylko przynieś mi tę cholerną szypułkę i viverię!
+*GRACZ*
+Kirin, chcę pomóc i pewnie coś zarobić, ale nie musisz się mnie obawiać.{3.1}
+Kirin, lepiej się postaraj, bo jeszcze się okaże, że poradzę sobie lepiej niż ty.{3.2}
+{2.2}*AMRIL CARTEL*
+[sb]I on i Kirin zerkają na ciebie badawczo.[/sb] Przeczucie, powiadasz? [sb]Kiwa głową ze zrozumieniem.[/sb] Przeczucia to częsty gość w tych stronach. Mogę się tylko cieszyć, że chcesz pomóc.
+*KIRIN*
+Wystarczy, że nie będziesz przeszkadzał, a wszystko będzie dobrze.
+*GRACZ*
+Kirin, chcę pomóc i pewnie coś zarobić, ale nie musisz się mnie obawiać.{3.1}
+Kirin, lepiej się postaraj, bo jeszcze się okaże, że poradzę sobie lepiej niż ty.{3.2}
+{3.1}*KIRIN*
+Ja się boję tylko Ambrozji, jak się zezłości. Dobra, trzeba ruszać. Każda chwila zwłoki to mniejsza szansa na żywego Florenta.
+*AMRIL CARTEL*
+I na Szypułkę!
+*KIRIN*
+Tak, tak, wiadomo. [imie], chodź do chaty przewodników. Musimy przejrzeć papiery Florenta, żeby zobaczyć, którą trasę wybrał.
+*GRACZ*
+Jasne. Chodźmy.{ETAP_4}
+{3.2}*KIRIN*
+Nie masz pojęcia, o czym mówisz. Chodźmy do chaty przewodników. Musimy przejrzeć papiery Florenta, żeby zobaczyć, którą trasę wybrał.
+*GRACZ*
+Jasne. Chodźmy.{ETAP_4}
+
+##ETAP
+ETAP_4 ###Idź za Kirinem do domu przewodników. ###Kirin prowadzi gracza do chaty przewodników.
+
+//warunek: walk trigger w chacie przewodników -> {ETAP_5}
+
+
+##ETAP
+ETAP_5 ###Porozmawiaj z Kirinem ###Jesteście w chacie zbieraczy. Dowiedz się, co masz tutaj robić.
+
+//Kirin i gracz wchodzą do chaty przewodników. Kirin zajmuje się rejestrami, graczowi każe sprawdzić filtry w kufrze.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Rozgląda się po pomieszczeniu.[/sb] Ja zajrzę do jego rejestrów, a ty sprawdź w tamtym kufrze, ile zostawił filtrów.
+*GRACZ*
+Fajnie tu macie. Chyba trudno z takiego ciepełka wychodzić na te moczary.
+*KIRIN*
+Fajnie fajnie, a na moczary nie jest trudno wychodzić, kiedy wiesz, ile zarobisz na zbiorach.
+*GRACZ*
+Widzę, że jesteś mocno zmotywowany.
+*KIRIN*
+Ty byś nie był? Przecież nie będę w nieskończoność łaził po rozlewiskach. Widziałeś Ambrozję. Pora się ustatkować, a ta robota da mi szansę wrócić do miasta i żyć jak człowiek.
+*GRACZ*
+Rozsądnie.{1.1}
+O ile nie sprzątnę ci zapłaty sprzed nosa. [sb]Uśmiechasz się, żeby Kirin nie miał wątpliwości, że żartujesz.[/sb]{1.2}
+{1.1}*KIRIN*
+Dobra, starczy gadania. Idź policz te filtry.{1.3}
+{1.2}*KIRIN*
+[sb]Patrzy na ciebie z lekkim niesmakiem.[/sb] Chyba, że wcześniej sprzątną cię rozlewiska. Potem pożartujemy więcej, a teraz idź policz te filtry.{1.3}
+{1.3}*GRACZ*
+Dobrze.{ETAP_6}
+
+##ETAP
+ETAP_6 ###Zajrzyj do kufra Florenta i przelicz filtry. ###Gracz ma przeliczyć filtry w schowku, żeby oszacować czy Florent wziął dłuższą czy krótszą trasę. Okazuje się, że zabrał wszystkie filtry.
+##DIALOG *KUFER*
+*KUFER*
+[sb]W środku jest pusto.[/sb]
+*GRACZ*
+To na pewno ten kufer?
+*KIRIN*
+Tak, a co?
+*GRACZ*
+Jest pusty.
+*KIRIN*
+[sb]Podchodzi do kufra i zagląda do środka.[/sb] A to dziwne. W rejestrach też jakieś cuda. Wszystkie poprzednie wyjścia pięknie uzupełnione, a to ostatnie puste. Nic nie wpisał na które pole rusza, z kim, komu powiedział o wyjściu.
+*GRACZ*
+Wygląda, jakby nie miał zamiaru wracać.
+*KIRIN*
+Bzdura! Florent ma swoje odpały, ale nie jest głupi. Dobra, jedyne, co wyczytałem, to które pola viverii już ostatnio odwiedził. Zostają nam dwa, na których nie był w tym sezonie.
+*GRACZ*
+To które?
+*KIRIN*
+Zachodnie i przy krawędzi. Oba najdalej jak się da od wioski. Musimy sprawdzić oba.
+*GRACZ*
+Zastanawiałeś się, czemu to jemu, a nie tobie, Amril zlecił dostarczenie tej Wielkiej Szypułki?
+*KIRIN*
+Florent pracuje tu dłużej ode mnie. Poza tym nie wierzę w tę Szypułkę. To niemożliwe, żeby pojawiła się tak szybko.
+*GRACZ*
+Wszystkiego się dowiemy od Florenta.
+*KIRIN*
+Tak. Trzeba szybko ruszać. Mam nadzieję, że jesteś gotowy.
+*GRACZ*
+[sb]Wzruszasz ramionami.[/sb] Zawsze. Ruszajmy.
+*KIRIN*
+Trzymaj się blisko mnie, a wszystko będzie dobrze. Zaczniemy od pola zachodniego. Jest bliżej i o tej porze nie powinno być dużo bzykaczy po drodze.
+*GRACZ*
+Prowadź.{ETAP_7}
+
+##ETAP
+ETAP_7 ###Ruszaj na rozlewiska Niksy. ###Przyjąłeś zlecenie od Amrila i razem z Kirinem ruszasz na rozlewiska Niksy. Kirin prowadzi gracza po lewej stronie mapy. Gracz może oddalać się od Kirina, ale Kirin wtedy stoi w miejscu. Jeśli gracz opuści krainkę, Kirin respawnuje w wiosce i podąża za graczem.
+//POMYSŁ DO ZREALIZOWANIA: Zroślak który jeszcze ma świadomość. Porzuceni ludzie z ekipy Florenta którzy zamienieni w zroślaki — osoby, które plotły sobie wianki, które ostatecznie się w nie wrosły i dołączyli do rozlewisk.
+##DIALOG *KIRIN*
+*KIRIN*
+Śluzinka? Tutaj? To zły znak, bo ciągnie je do trupów. Zajmij się nim.
+*GRACZ*
+Jasne. [sb]Walka.[/sb]{ETAP_8}
+Sam mam walczyć?{1.1}
+Nie macie czegoś na odstraszanie tych stworów?{1.2}
+{1.1}*KIRIN*
+[sb]Wzrusza ramionami.[/sb] Ja znam rozlewiska, ty umiesz się bić. Przynajmniej tak zakładam.
+*GRACZ*
+[sb]Pozostawiasz to bez komentarza. Walka.[/sb]{ETAP_8}
+{1.2}*KIRIN*
+Mamy, ale
+//DO ROZPISANIA: kwestia Kirina urwana w oryginale.
+
+##ETAP
+ETAP_8 ###Porozmawiaj z Kirinem. ###Pokonałeś przeszkodę, która stanęła wam na drodze.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Patrzy przed siebie, jakby wzrokiem chciał przebić spowijającą wszystko mgłę.[/sb] Oby nie było ich więcej po drodze. Chodźmy, Florent czeka.
+*GRACZ*
+Długo się znacie?{1.1}
+Ruszajmy, szkoda czasu.{ETAP_9}
+{1.1}*KIRIN*
+Z dziesięć lat. Wprowadził mnie do tej roboty, a potem szkolił. Wszystko, co wiem o rozlewiskach i viverii — wiem od niego.
+*GRACZ*
+Dużo mu zawdzięczasz.
+*KIRIN*
+[sb]Kiwa głową.[/sb] Tak, tak. Jak go znajdę, to on mi będzie dużo zawdzięczał. Dużo kopów w dupę.
+*GRACZ*
+To trzeba się zbierać. [sb]Ruszacie.[/sb]{ETAP_9}
+
+##ETAP
+ETAP_9 ###Trzymaj się Kirina. ###Kontynuuj poszukiwania Florenta. Idą dalej na północ, aż stają na granicy pola viverii. Kirin każe graczowi założyć maskę. Pole viverii bez maski powoli odbiera manę i kondycję — kiedy te się kończą, odbiera HP.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Wręcza ci maskę.[/sb] Pora użyć naszych zabawek. Załóż to, bo od oparów viverii wszystko ci się w głowie poprzewraca.
+*GRACZ*
+Może by się przydało.{1.1}
+Więc to ta cała viveria, o którą tyle hałasu.{1.2}
+[sb]Zakładasz maskę.[/sb]{ETAP_10}
+//DO WERYFIKACJI: oryginał miał tu [ETAP 9] — prawdopodobna literówka, zmieniam na {ETAP_10}.
+{1.1}*KIRIN*
+[sb]Uśmiecha się nieznacznie.[/sb] Zależy, co siedzi w człowieku. Jednemu viverka faktycznie pomoże się pozbierać, a drugiego rozwali do końca. Nigdy nie wiesz.
+*GRACZ*
+Używacie jej tylko do ćpania?
+*KIRIN*
+Niee. Viveria ma milion zastosowań. Od uzdrawiania po tworzenie narzędzi. Haligardczycy, kiedy nas podbili, sami próbowali coś z nią robić, ale nie potrafili. Tylko my, Alarilczycy, wiemy jak z niej korzystać.
+*GRACZ*
+[sb]Patrzysz na rozciągające się przed tobą pole tej dziwnej rośliny.[/sb] To ruszajmy. [sb]Zakładasz maskę.[/sb]{ETAP_10}
+{1.2}*KIRIN*
+Tak. Oto ona. Nasza gwiazda. Ma milion zastosowań. Od uzdrawiania po tworzenie narzędzi. Haligardczycy, kiedy nas podbili, sami próbowali coś z nią robić, ale nie potrafili. Tylko my, Alarilczycy, wiemy jak z niej korzystać.
+*GRACZ*
+Jak wam się żyje pod butem najeźdźcy?
+*KIRIN*
+[sb]Wzrusza ramionami.[/sb] Raczej pod sandałem. Wy macie gorzej. Poznaję, żeś Taernijczyk.
+*GRACZ*
+[sb]Uśmiechasz się i zakładasz maskę.[/sb] Ruszajmy. Florent czeka.{ETAP_10}
+
+##ETAP
+ETAP_10 ###Przeszukaj pole viverii w poszukiwaniu Florenta i jego drużyny. ###Gracz może zagadać Kirina w dowolnym momencie.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Głos jest stłumiony przez maskę.[/sb] Nie łaź za mną. Ja sprawdzę pole bardziej na zachód, ty połaź po północnej części.
+*GRACZ*
+[sb]Kiwasz głową w odpowiedzi.[/sb]{-1}
+
+//warunek: walk trigger przy ściętej Wielkiej Szypułce -> {ETAP_11}
+
+##ETAP
+ETAP_11 ###Porozmawiaj z Kirinem ###Gracz natknął się na viverię niezwykłej wielkości — etap awansuje automatycznie. Cutscenka: kamera centruje się na roślinie. Jej czubek jest wyraźnie ścięty. Pojawia się Kirin, staje przed viverią. Start rozmowy.
+##DIALOG *KIRIN*
+*KIRIN*
+Niech mnie szlag! Stary miał rację.
+*GRACZ*
+Wielka Szypułka?
+*KIRIN*
+[sb]Przytakuje w milczeniu.[/sb] Już ucięta. Reszta pola też wysprzątana. Florent i reszta tu byli. Patrząc po odrostach, to z dwa dni temu.
+*GRACZ*
+Zostawili jakieś ślady?
+*KIRIN*
+[sb]Kręci przecząco głową.[/sb] Musimy szukać dalej. Idziemy na krańcowe pole. To po drugiej stronie rozlewisk.
+*GRACZ*
+Jeśli tam też nic nie znajdziemy?{1.1}
+Prowadź, Kirin.{ETAP_19}
+{1.1}*KIRIN*
+Nie martw się na zapas. Będziemy szukać do skutku, choćbym miał zajrzeć pod każde pnącze i każdy kamień tych przeklętych rozlewisk.
+*GRACZ*
+Więc ruszajmy.{ETAP_19}
+
+//KONFLIKT NUMERACJI: w oryginale drugi etap oznaczony jako „11". Przemianowany na ETAP_19.
+
+##ETAP
+ETAP_19 ###Podążaj za Kirinem na pole krańcowe. ###Kirin prowadzi w stronę pola viverii po prawej stronie mapy. Na drodze stoją bardzo silne moby — niepokonalne dla postaci poniżej poziomu 140.
+##DIALOG *KIRIN*
+*KIRIN*
+Ale się tego wyroiło. Musimy znaleźć inną drogę.
+*GRACZ*
+Żartujesz? Spokojnie się przebijemy.{1.1}
+Jaką mamy alternatywę?{1.4}
+{1.1}*KIRIN*
+[sb]Patrzy na ciebie z powątpiewaniem.[/sb] Może i się przebijemy, ale stracimy mnóstwo czasu, a przy okazji możemy dostać przez łeb.
+*GRACZ*
+E, szybko się z nimi rozprawię.{1.3}
+[sb]Patrzysz na zmornice.[/sb] Może masz rację. Prowadź.{1.4}
+{1.3}*KIRIN*
+Jak chcesz. Zaczekam chwilę i zobaczę, jak ci idzie, ale mówię ci, że to strata czasu.
+*GRACZ*
+Którego nie mamy. Dobra, co proponujesz?{1.4}
+Będzie dobrze. [sb]Walka.[/sb]{ETAP_12}
+{1.4}*KIRIN*
+Przejdziemy od południa, tam gdzie jest mniej pnączy Niksy. Droga dłuższa, ale prostsza.
+*GRACZ*
+Chodźmy.{ETAP_20}
+
+##ETAP
+ETAP_12 ###Zabij zmornicę. ###Gracz podejmuje walkę ze zmornicą. Jeśli sobie nie poradzi, wdraża plan Kirina.
+//warunek: Gracz ginie → {ETAP_13}
+//warunek: Gracz pokonał zmornicę → {ETAP_14}
+
+##ETAP
+ETAP_13 ###Porozmawiaj z Kirinem. ###Gracz zginął i budzi się nieopodal miejsca walki. Kirin stoi nad nim.
+##DIALOG *KIRIN*
+*KIRIN*
+Obudź się, zabójco potworów.
+*GRACZ*
+C-co się stało?
+*KIRIN*
+To co mówiłem, że się stanie. Straciliśmy czas, ty dostałeś w łeb, a Florent nadal czeka na odnalezienie. Masz szczęście, że zostałem. Wyciągnąłem cię w ostatniej chwili.
+*GRACZ*
+Dzięki. Zdaje się, że wygrałeś. Co teraz robimy?
+*KIRIN*
+Przejdziemy od południa, tam gdzie jest mniej pnączy Niksy i jej stworów. Droga dłuższa, ale prostsza. Szczególnie dla ciebie. [sb]Na twarzy Kirina pojawia się ironiczny uśmieszek.[/sb]
+*GRACZ*
+[sb]Odwzajemniasz grymas.[/sb] Chodźmy.{ETAP_20}
+
+##ETAP
+ETAP_14 ###Porozmawiaj z Kirinem ###Gracz pokonał zmornicę.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Jego mina jest gdzieś pomiędzy uznaniem a powątpiewaniem.[/sb] Może jednak zasługujesz na trochę wiary.
+*GRACZ*
+[sb]Uśmiechasz się z satysfakcją.[/sb] Coś tam wiem o walce z potworami. Może przy kolejnym pomożesz? Pójdzie nam szybciej.{1.1}
+Dzięki, ale daruję sobie kolejną zmornicę. Tę ledwo ubiłem. Wolę twój plan.{1.2}
+{1.1}*KIRIN*
+Dziękuję, postoję. Jak z tą ci pójdzie tak samo dobrze, to ostatnią zabijemy razem.
+*GRACZ*
+[sb]Poprawiasz rynsztunek.[/sb] Trzymam za słowo. [sb]Walka.[/sb]{ETAP_15}
+{1.2}*KIRIN*
+[sb]Kiwa głową z uznaniem.[/sb] Jednak masz trochę rozumu. Na pole krańcowe dotrzemy inną drogą. Przejdziemy od południa, tam gdzie jest mniej pnączy Niksy i jej stworów.
+*GRACZ*
+[sb]Kiwasz głową ze zrozumieniem.[/sb] To ruszajmy.{ETAP_20}
+
+##ETAP
+ETAP_15 ###Porozmawiaj z Kirinem ###Kolejna zmornica leży martwa. Gracz triumfuje, Kirin mimo szczerych chęci nie kryje podziwu.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Na twarzy chłopaka maluje się szczery wyraz podziwu.[/sb] Gdyby odnalezienie Florenta zależało od wysprzątania rozlewisk z pomiotów Niksy, już byśmy byli w domu.
+*GRACZ*
+[sb]Rozkładasz ręce w udawanym geście bezradności.[/sb] Robię, co mogę.
+*KIRIN*
+Chcesz się bić z ostatnią zmornicą? Pomogę ci.
+*GRACZ*
+Zatem do boju. Może się czegoś ode mnie naduczysz? [sb]Walka.[/sb]{ETAP_16}
+Nieee, darujmy sobie. Nie ma z nimi lekko. Lepiej wypróbujmy twoją trasę.{1.1}
+{1.1}*KIRIN*
+[sb]Jest lekko zaskoczony.[/sb] Jak chcesz. Może faktycznie lepiej nie kusić losu. Chodź za mną.
+*GRACZ*
+Prowadź.{ETAP_20}
+
+##ETAP
+ETAP_16 ###Pokonaj ostatnią zmornicę. ###Gracz razem z Kirinem pokonuje ostatnią zmornicę.
+//DO WERYFIKACJI: etap wymaga modelu Kirina do walki — jeśli walki z Kirinem nie są przewidziane, etap można usunąć lub zastąpić sceną bez mechaniki kooperacji.
+//warunek: zabij zmornicę -> {ETAP_17}
+
+
+##ETAP
+ETAP_17 ###Porozmawiaj z Kirinem ###Pokonałeś wszystkie zmornice, które stanęły wam na drodze.
+##DIALOG *KIRIN*
+*KIRIN*
+Droga do pola krańcowego stoi przed nami...
+*GRACZ*
+Potworem?
+*KIRIN*
+[sb]Chowa twarz w dłoniach.[/sb] To taernijskie poczucie humoru?
+*GRACZ*
+Dobra, nic nie mówiłem. Ruszajmy.{ETAP_18}
+
+##ETAP
+ETAP_18 ###Porozmawiaj z Kirinem ###Docieracie na krańcowe pole viverii.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Rozgląda się niepewnie po polu.[/sb] Ani jednego śladu. Nic.
+*GRACZ*
+Florent chyba nie rozpłynął się w tej mgle?
+*KIRIN*
+[sb]Na twarzy Kirina pojawia się wyraz zaciętości.[/sb] Nie rozpłynął się. Gdzieś musi być jakiś ślad. Rozdzielmy się, jak poprzednio.
+*GRACZ*
+Dobra.{ETAP_25}
+
+##ETAP
+ETAP_20 ###Podążaj za Kirinem. ###Gracz zdecydował się odpuścić walkę ze zmornicami i przejść dołem mapy. Po dojściu na zielone Kirin zatrzymuje się.
+##DIALOG *KIRIN*
+*KIRIN*
+Zdejmij maskę i wyjmij filtr. Tutaj powietrze jest czyste.
+*GRACZ*
+Nie lepiej na wszelki wypadek być cały czas w masce?{1.1}
+[sb]Wykonujesz polecenie Kirina.[/sb]{1.2}
+{1.1}*KIRIN*
+Są tacy, co lubią cały czas w maskach łazić, ale nie polecam. Szkoda filtrów i płuc. Przy czym filtry można wymienić.
+*GRACZ*
+Rozumiem. [sb]Zdejmujesz maskę.[/sb]{ETAP_24}
+{1.2}*KIRIN*
+Dobra, teraz mamy przed sobą kawałek spokojniejszej części rozlewisk. Ruszajmy.
+*GRACZ*
+Idźmy.{ETAP_24}
+
+//KONFLIKT NUMERACJI: w oryginale drugi etap oznaczony jako „20". Przemianowany na ETAP_24.
+
+##ETAP
+ETAP_24 ###Idź za Kirinem. ###Gracz idzie za Kirinem przez spokojniejszą część rozlewisk. W każdej chwili może zagadać Kirina — dialog opcjonalny i powtarzalny.
+##DIALOG *KIRIN*
+*KIRIN*
+Czemu się zatrzymujesz? Zauważyłeś coś?
+*GRACZ*
+Nie. Chciałem tylko zapytać, jak się trzymasz?{1.1}
+Tylko, że tutaj jest bardzo pięknie.{1.2}
+Nie, nic ciekawego. Szukajmy dalej.{-1}
+{1.1}*KIRIN*
+[sb]Wzrusza ramionami.[/sb] Jak się mam trzymać? Nawet się cieszę, że ten debil Florent przepadł. Zarobię na nim tyle, że papa rozlewiska. Wracam do miasta, żyć z Ambrozją.
+*GRACZ*
+Najpierw musisz go znaleźć, ale dla Amrila chyba ważniejsza jest ta Szypułka.
+*KIRIN*
+Może tak być, ale wiesz...
+*GRACZ*
+Wiem. Boisz się o Florenta. Mimo wszystko jest dla ciebie ważny.
+*KIRIN*
+[sb]Zbywa twoją uwagę machnięciem ręki.[/sb] Dobra, zbyt długo gadamy. Idziemy.
+*GRACZ*
+Zgoda.{-1}
+{1.2}*KIRIN*
+[sb]Rozgląda się z miną, jakby widział to pierwszy raz.[/sb] Kraniec rozlewisk. Kończą się pnącza Niksy i zaczynają normalne rozlewiska. Tyle lat już tutaj łażę, że faktycznie przestałem to zauważać.
+*GRACZ*
+Świeże spojrzenie zawsze pomaga.{-1}
+
+//warunek: walktrigger dojścia na skraj pola krańcowego -> {ETAP_21}
+
+
+##ETAP
+ETAP_21 ###Porozmawiaj z Kirinem ###Odeszliście kawałek na północ. Stajecie na skraju pola krańcowego. Natykacie się na zwłoki zbieracza — to jeden z uczestników wyprawy Florenta, który nie chciał dołączyć do Tkaczy Snów. Skończyły mu się filtry i zaczadził się oparami viverii.
+##DIALOG *KIRIN*
+*KIRIN*
+Zaczekaj. [sb]Wstrzymuje cię gestem dłoni.[/sb] Tam chyba ktoś leży.
+*GRACZ*
+Faktycznie. To jeden z was?
+*KIRIN*
+//Uwaga produkcyjna: cutscenka — Kirin podchodzi do szczeliny w ziemi i kuca.
+Biedny Gusto, co się stało?
+*GRACZ*
+Szkoda, że nie może odpowiedzieć.
+*KIRIN*
+Gusto wiele, wiele lat tutaj przełaził. Byłby przewodnikiem, ale nie miał posłuchu u ludzi, bo strasznie śmierdział. Nawet filtry nie pomagały. Biedny, śmierdzący Gusto.
+*GRACZ*
+[sb]Zaglądasz do torby leżącej przy zwłokach.[/sb] Filtrów mu ewidentnie zabrakło.
+*KIRIN*
+Z jakiegoś powodu odłączył się od grupy, ale już był zbyt zatruty viverią. Florent musi mi to wszystko wyjaśnić.
+*GRACZ*
+Idźmy dalej. [sb]Zakładasz maskę.[/sb]{ETAP_22}
+
+##ETAP
+ETAP_22 ###Rozejrzyj się po polu viverii. ###Wchodzą na pole viverii u góry po prawej. Kirin przeszukuje swój sektor. Gracz krąży, aż przy prawej krawędzi pola dostrzega kolejnego trupa — etap awansuje automatycznie.
+//warunek: walk trigger -> {ETAP_23}
+
+##ETAP
+ETAP_23 ###Podejdź do trupa. ###Zwłoki to kolejna uczestniczka wyprawy Florenta.
+##DIALOG *ZWŁOKI*
+*ZWŁOKI*
+[sb]Zwłoki należą do młodej kobiety. Są w okropnym stanie, ale nie umiesz stwierdzić czy nabrała tych cech po śmierci, czy wyglądała już tak za życia, wyniszczona trudami pracy zbieracza.[/sb]
+*GRACZ*
+Kirin! Tutaj! Kolejne zwłoki.
+*KIRIN*
+//Uwaga produkcyjna: Kirin podbiega czym prędzej.
+[sb]Na widok zwłok odruchowo cofa się.[/sb] Niech to szlag. Sira.
+*GRACZ*
+Kto?
+*KIRIN*
+Aessira Tulonte. Uciekła z domu przed ojcem pijakiem jak miała — nie wiem — z dziesięć lat? Rozlewiska to jej całe życie. Znała tylko to.
+*GRACZ*
+Szkoda dziewczyny.
+*KIRIN*
+Oj tak. Jakim cudem Florent stracił swoich zbieraczy? Niech go szlag.
+*GRACZ*
+[sb]Patrząc ponad ramieniem martwej dziewczyny dostrzegasz coś, co może być wejściem do jaskini.[/sb] Florent, wiedziałeś, że tutaj jest jaskinia?
+*KIRIN*
+[sb]Odrywa wzrok od Siry.[/sb] Co? Jaskinia? Gdzie, że tu?
+*GRACZ*
+[sb]Wskazujesz dłonią na coś, co może być wejściem.[/sb]
+*KIRIN*
+[sb]Kręci głową z niedowierzaniem.[/sb] Nie miałem zielonego pojęcia, że tutaj jest jakaś jaskinia. Jak to możliwe?
+*GRACZ*
+Robiłeś swoje na polach viverii i spadałeś do wioski.
+*KIRIN*
+W przeciwieństwie do Florenta, który wolał kręcić się po rozlewiskach, niż siedzieć z nami w domu przewodników. Musi być w tej jaskini.
+*GRACZ*
+I on wiedział o jaskini, a ty nie.
+*KIRIN*
+Musi tam być. Ruszajmy!
+*GRACZ*
+[sb]Idziesz za Kirinem.[/sb]{ETAP_25}
+
+##ETAP
+ETAP_25 ###Idź za Kirinem ###Po wejściu do jaskini skok etapu automatyczny.
+//warunek: walk trigger w przedsionku jaskini -> {ETAP_26}
+
+
+##ETAP
+ETAP_26 ###Porozmawiaj z Kirinem ###Wchodzicie do jaskini.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Rozgląda się po jaskini.[/sb] Dziwne, że nie wiedziałem o tym miejscu. Jeśli gdzieś ma być Florent, to na pewno tutaj.
+*GRACZ*
+Ciekawe czemu Gusto i Sari odłączyli się od niego.
+*KIRIN*
+To jest dobre pytanie i na pewno je zadam. Dobra, to robimy naszą standardową metodą. Rozdzielamy się.
+*GRACZ*
+Pójdę w lewo.{ETAP_27}
+Pójdę w prawo.{ETAP_27}
+
+##ETAP
+ETAP_27 ###Przeszukaj jaskinie. ###Ten sam etap niezależnie od wybranego kierunku. Kiedy gracz przejdzie kawałek — nawet nie musi dojść do końca — uruchamia się rozmówka.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Jego głos brzmi z oddali.[/sb] Aaa, [imie], pomóż mi!
+*GRACZ*
+[sb]Nie tracąc czasu rzucasz się na pomoc.[/sb]{ETAP_28}
+
+##ETAP
+ETAP_28 ###Biegnij do Kirina. ###Kirin stoi na końcu jednej z jaskiń.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Uśmiecha się szeroko.[/sb] Szybko przybiegłeś. Dobrze wiedzieć, że można na ciebie liczyć.
+*GRACZ*
+Co się stało?
+*KIRIN*
+[sb]Wzrusza ramionami.[/sb] Nic. Żarcik taki.
+*GRACZ*
+Żarcik taki? Głupi żarcik. Plus swoim darciem mogłeś...
+*KIRIN*
+//Uwaga produkcyjna: za jego plecami pojawia się skurwowij.
+Co, co jest? [sb]Odwraca się.[/sb] O, żesz...
+*GRACZ*
+No właśnie. [sb]Dołączasz do walki.[/sb]{ETAP_29}
+
+##ETAP
+ETAP_29 ###Pokonaj skurwowija. ###Zabij potwora.
+
+//warunek: zabij potwora -> {ETAP_30}
+
+##ETAP
+ETAP_30 ###Porozmawiaj z Kirinem ###Potwór pokonany.
+##DIALOG *KIRIN*
+*KIRIN*
+W sumie dobrze, że się za tobą rozdarłem.
+*GRACZ*
+Nie wiem. Kolejnym razem mogę nie zareagować.
+*KIRIN*
+[sb]Macha ręką.[/sb] A tam. [sb]Nagle coś zwraca jego uwagę.[/sb] Kolejna pamiątka po ekipie Florenta? [sb]Ze szczeliny w skale wyciąga poszarpaną torbę.[/sb]
+*GRACZ*
+Co to jest?
+*KIRIN*
+Torba zbieraczy. [sb]Uważnie ją ogląda i obwąchuje.[/sb] Zapach viverii już się ulotnił, ale torba była pełna.
+*GRACZ*
+Byli tutaj.
+*KIRIN*
+[sb]Jeszcze czujniej niż poprzednio rozgląda się po jaskini.[/sb] I muszą gdzieś tu być. Ruszajmy.
+*GRACZ*
+Ale tym razem trzymamy się razem.{ETAP_31}
+
+##ETAP
+ETAP_31 ###Poszukaj Florenta i jego ludzi w jaskini. ###Gracz może zagadać Kirina w trakcie poszukiwań — dialog opcjonalny i powtarzalny.
+//Dymki Kirina w trakcie chodzenia (do implementacji): „Tutaj już nic nie znajdziemy", „Sprawdźmy tamten korytarz", „Idźmy dalej".
+//Warunek: walk trigger po dotarciu do okolicy wejścia do dużej jaskini → {ETAP_32}
+##DIALOG *KIRIN*
+*KIRIN*
+Co tam?
+*GRACZ*
+Ta jaskinia wydaje się bardzo duża. Jakim cudem o niej nie wiedziałeś?{1.1}
+Myślałeś, co się stanie jak wrócimy z niczym?{1.2}
+Może Florent w ogóle zwiał z tej okolicy i bez sensu tutaj chodzimy?{1.3}
+{1.1}*KIRIN*
+Sam się temu dziwię, ale wiesz, ja nie jestem jakimś wielkim fanatykiem rozlewisk. Prowadzę ludzi na zbiory i z nimi wracam. Nie rozglądam się na boki.
+*GRACZ*
+Ma sens.{-1}
+{1.2}*KIRIN*
+[sb]Patrzy na ciebie w milczeniu.[/sb] Nie, nie myślałem, bo tak się nie stanie. Idziemy.
+*GRACZ*
+[sb]Przytakujesz mu.[/sb]{-1}
+{1.3}*KIRIN*
+[sb]Kręci przecząco głową.[/sb] Florent nie mógłby żyć bez viverii.
+*GRACZ*
+To może gdzieś się zaćpał?
+*KIRIN*
+Zerwał Wielką Szypułkę. Nie, on musi mieć jakiś plan. Szukajmy dalej.
+*GRACZ*
+W porządku.{-1}
+
+##ETAP
+ETAP_32 ###Porozmawiaj z Kirinem. ###Kirin zatrzymuje się przy wejściu do dużej jaskini.
+##DIALOG *KIRIN*
+*KIRIN*
+Czekaj, czekaj... Cii... Słyszysz?
+*GRACZ*
+[sb]Chwilę nasłuchujesz.[/sb] Jakby... jakby ktoś śpiewał?
+*KIRIN*
+[sb]Przytakuje w milczeniu.[/sb]
+*GRACZ*
+Chodźmy to sprawdzić. Głos dobiega z tamtej strony. {ETAP_33}
+
+
+##ETAP
+ETAP_33 ###Znajdź źródło dziwnego śpiewania. ###W wąskim korytarzu na górze mapki stoi drewniana przegroda. Przy niej Kołyszący Wiatr — Tkacz Snów wystawiony na bramce.
+##DIALOG *KOŁYSZĄCY WIATR*
+*KOŁYSZĄCY WIATR*
+[sb]Na wasz widok przestaje śpiewać.[/sb] Witajcie w naszych kolorowych progach, przyjaciele.
+*GRACZ*
+Coś ty za jeden?
+*KOŁYSZĄCY WIATR*
+Jestem Kołyszący Wiatr i dzisiaj pełnię funkcję witającego nowych braci i siostry.
+*GRACZ*
+Witającego w czym?
+*KOŁYSZĄCY WIATR*
+Mówiłem już. W naszych kolorowych progach. Jeśli tu jesteś, to znaczy, że słyszałeś o Tkaczach Snów. Cieszymy się, że do nas trafiliście. [sb]Na twarzy chłopaka maluje się autentyczna radość.[/sb]
+*KIRIN*
+Nie wiem, w co tutaj się bawicie, ale powiedz mi, czy jest tam z wami Florent — przewodnik z wioski zbieraczy.
+*KOŁYSZĄCY WIATR*
+[sb]Rozkłada ręce, ale z jego twarzy nie znika dobrotliwy uśmiech.[/sb] Chciałbym ci pomóc, bracie, ale nie znam nikogo o takim imieniu.
+*GRACZ*
+[sb]Do Kirina.[/sb] Jasne, że nie zna, skoro sam nazywa się Kołyszący Wiatr.
+*KIRIN*
+[sb]Przytakuje ci.[/sb] Ty, Wiatr, to w takim razie powiedz mi, czy widziałeś tam małego rudego grubasa? To właśnie jego szukam.
+*KOŁYSZĄCY WIATR*
+[sb]Popatruje to na ciebie to na Kirina.[/sb] Być może widziałem, być może mi się tylko przyśnił. Najlepiej, jeśli sami się przekonacie. [sb]Zapraszającym gestem wskazuje na wejście do jaskini.[/sb]
+*GRACZ*
+//Uwaga produkcyjna: w przejściu pojawia się kolejna osoba — Gwiazda Zaranna.
+Dobra, to wchodzimy. [sb]Ruszasz w stronę przejścia do kolejnej jaskini.[/sb]
+*GWIAZDA ZARANNA*
+[sb]Zatrzymuje was.[/sb] Jesteście mile widziani, ale musicie udowodnić, że naprawdę pragniecie wejść na ścieżki snów.
+*KOŁYSZĄCY WIATR*
+Gwiazdo Zaranna, cóż za zaszczyt. [sb]Chłopak gnie się w pokłonie. Teraz zauważasz, że i on i ta kobieta mają na ramieniu taką samą opaskę.[/sb]
+*GRACZ*
+[sb]Wskazujesz na opaskę.[/sb] To jakiś znak przynależności do waszego ruchu?{1.1}
+Jakiego dowodu oczekujesz?{1.2}
+{1.2}*KIRIN*
+[imie], czekaj, co ty z nią gadasz. Gwiazdo Zas... Zaranna... Ja nie pragnę żadnych snów ani nic. Powiedz mi tylko, czy jest tam mały gruby rudzielec? Florent się zwie albo zwał.
+*GWIAZDA ZARANNA*
+[sb]Na jej twarzy maluje się dobrotliwy uśmiech, ale spojrzenie ma poważne.[/sb] Ziemskie imiona zostają tam gdzie ich miejsce: na powierzchni. Jeśli chcesz dotrzeć do sedna, musisz to udowodnić. Przynieście trzy kwiaty viverii, a pokażemy wam ścieżki snów.{2.1}
+{1.1}*KIRIN*
+[imie], czekaj, co ty z nią gadasz. Gwiazdo Zas... Zaranna... Ja nie pragnę żadnych snów ani nic. Powiedz mi tylko, czy jest tam mały gruby rudzielec? Florent się zwie albo zwał.
+*GWIAZDA ZARANNA*
+[sb]Patrzy na ciebie.[/sb] Ta opaska to znak tych, którzy na ścieżkach snów zaszli najdalej. To wielkie wyróżnienie i uznanie dla ich duchowej mądrości.
+*KIRIN*
+Fajnie się tutaj bawicie, naprawdę, doceniam, ale ja tylko szukam mojego przyjaciela.
+*GWIAZDA ZARANNA*
+Więc zapraszamy do nas i sam go poszukaj, ale dla dobra naszej wspólnoty musisz dowieść czystości swoich intencji.
+*GRACZ*
+Jak to zrobić?
+*GWIAZDA ZARANNA*
+Przynieście po trzy kwiaty viverii. To roślina prawdy i dobra. Po tym poznamy, czy możemy wam zaufać.
+*KIRIN*
+Trzy kwiaty? Tylko tyle?
+*GWIAZDA ZARANNA*
+Tak, na początek tylko tyle.
+*GRACZ*
+Czy to jest jakiś podstęp?
+*GWIAZDA ZARANNA*
+[sb]Tylko uśmiecha się w odpowiedzi.[/sb]
+*KIRIN*
+Dobra, [imie], chodź nazbieramy co trzeba i wrócimy dokończyć robotę.
+*GRACZ*
+[sb]Przytakujesz Kirinowi, ale nie spuszczasz oczu z Gwiazdy Zarannej.[/sb]
+*GWIAZDA ZARANNA*
+Macie cały czas świata. Wróćcie, kiedy będziecie gotowi.
+{2.1}*GRACZ*
+Wrócimy.
+//DO WERYFIKACJI: oryginał ma tu [ETAP 30] — konflikt z już zajętym ETAP_30 (Kirin po walce ze skurwowijiem). Proszę o docelowy numer etapu zbiórki kwiatów.{ETAP_30}
+Zaciekwiałaś mnie, Gwiazdo Zaranna. Do zobaczenia.{ETAP_34}
+
+##ETAP
+ETAP_34 ###Idź za Kirinem. ###Kirin wyprowadza gracza z jaskini. Kiedy Tkacze znikają im z oczu, Kirin startuje rozmowę.
+//warunek: walk trigger -> {ETAP_35}
+
+##ETAP
+ETAP_35 ###Porozmawiaj z Kirinem ###Kirin i gracz są już poza zasięgiem Tkaczy.
+##DIALOG *KIRIN*
+*KIRIN*
+Florent musi tam być. Damy tej wiedźmie czego chce i robimy swoje.
+*GRACZ*
+Ten datek z viverii to pewnie oddany urobek przez Florenta.
+*KIRIN*
+Faktycznie, nie pomyślałem o tym, ale pewnie masz rację.
+*GRACZ*
+Jestem ciekaw, co będzie miał do powiedzenia.{1.1}
+Ci ludzie w tej jaskini — wydali mi się interesujący.{1.2}
+{1.1}*KIRIN*
+Mi nie ciekawe. Będzie się tłumaczył Amrilowi. Ja mam odzyskać jego i Szypułkę. Ruszajmy na to najbliższe pole viverii. Pora wyszkolić cię na zbieracza.
+*GRACZ*
+Zawsze jest pora, żeby nauczyć się czegoś nowego. Prowadź.{ETAP_33}
+{1.2}*KIRIN*
+To jacyś wariaci, ale może faktycznie coś w sobie mają. Zbierzemy viverię, to dowiemy się o nich czegoś więcej. Ruszajmy na najbliższe pole. Pora wyszkolić cię na zbieracza.
+*GRACZ*
+Zawsze jest pora, żeby nauczyć się czegoś nowego. Prowadź.{ETAP_36}
+
+##ETAP
+ETAP_36 ###Idź za Kirinem na pole viverii. ###Kirin prowadzi gracza na to samo pole co poprzednio. Stają na jego skraju — etap zmienia się automatycznie.
+
+//warunek: walk trigger -> {ETAP_37}
+
+##ETAP
+ETAP_37 ###Porozmawiaj z Kirinem ###Kirin wprowadza gracza w sztukę zbioru viverii.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Z ironicznym uśmieszkiem wskazuje na rozciągające się przed wami pole viverii.[/sb] Witaj w moim świecie. Dziś nauczysz się zbierać gwiazdę Alarilu, wytchnienie zmęczonych, ucieczkę grzesznych, radość utrapionych, paliwo naszej gospodarki — viverię.
+*GRACZ*
+Hm, chyba czuję się zaszczycony.{1.1}
+Doceniam twoje poczucie humoru, ale miejmy to za sobą.{1.2}
+{1.1}*KIRIN*
+I słusznie. A teraz zakładaj maskę i do roboty!
+*GRACZ*
+Masz jakieś wskazówki? Co robić, czego nie robić?
+{2.1}*KIRIN*
+Podchodzisz do rośliny i jakbyś ukręcał głowę królika albo kury. Tylko wybieraj dojrzałe kwiaty — to te bardziej niebieskie. Niedojrzałe potrafią się bronić, więc lepiej zostaw je w spokoju.
+*GRACZ*
+Wobec tego działam.{ETAP_38}
+{1.2}*KIRIN*
+Masz rację, ale to spotkanie w jaskini poprawiło mi humor. Jestem pewien, że znajdziemy tam Florenta. Ambrozja będzie wniebowzięta, kiedy wrócę z tą kasą od Amrila.
+*GRACZ*
+Masz prawo. Dobra, pokaż mi jak się to zrywa.{2.1}
+Nie mów hop, Kirin. Żebyś się nie rozczarował.{2.2}
+{2.2}*KIRIN*
+[sb]Lekko markotnieje.[/sb] Daj się nacieszyć chwilą, kiedy wstąpiła we mnie nadzieja. W końcu mamy trop Florenta.
+*GRACZ*
+Masz rację. Dobra, jak się zrywa to zielsko?{2.1}
+//DO WERYFIKACJI: oryginał ma tu anchor {2.2} — prawdopodobna literówka, powinno być {2.1}.{2.1}
+
+##ETAP
+ETAP_38 ###Zerwij kwiat viverii. ###Pamiętaj, że ma być dojrzały — ciemnoniebieski (do odróżnienia od niedojrzałych). Nazrywaj 3 kwiaty viverii. Zerwanie niedojrzałego powoduje obrażenia u gracza. Zerwanie dojrzałego lub niedojrzałego → ETAP_39, ale w zależności od oznaczenia wyświetla się inny dialog.
+//warunek: zerwanie kwiatu (dojrzały lub niedojrzały) -> {ETAP_39}
+
+##ETAP
+ETAP_39 ###Porozmawiaj z Kirinem ###Kirin ocenia pierwszy zbiór gracza.
+##DIALOG *KIRIN*
+*KIRIN*
+[o]dojrzaly[/o][sb]Podchodzi do ciebie zobaczyć jak ci idzie.[/sb] Dobrze, szybko się uczysz. Jeszcze dwa i wracamy do tych wariatów.
+[o]niedojrzaly[/o][sb]Podchodzi do ciebie sprawdzić co się stało.[/sb] Mówiłem, które masz rwać. A tak to cię poparzyło. No nic, nauczysz się.
+*GRACZ*
+[sb]Rozmasowujesz obolałą rękę.[/sb] Kirin, czy to nie dziwne, że nikt w wiosce nie wie o tych Tkaczach Snów?
+*KIRIN*
+Florent raczej wiedział. Może jeszcze ktoś. Ja nawet nie wiedziałem, że ta jaskinia tu jest. Wiesz, te rozlewiska to dziwne miejsce. Ludzie przynoszą różne historie i gdybym wierzył we wszystko, co słyszę, to bym zwariował.
+*GRACZ*
+Dlatego chcesz już kończyć z tą robotą?
+*KIRIN*
+Nie tylko. Po prostu już się nałaziłem, a ta premia, o którą teraz walczę, pozwoli mi zacząć nowe życie z Ambrozją. Długo o tym marzyliśmy.
+//Uwaga produkcyjna: dopisać w pierwszym dialogu z Ambrozją, że Kirin obiecał jej odejść z tej pracy — to jego ostatnia robota.
+*GRACZ*
+To wracajmy do roboty, żeby twoja kobieta nie musiała za długo czekać.{ETAP_40}
+
+##ETAP
+ETAP_40 ###Zerwij kolejny kwiat viverii. ###Drugie podejście do zbioru. Oznaczenia wyników:
+//1 tura: 1 — poprawnie zerwany, 2 — niepoprawnie zerwany
+//2 tura: 3 — poprawnie zerwany, 4 — niepoprawnie zerwany
+//3 tura: 5 — poprawnie zerwany, 6 — niepoprawnie zerwany
+//Kombinacje: [2+4] dwa złe, [1+3] dwa dobre, [1+4] dobre+złe, [2+3] złe+dobre
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Znów zerka, jak ci idzie.[/sb]
+*GRACZ*
+[ozn zerwał 2 niepoprawne - 2 i 4][sb]Czujesz mocniejsze pieczenie.[/sb] Cholera, jak mam rozpoznać dojrzałą viverię?{1.1}
+[ozn zerwał 2 poprawnie - 1 i 3][sb]Z dumą pokazujesz zerwany kwiat.[/sb]{1.2}
+[ozn zerwał poprawnie i niepoprawnie - 1 i 4][sb]Rozmasowujesz piekącą dłoń.[/sb] Byłem przekonany, że ten też jest dojrzały.{1.3}
+[ozn zerwał niepoprawnie i poprawnie - 2 i 3][sb]Z dumą pokazujesz zerwany kwiat.[/sb] Teraz poszło mi lepiej.{1.4}
+{1.1}*KIRIN*
+Nie wierzę. Jak można się pomylić dwa razy z rzędu. Dawno nie widziałem takiego talentu.
+*GRACZ*
+Dobra, Kirin, do trzech razy sztuka.
+{2.3}*KIRIN*
+[sb]Śmieje się.[/sb] Sam tak kiedyś powiedziałem Ambrozji. Stroiłem się na jakieś wyjście i nie umiałem dobrać ciuchów. Za każdym razem Ambrozja na mój widok dostawała ataku śmiechu. Wiesz jak się skończyło? [sb]Uśmiecha się dwuznacznie.[/sb] Zostaliśmy w domu.
+*GRACZ*
+Nie ma tego złego. Wydajecie się dobraną parą.{2.1}
+{2.1}*KIRIN*
+A żebyś wiedział. [sb]Patrzy z lekkim uśmiechem na rozlewiska.[/sb] Oj, nie będzie mi was brakowało, nie będzie.
+*GRACZ*
+Dobra. Idę rwać dalej.{ETAP_41}
+{1.2}*KIRIN*
+[sb]Kiwa głową z uznaniem.[/sb] Jak już odejdę, jeszcze zrobisz karierę na moje miejsce.
+*GRACZ*
+Nie będzie ci tego brakowało? [sb]Pokazujesz kwiat viverii.[/sb]
+*KIRIN*
+[sb]Krzywi się z odrazą.[/sb] Cholera, nie! W żadnym razie. Ani trochę. Widziałeś Ambrozję, prawda? Móc z nią żyć spokojnie w mieście i tęsknić za rozlewiskami? Musiałbym zwariować.
+*GRACZ*
+Wydajecie się dobraną parą.{2.1}
+{1.3}*KIRIN*
+Pierwszy sukces i przestałeś być ostrożny. Masz nauczkę.
+*GRACZ*
+Następnym razem pójdzie lepiej. Do trzech razy sztuka.{2.3}
+{1.4}*KIRIN*
+Uczysz się na błędach.
+*GRACZ*
+Lepiej uczyć się na cudzych, niż własnych.
+*KIRIN*
+Haha, Ambrozja kiedyś mi tak powiedziała. To było tuż po tym, jak zamieszkaliśmy razem. Załatwiłem nam komodę, ale pomyliłem wszystkie wymiary i nigdzie nie pasowała. Dobrze, że stolarz był moim przyjacielem i ogarnąłem. Ale no, tego...
+*GRACZ*
+Wydajecie się dobraną parą. Znaczy z Ambrozją, nie stolarzem.{2.1}
+
+##ETAP
+ETAP_41 ###Zbierz kolejny kwiat viverii. ###Trzecia tura zbioru.
+//DO DOKOŃCZENIA: dialog z Kirinem o Ambrozji urwany. Notatka autora: „I co by powiedziała na to Ambrozja? Że nie ważne jak zaczynasz, ważne jak kończysz? Że prawdziwy mężczyzna nigdy nie kończy."
+//Uwaga: w projekcie jest rozpiska jak połączyć wszystkie alternatywy wyników zbioru — do zaimplementowania.
+//warunek: zerwanie trzeciego kwiatu -> {ETAP_42}
+
+##ETAP
+ETAP_42 ###Wróć do jaskini. ###Idziesz za Kirinem do jaskini Tkaczy Snów.
+//warunek: walk trigger -> {ETAP_43}
+
+##ETAP
+ETAP_43 ###Porozmawiaj z Kirinem ###Po wejściu do jaskini Kirin zatrzymuje gracza i startuje gadkę.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Zatrzymuje cię ręką.[/sb] Zaczekaj, [imie]. Musimy mieć jakiś plan.
+*GRACZ*
+Jak chcesz planować, skoro nie wiadomo co nas czeka w środku?{1.1}
+Masz rację. Trzeba przemyśleć nasz kolejny ruch.{1.2}
+{1.1}*KIRIN*
+Tym bardziej powinniśmy wiedzieć, co robimy. Słuchaj, nie wdajemy się w żadne dyskusje z tymi Tkaczami czy jak tam się zwą. Wchodzimy, namierzamy Florenta, on namierza Szypułkę i resztę i zmiatamy stamtąd.
+*GRACZ*
+Brzmi rozsądnie, o ile uda nam się szybko znaleźć Florenta.{2.1}
+{2.1}*KIRIN*
+Jeśli tam jest, łatwo go znaleźć. Rudy, gruby. Nie do przegapienia.
+*GRACZ*
+Skoro tak twierdzisz. Ruszajmy.{ETAP_44}
+*KIRIN*
+[sb]Milknie na sekundę i wpatruje się w mrok jaskini.[/sb] Tak, ruszajmy.
+*GRACZ*
+[sb]Zerkasz badawczo na Kirina i ruszasz.[/sb]{ETAP_44}
+{1.2}*KIRIN*
+Wchodzimy, znajdujemy Florenta, on nas prowadzi do ładunku i wychodzimy. Nie wdajemy się w żadne głupie rozmowy z tymi... Jak im tam?
+*GRACZ*
+Tkaczami Snów.
+*KIRIN*
+Tak, właśnie z nimi.
+*GRACZ*
+Brzmi rozsądnie, o ile uda nam się szybko znaleźć Florenta.{2.1}
+
+
+##ETAP
+ETAP_44 ###Podejdź do Kołyszącego Wiatru w jaskini pod rozlewiskami. ###Spełniliście warunek wejścia do siedziby Tkaczy Snów.
+##DIALOG *KOŁYSZĄCY WIATR*
+*KOŁYSZĄCY WIATR*
+[sb]Na wasz widok rozpromienia się.[/sb] Jednak wróciliście! Gwiazda Zaranna ucieszy się, że zdecydowaliście się do nas dołączyć. Była zmartwiona, jak odchodziliście.
+*KIRIN*
+Nigdzie nie dołączamy. Nazbieraliśmy viverii, jak chcieliście. Trzymaj.
+*GRACZ*
+[sb]Widzisz, jak Kirin wręcza naręcze rośliny.[/sb]
+*KOŁYSZĄCY WIATR*
+[sb]Kiwa głową z uznaniem.[/sb] Widać, że zrywał profesjonalista. Widziałem już tak kręcone główki. Dobra robota.
+*GRACZ*
+[sb]Rzucasz Kirinowi porozumiewawcze spojrzenie.[/sb]
+*KIRIN*
+[sb]Odwzajemnia je.[/sb] Dobra, Wiatry, puszczaj nas dalej.
+*KOŁYSZĄCY WIATR*
+[sb]Z uśmiechem godnym lepszej sprawy wręcza wam po kawałku niebieskiej tkaniny.[/sb] Kiedy wejdziecie, pokażcie to Śpiewowi Przestrzeni. [sb]Jego uśmiech staje się jeszcze większy.[/sb] To wielka radość witać nowych Tkaczy. Mam nadzieję, że spotkamy się na ścieżkach snów.
+*KIRIN*
+Wątpię, ale dziękuję za miłe słowo.
+*GRACZ*
+[sb]Odbierasz niebieski skrawek z rąk Kołyszącego Wiatru.[/sb] Dziękuję.{ETAP_45}
+
+##ETAP
+ETAP_45 ###Wejdźcie do jaskini. ###Spełniliście warunek wejścia. Cutscenka: ekran powoli się rozjaśnia, kamera wędruje w kierunku wejścia gdzie stoi gracz, centruje się w momencie gdy podchodzi do nas Śpiew Przestrzeni. Etap automatycznie się zmienia na
+//warunek: koniec cutscenki {ETAP_46}
+
+
+##ETAP
+ETAP_46 ###Porozmawiaj ze Śpiewem Przestrzeni ###Na koniec cutscenki automatycznie startuje rozmowa ze Śpiewem.
+//DO UZUPEŁNIENIA: wprowadzenie Niry do ruchu Tkaczy zgodnie z konspektem — kobieta wypowiada się elokwentnie, kwieciście, zagadkowo. Założyła ruch, żeby pokazać, że można żyć inaczej. Ludzie połączeni Snami przeistaczają się w jedną jaźń, a wspólnota po rozszerzeniu poza rozlewiska sprowadzi wieczną szczęśliwość i pokój.
+##DIALOG *ŚPIEW PRZESTRZENI*
+*ŚPIEW PRZESTRZENI*
+[sb]Nigdy nie widziałeś piękniejszego uśmiechu.[/sb] Witajcie wśród Tkaczy Snów. Gwiazda Zaranna zaraz was powita i przygotuje do rytuału inicjacji. Jeśli macie jakieś pytania, słucham.
+*KIRIN*
+Szukam Florenta. Rudy i gruby. Jest tutaj taki?
+*ŚPIEW PRZESTRZENI*
+Nie mogę odpowiedzieć na to pytanie, jeśli nie przeszedłeś inicjacji. Kiedy tylko ją przejdziesz i otrzymasz imię, będziesz mógł rozmawiać z innymi Tkaczami.
+*GRACZ*
+A jeśli nie chcemy przechodzić żadnego rytuału?
+*ŚPIEW PRZESTRZENI*
+[sb]Jej uśmiech ustępuje wyrazowi zaskoczenia.[/sb] Czemu ktoś chciałby zrezygnować z łaski wejścia na ścieżki snów?
+*GRACZ*
+//Uwaga produkcyjna: spawn Gwiazdy Zarannej.
+Wolę na nie nie wkraczać.{1.1}
+Jesteśmy tutaj w innej sprawie.{1.2}
+{1.1}*ŚPIEW PRZESTRZENI*
+[sb]Uśmiech na jej twarzy przygasa, zastąpiony wyrazem troski.[/sb]
+{1.2}*GWIAZDA ZARANNA*
+[sb]Zwraca się do Śpiewu Przestrzeni.[/sb] Dziękuję ci kochanie, możesz odejść. [sb]Do was.[/sb] Wróciliście. Cieszy mnie to.
+*GRACZ*
+Chcemy po prostu odszukać naszego przyjaciela.
+*GWIAZDA ZARANNA*
+[sb]Kobieta płucze dłonie w sadzawce obok. Woda momentalnie brunatnieje.[/sb] Pamiętam. Nie interesują was nasze rytuały i nasza droga.
+*KIRIN*
+Róbcie sobie tutaj, co chcecie. Tylko pozwólcie mi poszukać Florenta.
+*GWIAZDA ZARANNA*
+Oczywiście, że pozwolimy, ale ze względu na bezpieczeństwo naszych sióstr i braci, musicie najpierw przejść inicjację. Czy nie po to przynieśliście nam viverię?
+*KIRIN*
+Przynieśliśmy ją, bo kazałaś. Żeby zapłacić wpisowe czy coś.
+*GWIAZDA ZARANNA*
+[sb]Uśmiecha się ciepło.[/sb] Niee, to było dla was, żebyście mogli wstąpić z nami na ścieżki snów. Wtedy pozwolę wam rozmawiać z innymi Tkaczami.
+*KIRIN*
+Mamy po prostu z wami zapalić viverkę i tyle?
+*GWIAZDA ZARANNA*
+Mhm.
+*KIRIN*
+[sb]Patrzy zaskoczony to na ciebie to na Gwiazdę.[/sb] [imie], dawaj, przypalimy i może od razu znajdziemy Florenta. On buszka nigdy nie odmawiał.
+*GWIAZDA ZARANNA*
+[sb]Przenosi wzrok na ciebie.[/sb] Sny tu śnione mają moc zmieniania rzeczywistości. Może kraj twojego ojca podziękuje ci, że tutaj przyszedłeś.
+*GRACZ*
+Co masz na myśli?
+*GWIAZDA ZARANNA*
+Sam się przekonasz. Zapraszam do kręgu.
+*KIRIN*
+[sb]Z uśmiechem klepie cię po plecach.[/sb] Zawsze możesz się nie zaciągać. [sb]Dodaje ciszej.[/sb] Skoro ci wariaci mówią, że musimy z nimi zapalić — zapalimy, a potem robimy swoje.
+*GRACZ*
+W porządku. Codziennie coś nowego.{ETAP_47}
+
+##ETAP
+ETAP_47 ###Idź przyjarać z Tkaczami Snów. ###Udaj się we wskazane miejsce, żeby podjąć się inicjacji na Tkacza Snów.
+//Cutscenka: gracz idzie za Gwiazdą Zaranną na miejsce inicjacji. Na miejscu jest komplet Tkaczy, przed nimi utensylia — szisze i kubły z brunatną viverią.
+//warunek: walk trigger {ETAP_48}
+
+##ETAP
+ETAP_48 ###Wejdź na swoje miejsce do przeprowadzenia wizji. ###Trzeba kliknąć na wolny podświetlony materacyk.
+##DIALOG *INICJACJA*
+*INICJACJA*
+[sb]Miejsce, w którym możesz oddać się rytuałowi inicjacji.[/sb]
+*GRACZ*
+[sb]Kładziesz się z intencją wypalenia viverii.[/sb]{ETAP_49}
+[sb]Kładziesz się z zamiarem udawania, że palisz.[dost. ozn. przypau][/sb]{ETAP_53}
+//Uwaga produkcyjna: cutscenka jak gracz się kładzie — efekt rozmywania ekranu, postać otacza dym, ekran się ściemnia.
+
+##ETAP
+ETAP_49 ###Porozmawiaj z ojcem. ###Alternatywna wizja prologu. Jesteśmy przed miastem razem z ojcem.
+##DIALOG *OJCIEC*
+*OJCIEC*
+Wiedziałem, że dasz radę dotrzeć do Thalii. Zawsze w ciebie wierzyłem.
+*GRACZ*
+To naprawdę ty?
+*OJCIEC*
+Biegnij przez most! Ja zaczekam na resztę. Zaraz do ciebie dołączymy.
+*GRACZ*
+Na resztę?
+*OJCIEC*
+No tak. Na Eilira, Petra i Vivienne.
+*GRACZ*
+Ale przecież oni...
+*OJCIEC*
+Biegnij! Nie ma czasu.
+*GRACZ*
+Dobrze...{ETAP_50}
+
+##ETAP
+ETAP_50 ###Biegnij przez most do miasta. ###Kiedy jesteśmy na środku, most eksploduje. Gwałtowne ściemnienie ekranu i powolne rozjaśnienie.
+//warunek: eksplozja mostu -> {ETAP_51}
+
+##ETAP
+ETAP_51 ###Porozmawiaj z ojcem ###Jesteś w okupowanej Thalii pod cytadelą. Żołnierze stoją w równym szyku naokoło placu. Przed schodami Thaidos i ojciec. Thaidos oddaje honory ojcu, po czym zabija się. Ojciec podchodzi do gracza. Start gadki.
+##DIALOG *OJCIEC*
+*OJCIEC*
+Chodź za mną. Mamy ważne zadanie do wykonania.
+*GRACZ*
+//Uwaga produkcyjna: gate do sali mutacyjnej.
+Co tu się dzieje?{ETAP_52}
+
+##ETAP
+ETAP_52 ###Porozmawiaj z ojcem ###Jesteśmy w sali mutacyjnej. Ojciec stoi odwrócony do nas plecami. Podchodzimy i zagadujemy. Ojciec odwraca się i w obłoku dymu przemienia w Gwiazdę Zaranną.
+//DO PRZEROBIENIA: w końcowej fazie przenieść do Onira i pokazać jego grozę — tak żeby w obu przypadkach gracz miał świadomość zagrożenia ze strony tajemnicy Tkaczy.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+Witaj w naszym gronie, Tkaczu Snów. Pora wybrać swoje imię.
+*GRACZ*
+//Uwaga produkcyjna: fade in po tej wypowiedzi.
+Ale ja już mam swoje imię...{ETAP_57}
+
+##ETAP
+ETAP_53 ###Rozejrzyj się po jaskini. ###Gracz nie spalił maczanej viverii podczas inicjacji. Może swobodnie poruszać się po jaskini. Kiedy zbliży się do przejścia do kolejnej jaskini, etap zmienia się automatycznie.
+//warunek: walk trigger przy wejściu do sąsiedniej komory -> {ETAP_54}
+
+##ETAP
+ETAP_54 ###Zajrzyj do sąsiedniej komory ###Wróć na swoje stanowisko i oddaj się konsumpcji viverii albo zajrzyj do komory.
+//warunek: wejście do komory -> {ETAP_55}
+
+##ETAP
+ETAP_55 ###Rozejrzyj się po jaskini. ###Gracz odwiedza zakątek Onira.
+//warunek: po eksploracji -> {ETAP_56}
+
+##ETAP
+ETAP_56 ###Wróć do kręgu viverii. ###Wróć zanim ktoś się zorientuje, że krążysz po jaskini.
+##DIALOG *INICJACJA*
+*INICJACJA*
+[sb]Miejsce, w którym powinieneś leżeć, kiedy inni zakończą rytuał.[/sb]
+*GRACZ*
+[sb]Kładziesz się, żeby nie było przypału.[/sb]{ETAP_57}
+
+##ETAP
+ETAP_57 ###Porozmawiaj z Gwiazdą Zaranną ###Fadeout i budzimy się. Wstajemy z posłania. Nad nami stoi Gwiazda Zaranna.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+I jak podobał ci się rytuał inicjacji? Czy było coś szczególnego w twojej wizji?
+*GRACZ*
+[o]przypau[/o] Rzadko pamiętam swoje sny.{2.1}
+[o]brak_przypau[/o] Było w niej zaskakująco dużo mroku.{1.2}
+[o]brak_przypau[/o] Nie chcę o tym rozmawiać. To sprawa osobista.{1.2}
+{2.1}*GWIAZDA ZARANNA*
+[sb]Patrzy na ciebie przenikliwie i uśmiecha się pod nosem, jakby dokładnie wiedziała, co robiłeś w trakcie inicjacji.[/sb] To normalne u wielu osób. Nie przejmuj się.
+*KWIAT LOTOSU*
+[sb]Piękna kobieta przygląda ci się równie badawczo, za to bez uśmiechu.[/sb] Nie spotkałam go na ścieżkach snów. Jak mamy wybrać mu imię, skoro się tam nie widzieliśmy?
+*GWIAZDA ZARANNA*
+[sb]Uśmieszek nie znika z jej twarzy.[/sb] Ja mu nadam imię. Od teraz jesteś Błądzący w mroku.
+*GRACZ*
+Niech będzie.{2.2}
+{1.2}*GWIAZDA ZARANNA*
+Tkacze Snów porzucają swoje ziemskie imiona, żeby w końcu określić się tym, czym są w istocie. Wybrałeś już swoje imię?
+*GRACZ*
+Nie mam żadnego pomysłu.
+*GWIAZDA ZARANNA*
+[sb]Zwraca się do otaczających was ludzi.[/sb] Kochani, powitajcie naszego nowego brata. Nie pozwólcie, żeby dłużej był bezimienny. Jakie jest jego prawdziwe imię?
+*KWIAT LOTOSU*
+[sb]Piękna kobieta przygląda ci się przenikliwie.[/sb] Widziałam go w moim śnie. Był jak chmura na horyzoncie. Mroczna i fioletowa. To jest Ametystowy Zmierzch.
+*SZALEJĄCY OGIEŃ*
+Ja go nie widziałem, ale słyszałem. Brzmiał jak Głos Milionów.
+*GWIAZDA ZARANNA*
+Też spotkałam go na ścieżkach snów. Dla mnie jest Dawno Niewidziany.
+*GRACZ*
+Mogę nie wybierać imienia?{1.1}
+Niech będzie Dawno Niewidziany.{4.1}
+[sb]Zerkasz na Kwiat Lotosu.[/sb] Ujrzałaś mnie naprawdę. Jestem Ametystowy Zmierzch.{1.3}
+Tak, dobrze mnie usłyszałeś. Jestem Głos Milionów. Głos Milionów zabitych Taernijczyków.{1.4}
+{1.1}*GWIAZDA ZARANNA*
+Możesz, ale skazujesz się przez to na absolutną samotność. Żaden Tkacz z tobą nie porozmawia, ani nie wejdzie z tobą na ścieżki snów.
+*GRACZ*
+//DO WERYFIKACJI: oryginał ma dwie linie gracza bez skoków — interpretuję jako dwie opcje wyboru imienia.
+[sb]Wzdychasz ciężko.[/sb] Zatem niech będzie Głos Milionów.{1.4}
+Pasuje mi Dawno Niewidziany.{4.1}
+Ametystowy Zmierzch brzmi pięknie.{1.3}
+{4.1}*GWIAZDA ZARANNA*
+[sb]Uśmiecha się promiennie.[/sb] Zatem witaj z powrotem, Dawno Niewidziany.
+*KWIAT LOTOSU*
+Chętnie dołączę do ciebie na ścieżkach snów, żeby rozświetlić tę Ametystową Chmurę, którą jesteś.
+*SZALEJĄCY OGIEŃ*
+Oto przemówił Głos Milionów.
+*GWIAZDA ZARANNA*
+Witaj wśród Tkaczy. Opowiesz nam swoją historię na ścieżkach snów.
+*GRACZ*
+[sb]Spoglądasz na Kirina.[/sb]{1.5}
+{1.3}*GWIAZDA ZARANNA*
+[sb]Uśmiecha się promiennie.[/sb] Zatem witaj, Ametystowy Zmierzchu.
+*KWIAT LOTOSU*
+Wiedziałam.
+*SZALEJĄCY OGIEŃ*
+Oto przemówił Głos Milionów.
+*GWIAZDA ZARANNA*
+Witaj wśród Tkaczy. Opowiesz nam swoją historię na ścieżkach snów.
+*GRACZ*
+[sb]Spoglądasz na Kirina.[/sb]{1.5}
+{1.4}*GWIAZDA ZARANNA*
+[sb]Uśmiecha się promiennie.[/sb] Zatem witaj, Głosie Milionów.
+*KWIAT LOTOSU*
+Chętnie dołączę do ciebie na ścieżkach snów, żeby rozświetlić tę Ametystową Chmurę, którą jesteś.
+*SZALEJĄCY OGIEŃ*
+Oto przemówił Głos Milionów.
+*GWIAZDA ZARANNA*
+Witaj wśród Tkaczy. Opowiesz nam swoją historię na ścieżkach snów.
+*GRACZ*
+[sb]Spoglądasz na Kirina.[/sb]{1.5}
+{1.5}*KIRIN*
+Pogadaliście sobie? [sb]Zwraca się do Gwiazdy Zarannej.[/sb] Możemy już sobie tutaj swobodnie chodzić i rozmawiać z kim chcemy?
+*GWIAZDA ZARANNA*
+Dawno Niewidziany / Ametystowy Zmierzch / Głos Milionów — tak, ale ty nadal jesteś bezimienny. Jakie przyjmujesz imię?
+*KIRIN*
+Wybierzcie mi cokolwiek. I tak długo tu nie zabawię.
+*GWIAZDA ZARANNA*
+[sb]Uśmiecha się promiennie.[/sb] Niech tak będzie. Jesteś Oddech Znoju.
+*KIRIN*
+Co-o?! Jaki znowu Oddech Znoju? [sb]Macha ręką.[/sb] A dobra, nieważne. Niech będzie.
+*GRACZ*
+Piękne imię, nie narzekaj.{2.2}
+{2.2}*GWIAZDA ZARANNA*
+Dziękuję wszystkim za udział w rytuale inicjacji i powitanie dwóch nowych Tkaczy. Możecie się rozejść. A wam życzę powodzenia w waszych zamierzeniach. Jeśli będziecie czegoś potrzebować, przyjdźcie do mnie.
+*GRACZ*
+//Uwaga produkcyjna: Tkacze rozchodzą się, zostajecie sami z Gwiazdą.
+Dziękuję, Gwiazdo Zaranna.{3.1}
+{3.1}*GWIAZDA ZARANNA*
+[sb]Rozgląda się dookoła, żeby upewnić się, że nikt was nie słyszy.[/sb] Wiem, że nie jesteście tutaj, żeby kroczyć z nami po ścieżkach snów. Tak naprawdę najlepiej dla wszystkich będzie, jeśli jak najszybciej zrobicie, co macie do zrobienia i opuścicie nasze zgromadzenie.
+*GRACZ*
+Co chcesz przez to powiedzieć?
+*GWIAZDA ZARANNA*
+Że pomogę wam, ale muszę wiedzieć, po co naprawdę tu jesteście.
+*GRACZ*
+Kirin, powiedz, po co tutaj naprawdę jesteśmy.[dost. ozn. trusty]{3.3}
+[sb]Przypominasz sobie grozę czającą się w ukrytej jaskini i obawiasz się podstępu.[/sb] Szukamy ucieczki od zgiełku świata. Chcemy zbadać z wami ścieżki snów.[dost. ozn. non_trusty]{3.4}
+{3.3}*KIRIN*
+[sb]Wzdycha.[/sb] Raz kozie śmierć. Przychodzimy z wioski zbieraczy. Jeden z przewodników ukradł ładunek i prawie na pewno ukrył się u was. Szczególnie zależy mi na odzyskaniu Wielkiej Szypułki. Reszta nie ma znaczenia.
+*GWIAZDA ZARANNA*
+Dobrze, pomogę wam, bo nie chcę tutaj żadnego zamieszania. Dajcie ludziom żyć ich życiem.
+*GRACZ*
+[sb]Wymieniasz z Kirinem zaskoczone spojrzenia.[/sb]
+*GWIAZDA ZARANNA*
+Ale teraz musicie zachowywać się jak normalni Tkacze Snów. Dla mnie najważniejsze jest dobro mojej społeczności. Na razie rozejrzyjcie się po naszej grocie, porozmawiajcie z Tkaczami. Może rozjaśni wam się w głowach. Niedługo wyznaczę wam zadania i kiedy je wypełnicie — dam wam to, po co przyszliście. Mamy umowę?
+*GRACZ*
+Mamy.
+*GWIAZDA ZARANNA*
+Dobrze. Wobec tego bawcie się dobrze i nie róbcie kłopotów. Za chwilę kogoś do was przyślę.
+*GRACZ*
+Do zobaczenia.{ETAP_58}
+{3.4}*GWIAZDA ZARANNA*
+[o]przypau|1|To dlatego nie przyjąłeś viverii?[/o]
+[o]przypau|0|[/o][sb]Uśmiecha się ze zrozumieniem.[/sb] Witajcie wśród Tkaczy Snów. Jesteście wśród swoich.
+*GRACZ*
+przypau|1|Nie czułem się jeszcze gotowy. Musisz mi wybaczyć, ale obawiam się swoich ścieżek snów.{3.6}
+przypau|0|Dziękuję, Gwiazdo Zaranna.{3.5}
+{3.6}*GWIAZDA ZARANNA*
+Z nami oswoisz swoje lęki i nie będziesz bał się zajrzeć wgłąb siebie. Teraz pochodźcie po naszej grocie, porozmawiajcie z innymi Tkaczami. Niedługo wyznaczę wam zadania, tak jak każdemu innemu Tkaczowi.
+*GRACZ*
+Do zobaczenia.{ETAP_58}
+{3.5}*GWIAZDA ZARANNA*
+Teraz pochodźcie po naszej grocie, porozmawiajcie z innymi Tkaczami. Niedługo wyznaczę wam zadania, tak jak każdemu innemu Tkaczowi.
+*GRACZ*
+Do zobaczenia.{ETAP_58}
+
+//NOWI NPC — do dodania do bloku ##NPC w nagłówku questa:
+//NIEOCZEKIWANY ZWROT###???
+//POCZĄTKI WIELKOŚCI###???
+//SZEMRZĄCY STRUMIEŃ###???
+
+##ETAP
+ETAP_58 ###Idź za Kirinem. ###Kirin odchodzi nieco dalej, żeby nie być w pobliżu żadnego Tkacza. Start rozmowy uzależniony od postawy wobec Niry: trusty / non_trusty.
+##DIALOG *KIRIN*
+*KIRIN*
+Czy ona właśnie powiedziała, że chce nam pomóc?
+*GRACZ*
+[o]trusty|1|Na to wychodzi. Może i są wariatami, ale wydają się w porządku.[/o]{1.1}
+[o]trusty|0|Tak, ale boję się, że to jakiś podstęp. W tej bocznej jaskini — tam coś jest i to nie jest nic dobrego.[/o]{1.2}
+{1.1}*KIRIN*
+W moim śnie widziałem jakieś monstrum, które jest w tej bocznej jaskini. Mam nadzieję, że to był tylko sen.
+*GRACZ*
+[o]trusty|1|Ja widziałem to na żywo. To monstrum istnieje, więc tym bardziej nie chcę mieć tu wrogów. Jeśli Gwiazda chce nam pomóc — zabieramy Wielką Szypułkę i wiejemy stąd.{1.2}[/o]
+[o]trusty|0|Też to widziałem, ale nawet jeśli to nie był tylko sen — tym bardziej nie chcę mieć tu wrogów.{1.2}[/o]
+{1.2}*KIRIN*
+Założę się, że Szypułka jest dokładnie tam, gdzie ten stwór. Musimy szybko odnaleźć Florenta.
+*GRACZ*
+A potem wydostać szypułkę i wynosić się stąd.
+*KIRIN*
+[o]trusty|0|Tak. Nie mam zamiaru układać się z tą wariatką od Tkaczy. Działamy. Im szybciej stąd wyjdziemy, tym więcej czasu spędzę z Ambrozją.[/o]
+[o]trusty|1|Ciekawe, czy wariatka faktycznie zamierza nam ją oddać?[/o]
+*GRACZ*
+[o]trusty|0|Pełna zgoda.[/o]
+[o]trusty|1|Przekonamy się.[/o]
+*KIRIN*
+Dobra, [imie], rozdzielamy się i szukamy Florenta.
+*GRACZ*
+Pamiętam jak go opisałeś. Idziemy.{ETAP_59}
+Przypomnisz mi jego wygląd?{1.3}
+{1.3}*KIRIN*
+[sb]Uśmiecha się pod nosem.[/sb] Mamy szczęście, że jest taki paskudny. Od razu go poznasz. Mały, gruby i rudy. Zawsze lubił niebieskie kubraki. Teraz też powinien mieć taki na sobie.
+*GRACZ*
+Mały, gruby i rudo-niebieski. Jeśli tu jest, znajdziemy go.{ETAP_59}
+
+##ETAP
+ETAP_59 ###Przejdź się po jaskini Tkaczy Snów i poszukaj Florenta. ###Florent: mały, gruby, rudy, brzydki (uwaga produkcyjna: rozważyć zrobienie go mega przystojniakiem, żeby wyszło, że Kirin jest zazdrosny).
+//DO UZUPEŁNIENIA: okazjonalne gadki z kilkoma Tkaczami wg rozpisu z punktu 22 konspektu.
+//Warunek: walk trigger przy zbliżeniu do Florenta -> {ETAP_60}
+
+##DIALOG *NIEOCZEKIWANY ZWROT*
+*NIEOCZEKIWANY ZWROT*
+Nie widziałem cię tu wcześniej. Nowy brat/siostra?
+*GRACZ*
+Tak, dopiero dołączyłem do Tkaczy. Szukam swojego przyjaciela. Niski, ma rude włosy i taki przy kości. Widziałeś kogoś takiego?
+*NIEOCZEKIWANY ZWROT*
+[sb]Zamyśla się.[/sb] Hmm...
+*GRACZ*
+[sb]Cierpliwie czekasz.[/sb]
+*NIEOCZEKIWANY ZWROT*
+Mmmmmmm...
+*GRACZ*
+Mmm?
+*NIEOCZEKIWANY ZWROT*
+[sb]Nagle oczy uciekają mu w głąb czaszki.[/sb] Twój przyjaciel cię szuka, Nawałnico Snów!
+*GRACZ*
+Wszystko w porządku?
+*NIEOCZEKIWANY ZWROT*
+[sb]Jego oczy wracają na swoje miejsce.[/sb] Nawałnica Snów wie, że go szukasz. Będzie na ciebie czekał.
+*GRACZ*
+Jesteś telepatą albo coś?
+*NIEOCZEKIWANY ZWROT*
+Co? Nie! Po prostu lubię mówić do moich snów.
+*GRACZ*
+Mhm. Dzięki.{-1}
+
+##DIALOG *POCZĄTKI WIELKOŚCI*
+*POCZĄTKI WIELKOŚCI*
+[sb]Podnosi na ciebie starczy wzrok.[/sb]
+*GRACZ*
+Szukam mojego przyjaciela. Rudy, niewysoki i niezbyt chudy.
+*POCZĄTKI WIELKOŚCI*
+[sb]Opuszcza wzrok. Nie podejmuje kontaktu.[/sb]
+*GRACZ*
+[sb]Odchodzisz.[/sb]{-1}
+
+##DIALOG *SZEMRZĄCY STRUMIEŃ*
+*SZEMRZĄCY STRUMIEŃ*
+Hej, cześć! Jesteś tu nowy?
+*GRACZ*
+Tak, dopiero dołączyłem.
+*SZEMRZĄCY STRUMIEŃ*
+Literalnie zajeb***e. Naprawdę trzeba nam więcej luda. Tu jest literalnie w pytkę.
+*GRACZ*
+W pytkę?
+*SZEMRZĄCY STRUMIEŃ*
+Noo, świetnie, rewelacyjnie, literalnie czadowo i tak dalej. Jak Gwiazda odpala towar, to... [sb]Dziewczyna wydaje z siebie pełen ekscytacji okrzyk.[/sb]
+*GRACZ*
+Czyli dobrze się tu bawisz?
+*SZEMRZĄCY STRUMIEŃ*
+Tak! To literalnie najlepsze miejsce ever!
+*GRACZ*
+Długo już tu jesteś? Szukam przyjaciela.
+*SZEMRZĄCY STRUMIEŃ*
+No, trochę się tu bujam. Wszystkich nie znam, ale może dam radę ci pomóc.
+*GRACZ*
+[sb]Słowami Kirina opisujesz Florenta.[/sb]
+*SZEMRZĄCY STRUMIEŃ*
+Rudego mamy tutaj jednego, ale że brzydki? Nawałnica Snów to totalny Czad. [sb]Dziewczyna rumieni się.[/sb] Może kiedyś weźmie mnie na swoje ścieżki snów.
+*GRACZ*
+Wiesz gdzie go znajdę?
+*SZEMRZĄCY STRUMIEŃ*
+Często siedzi ze swoją ekipą na górnej galerii. Może tam go znajdziesz.
+*GRACZ*
+Dzięki.
+*SZEMRZĄCY STRUMIEŃ*
+Hej, skoro jesteś nowy to zapraszam do mojej ekipy. Ludzie literalnie best ever. Mamy totalne jazdy, że potem ciężko się pozbierać.
+*GRACZ*
+Dziękuję za zaproszenie. Przemyślę to.{-1}
+
+##ETAP
+ETAP_60 ###Porozmawiaj z Kirinem ###Kirin zachodzi drogę graczu zbliżającemu się do Florenta.
+//Uwaga produkcyjna: Kirin pojawia się żeby nie było, że gracz znalazł Florenta wcześniej niż on.
+##DIALOG *KIRIN*
+*KIRIN*
+Znalazłem go! Wszędzie poznam ten rudy łeb!
+*GRACZ*
+//Uwaga produkcyjna: poniższa kwestia jeśli gracz rozmawiał z Szemrzącym Strumieniem.
+Ponoć nie jest taki paskudny jak mówiłeś.
+*KIRIN*
+Jest, jest. Patrz na niego, tam stoi. [sb]Wskazuje na postawnego rudzielca, otoczonego wianuszkiem kobiet.[/sb]
+*GRACZ*
+[sb]Patrzysz z powątpiewaniem na Kirina.[/sb] Faktycznie brzydal.
+*KIRIN*
+Próbowałem z nim zagadać, ale poznał mnie i skurwiel chowa się przede mną. Musisz mi pomóc.
+*GRACZ*
+Po to tu jestem.
+*KIRIN*
+Będę szedł do niego od tej strony, a ty musisz go złapać przy tamtej grupie. Widzisz tych dziadków?
+*GRACZ*
+Tak.
+*KIRIN*
+Tam się na niego zaczaj. Nie ma innej drogi. Jak nie chce mnie spotkać, pójdzie tamtędy. Ruszaj!
+*GRACZ*
+[sb]Idziesz w wyznaczone miejsce.[/sb]{ETAP_61}
+
+##ETAP
+ETAP_61 ###Odetnij Florentowi drogę ucieczki. ###Gracz idzie we wskazane przez Kirina miejsce. Plan jednak się nie realizuje — Florent znajduje inne przejście i przechodzi nim.
+//warunek: Florent zmienia trasę -> {ETAP_62}
+
+##ETAP
+ETAP_62 ###Podążaj za Florentem. ###Plan Kirina nie wypalił. Florent zmienił trasę. Działaj szybko — znajdź drogę, żeby jak najszybciej go zatrzymać.
+//Uwaga produkcyjna: dokładny przebieg pościgu ustali się bezpośrednio w QA.
+//warunek: zatrzymanie Florenta -> {ETAP_63}
+
+##ETAP
+ETAP_63 ###Porozmawiaj z Florentem. ###Zatrzymałeś go.
+##DIALOG *FLORENT*
+*FLORENT*
+Przepraszam, chciałem przejść.
+*GRACZ*
+Ty jesteś Florent?
+*FLORENT*
+[sb]Chłopak staje jak wryty. Widać zaskoczenie na jego twarzy.[/sb] Ja? Pomyliłeś mnie z kimś. Ja jestem Nawałnica Snów.
+*KIRIN*
+[sb]Dobiega do was.[/sb] Chyba nawałnica kłamstw, Florent. Co ty odwalasz?
+*FLORENT*
+[sb]Na widok Kirina uchodzi z niego powietrze.[/sb] Nijak się od was uwolnić. Stary wszędzie mnie wytropi.
+*KIRIN*
+Żebyś wiedział. Amril tam prawie umarł przez ciebie. A najbardziej, że nie przyniosłeś mu Szypułki. Talosowie strasznie go cisną.
+*FLORENT*
+I niech go cisną. Mam w dupie jego i Talosów. Całe życie chciałem uciec od tego wszystkiego.
+*KIRIN*
+Każdy wcześniej czy później chce to rzucić, ale ty — brawo za styl.
+*FLORENT*
+Dobra, czego ode mnie chcesz? Bo ja nie wrócę do wioski!
+*KIRIN*
+Florent, twoi ludzie poginęli. Znaleźliśmy ich na rozlewiskach.
+*FLORENT*
+[sb]Na jego twarz wkrada się cień zwątpienia.[/sb] Tak, wiem. Nie chciałem tego. Część jest tutaj ze mną, zostali Tkaczami. Ci którzy nie chcieli, wracali...
+*KIRIN*
+Puściłeś ich samych przez rozlewiska. Sprzeniewierzyłeś nasze zasady przewodników.
+*FLORENT*
+[sb]Spuszcza wzrok.[/sb] Wiem.
+*GRACZ*
+Florent, co to za miejsce? Porzuciłeś dla niego swoje życie.
+*FLORENT*
+[sb]Rozgląda się, jakby ujrzał tę jaskinię po raz pierwszy.[/sb] Bo to nie było życie. To była wieczna udręka od rana do zmierzchu. Prowadzenie ludzi, widok ich losu zbieraczy i ten głos, ten głos wołający z głębi rozlewisk. Kirin, też słyszysz ten głos.
+*KIRIN*
+[sb]Przytakuje.[/sb] Ale to nie znaczy, że trzeba go słuchać.
+*FLORENT*
+Ty masz Ambrozję, tobie jest łatwiej. Do mnie zawsze mówiły wyłącznie rozlewiska. Dlatego tu jestem. W końcu wolny, mogę swobodnie chodzić po ścieżkach snów.
+*KIRIN*
+[sb]Kiwa głową.[/sb] Oj Florent, Florent. Tak, masz rację. Dla ciebie nie ma już powrotu, ale staremu tak naprawdę chodzi tylko o ładunek i przede wszystkim — Wielką Szypułkę.
+*FLORENT*
+[sb]Ożywia się na te słowa. Jego wzrok odruchowo podąża w stronę odległego końca jaskini, gdzie znajduje się Gwiazda Zaranna i jej ludzie.[/sb]
+*GRACZ*
+Oddałeś jej Szypułkę.
+*FLORENT*
+Oczywiście. Skoro tu jesteście, to wiecie, jakie są warunki.
+*KIRIN*
+Florent, kurwa!
+*GRACZ*
+[sb]Widzisz, że zaczęliście zwracać na siebie uwagę.[/sb]
+*KIRIN*
+[sb]Mówi ściszonym głosem.[/sb] Nie mów, że ją spaliliście! Ta Szypułka to moja przepustka do nowego życia!
+*FLORENT*
+[sb]Zaczyna się śmiać.[/sb] No proszę, do mojego też. Nie widziałem, żeby była użyta, ale i nie wiem, co się z nią teraz dzieje.
+*KIRIN*
+Pomożesz mi ją odzyskać.
+*FLORENT*
+[sb]Spogląda na ciebie.[/sb] On ci pomoże. Widzę, że stary nie żałuje kasy, skoro dał ci taką obstawę.
+*KIRIN*
+Florent, jesteś mi to winien!
+*FLORENT*
+Gówno ci jestem winien! I Amrilowi, i Talosom. Po prostu się pierdolcie i dajcie mi żyć własnym życiem.
+*GRACZ*
+Kirin, budzimy zainteresowanie. Z niego nic nie będzie.
+*FLORENT*
+[sb]Uśmiecha się cynicznie i z wyrazem triumfu. Jeśli miał jakieś wyrzuty sumienia z powodu śmierci jego ludzi, to właśnie głęboko je pogrzebał.[/sb]
+*KIRIN*
+[sb]Jego oczy ciskają pioruny, ale widać w nich bezsilność.[/sb]
+*GRACZ*
+Chodź. [sb]Odciągasz Kirina.[/sb]{ETAP_64}
+
+##ETAP
+ETAP_64 ###Odejdź w dyskretne miejsce i porozmawiaj z Kirinem. ###Gracz odciąga Kirina od Florenta.
+##DIALOG *KIRIN*
+*KIRIN*
+Przeklęty Florent. Co go opętało?
+*GRACZ*
+To samo, co i ciebie. Rozlewiska go zniszczyły, ale ty znalazłeś lepszą ścieżkę. Dzięki Ambrozji.
+*KIRIN*
+Dzięki Ambrozji. Uratowała mnie.
+*GRACZ*
+Tak, a teraz ty musisz dać jej życie na jakie zasługuje.
+*KIRIN*
+Nie wyjdę stąd, dopóki nie znajdę Szypułki albo nie potwierdzę, że jej już nie ma.
+*GRACZ*
+Znajdziemy ją, ale teraz musimy trochę przycichnąć. Zwróciliśmy na siebie za dużą uwagę, a to nam nie pomoże.
+*KIRIN*
+[sb]Nadal jest bardzo pobudzony, ale stara się uspokoić.[/sb] Masz rację. Wtopimy się w tło i będziemy robić swoje.
+*GRACZ*
+Rozejrzyjmy się po tej dziurze. Może coś zwróci naszą uwagę.{ETAP_65}
+
+//NOWI NPC — do dodania do bloku ##NPC w nagłówku questa:
+//PYZATY PEJS###???
+//WZNIOSŁA MELODIA###???
+//POWIEW WIATRU###???
+//ROZLEGŁY PEJZAŻ###???
+//JĘCZĄCA ZAJĘCZYCA###???
+
+##ETAP
+ETAP_65 ###Porozmawiaj z Kirinem. ###Gracz robi kilka kroków — podchodzi Szemrzący Strumień ze zleceniem od Gwiazdy Zarannej.
+##DIALOG *SZEMRZĄCY STRUMIEŃ*
+*SZEMRZĄCY STRUMIEŃ*
+Mam nadzieję, że udało wam się już u nas zadomowić.
+*KIRIN*
+Można tak powiedzieć.
+*SZEMRZĄCY STRUMIEŃ*
+Bycie Tkaczem to nie tylko przywilej stąpania po ścieżkach snów, ale również obowiązki. Gwiazda Zaranna kazała mi przekazać wam wasze zadanie.
+*GRACZ*
+Co mamy zrobić?{1.1}
+Nie umawialiśmy się, że mamy coś dla was robić. Musimy je wykonać?{1.1}
+{1.1}*SZEMRZĄCY STRUMIEŃ*
+Przejdźcie się po grupach Tkaczy, którzy wystawili znak, że potrzebują naszej viverii do ich podróży. Zbierzcie zamówienia i przedstawcie je Gwieździe Zarannej.
+*KIRIN*
+Czemu sobie po prostu nie wyskoczą narwać? Odkąd Amril wstrzymał wyjścia, pełno jest tego na polach.
+*SZEMRZĄCY STRUMIEŃ*
+[sb]Unosi brwi w udawanym zdziwieniu.[/sb] A widziałeś naszą viverię?
+*KIRIN*
+Przerabiacie ją jakoś?
+*GRACZ*
+[sb]Odciąga Kirina.[/sb] Przejdziemy się po Tkaczach i popytamy, czy komuś coś brakuje.
+*SZEMRZĄCY STRUMIEŃ*
+Dziękuję, [tkaczowe imie gracza].
+*GRACZ*
+Chodź, Kirin, zaczniemy od tamtej trójki.{ETAP_66}
+
+##ETAP
+ETAP_66 ###Zbierz zamówienia na viverię od Tkaczy. ###Poniższe dialogi są opcjonalne i powtarzalne — kończą się {-1}. Etap z dziadkami (ETAP_67) musi być ostatni ze względu na wywózkę trupa.
+//Uwaga produkcyjna: ekipa imprezowa — Słaniająca się Łania, Nerwowy Jeleń, Rumiana Drwina, Wielki Kęs. Młode w skąpym odzieniu, rozbawione; kolesie na luzaku.
+
+##DIALOG *NERWOWY JELEŃ*
+*NERWOWY JELEŃ*
+Jesteście tu nowi? Witajcie wśród Tkaczy.
+*RUMIANA DRWINA*
+[sb]Spogląda na ciebie zalotnie.[/sb] Coraz więcej ciekawych osób się tutaj kręci.
+*NERWOWY JELEŃ*
+[sb]Wyciska na jej ustach agresywny pocałunek.[/sb] Nie powinnaś za bardzo się rozglądać.
+*GRACZ*
+Gwiazda Zaranna kazała zapytać czy nie potrzebujecie viverii.{1.1}
+Jak się tutaj znaleźliście?{1.2}
+{1.2}*NERWOWY JELEŃ*
+Jak ich tutaj przyprowadziłem. Mieliśmy wpaść tylko na chwilę, ale tutaj okazało się lepiej niż myśleliśmy.
+*SŁANIAJĄCA SIĘ ŁANIA*
+[sb]Odkleja się od Jelenia.[/sb] I zostaliśmy. Tylko tutaj możemy być sobą. [sb]Z powrotem wtula się w Jelenia, niedbając o to, że sukienka podciągnęła jej się zbyt wysoko.[/sb]
+*RUMIANA DRWINA*
+[sb]Dołącza do Łani i wtula się w Jelenia z drugiej strony.[/sb] To miejsce nie zna ograniczeń. Skorzystaj z tego. [sb]Uśmiecha się dwuznacznie i całuje Łanię w usta.[/sb]
+*GRACZ*
+Macie wystarczającą ilość viverii, czy potrzebujecie dokładki?
+{1.1}*NERWOWY JELEŃ*
+[sb]Uwalnia się od dziewczyn i rozgląda nieco nieprzytomnym wzrokiem.[/sb] Czekaj, faktycznie, wszystko już wyszło.
+*RUMIANA DRWINA*
+[sb]Jej głos jest senny. Mówi powoli.[/sb] Poprosimy o dokładkę.
+*GRACZ*
+Dam znać komu trzeba. Bawcie się dobrze.{-1}
+//Uwaga produkcyjna: {-1} = oznaczenie, że gracz już z nimi zagadał.
+
+##DIALOG *BŁĄDZĄCY WZROK*
+//Uwaga produkcyjna: badacz uzależniony od viverii — daje mu złudzenie, że jest z rodziną, która zginęła w pożarze.
+*BŁĄDZĄCY WZROK*
+Mira, dobrze, że w końcu zdecydowałaś się przyjąć posadę u Adelweigów. Jesteś zdolna i zrobisz wielką karierę.
+*KIRIN*
+Dziadzia bredzi.
+*BŁĄDZĄCY WZROK*
+Chyba jak każdy tutaj.
+*BŁĄDZĄCY WZROK*
+[sb]Jego wzrok ogniskuje się na tobie, jakby dopiero co cię zauważył.[/sb] Mira? A, wróciłem. [sb]Rozgląda się przytomniej.[/sb] Czego chcecie?
+*GRACZ*
+Przysyła mnie Gwiazda Zaranna z pytaniem, czy masz wystarczającą ilość viverii.
+*BŁĄDZĄCY WZROK*
+Ach, viveria. Cóż to za cudowny środek zesłany nam przez Niksę. Próbowałem poznać wszystkie sekrety tej rośliny, ale wychodzi na to, że ona poznała moje.
+*KIRIN*
+Spotkałem już niejednego takiego. Wszystkich pochłonęły rozlewiska.
+*BŁĄDZĄCY WZROK*
+Więc miałem więcej szczęścia, bo trafiłem tutaj. Chciałem poznać viverię i dać ludzkości jej moc. Ale sam okazałem się zbyt słaby.
+*KIRIN*
+Mhm, tak, to częsty przypadek. Wmawiasz sobie, że robisz to dla ludzkości, a tak naprawdę wpadasz coraz głębiej w pułapkę viverii.
+*BŁĄDZĄCY WZROK*
+[sb]Przytakuje w milczeniu.[/sb] Ale przynajmniej dzięki niej mogę widzieć się z moją rodziną. Zanim zginęła w pożarze.
+*KIRIN*
+Spotykasz się z viverią. Z niczym więcej.
+*BŁĄDZĄCY WZROK*
+Tak, ale to jedyne co mi zostało. Wracając do twojego pytania: przyda mi się świeża dostawa.
+*GRACZ*
+Dam znać, komu trzeba.{-1}
+//Uwaga produkcyjna: {-1} = oznaczenie, że gracz już z nimi zagadał.
+
+//warunek: komplet oznaczeń po rozmowach z Tkaczami -> {ETAP_67}
+
+##ETAP
+ETAP_67 ###Porozmawiaj z kolejnymi Tkaczami. ###Ten etap musi być ostatnim z zestawu zbierania zamówień — ze względu na wywózkę trupa. Czteroosobowa grupa w podeszłym wieku: Pyzaty Pejs, Wzniosła Melodia, Powiew Wiatru i leżący nieżywy Rozległy Pejzaż.
+##DIALOG *PYZATY PEJS*
+*PYZATY PEJS*
+Witajcie, Tkacze. Przysyła was Gwiazda Zaranna?
+*GRACZ*
+Tak. Mamy zapytać, czy trzeba wam więcej viverii. [sb]Wskazujesz na leżącego mężczyznę.[/sb] Wszystko z nim w porządku?
+*WZNIOSŁA MELODIA*
+[sb]Odpowiada z uśmiechem.[/sb] Tak. Nie żyje.
+*KIRIN*
+Chyba inaczej rozumiem, co to znaczy w porządku.
+*PYZATY PEJS*
+[sb]Uśmiecha się tajemniczo.[/sb] Rozległy Pejzaż umarł na swoich warunkach, szczęśliwy na ścieżkach snów. Po to tutaj przybyliśmy.
+*KIRIN*
+[sb]Kiwa głową z udawanym zrozumieniem.[/sb] Wspaniały plan.
+*GRACZ*
+//Uwaga produkcyjna: spawnują dwaj ludzie Niry i podchodzą do grupy.
+Co z nim zrobicie?
+*PYZATY PEJS*
+Czekamy na grabarzy od Gwiazdy Zarannej. Zajmą się ciałem. O, oto są. [sb]Zwraca się do nowoprzybyłych.[/sb] Rozległy Pejzaż przeszedł na stronę snów.
+*POSZUKIWACZ PRAWDY*
+[sb]Kiwa na swojego kolegę.[/sb] Bierzemy go.
+*GRACZ*
+[sb]Przyglądasz się w milczeniu.[/sb]
+*KIRIN*
+Gdzie go zabieracie?
+*POSZUKIWACZ PRAWDY*
+[sb]Na chwilę zatrzymuje się i zerka na Kirina.[/sb] Tam, gdzie ostatecznie wszyscy trafimy.
+*KIRIN*
+[sb]Znowu przybiera ten wyraz twarzy, że niby wszystko rozumie i akceptuje, ale nie do końca.[/sb]
+*GRACZ*
+[sb]Widzisz, jak mężczyźni wracają do swoich czynności.[/sb]{ETAP_68}
+//Cutscenka: ściemnienie i intertitle — „Ludzie Gwiazdy Zarannej zabierają zwłoki mężczyzny w stronę jej części jaskini." Rozjaśnienie. NPC Rozległy Pejzaż znika ze sceny. Automatyczny start gadki z Pyzatym Pejsem.
+
+##ETAP
+ETAP_68 ###Kontynuuj rozmowę z Tkaczami. ###Po wywózce trupa Pyzaty Pejs, Wzniosła Melodia i Powiew Wiatru kontynuują rozmowę.
+##DIALOG *WZNIOSŁA MELODIA*
+*WZNIOSŁA MELODIA*
+Pytałeś, czy potrzebujemy więcej viverii. Jeśli zbierasz zamówienia od Gwiazdy, to przekaż, że poprosimy większą porcję. Musimy odwiedzić naszego przyjaciela na ścieżkach snów, zanim odejdzie do kręgu dusz.
+*POWIEW WIATRU*
+I wkrótce do niego dołączymy na stałe.
+*GRACZ*
+Wszyscy zamierzacie tu umrzeć?
+*PYZATY PEJS*
+Tak. Lepiej tutaj na ścieżkach snów, niż w śmierdzącej chałupie w otoczeniu rodziny, która tylko czeka na nasz ostatni oddech, żeby zacząć walczyć o naszą schedę.
+*KIRIN*
+Chyba nie każda rodzina taka jest. Mam nadzieję lepiej wychować moje dzieci.
+*PYZATY PEJS*
+Tego ci życzymy. Widzę po oczach, że właśnie przeżywasz swój najpiękniejszy czas w życiu. Co wobec tego tutaj robisz?
+*KIRIN*
+Zarabiam na to życie. Wy macie swoje ścieżki snów, a mój sen jest tam, na powierzchni.
+*WZNIOSŁA MELODIA*
+[sb]Uśmiecha się uroczo.[/sb] Dziękuję za szczerość. Jesteś wspaniałym młodzieńcem i masz szansę na wspaniałe życie. Nam zostały już tylko ścieżki snów.
+*PYZATY PEJS*
+[sb]Rozgląda się wokoło.[/sb] Ale nie mamy już viverii. Wy chyba zbieracie zamówienia, prawda?
+*GRACZ*
+[sb]Przytakujesz.[/sb]
+*PYZATY PEJS*
+Więc przekażcie Gwieździe, że poprosimy dodatkową porcję. Chcemy spędzać na ścieżkach snów coraz więcej czasu. Każde wybudzenie to przykre rozczarowanie rzeczywistością.
+*GRACZ*
+W porządku. Przekażę. [sb]Kiwasz na Kirina, żeby szedł za tobą.[/sb]{ETAP_69}
+
+##ETAP
+ETAP_69 ###Odejdź na bok i porozmawiaj z Kirinem. ###Awans etapu kiedy gracz osiągnie punkt docelowy.
+//warunek: walk trigger przy dyskretnym miejscu -> {ETAP_70}
+
+##ETAP
+ETAP_70 ###Porozmawiaj z Kirinem. ###Kirin i gracz na uboczu.
+##DIALOG *KIRIN*
+*KIRIN*
+To miejsce ściąga chyba każdego wariata od Beirn po Laerdmor.
+*GRACZ*
+Chcącemu nie dzieje się krzywda.
+*KIRIN*
+[sb]Jego wzrok kieruje się w stronę, gdzie siedzi Gwiazda Zaranna i jej ludzie.[/sb] Tam zanieśli trupa, tam trzymają viverią, stamtąd wyciągają maczankę.
+*GRACZ*
+I tam jest stwór, którego widzieliśmy.
+*KIRIN*
+I dokładnie tam musimy pójść, żeby wykonać nasze zadanie.
+*GRACZ*
+//Uwaga produkcyjna: respawnuje człowiek Gwiazdy i podchodzi do nich.
+Myślisz, że reszta Tkaczy wie o potworze, który tam jest?
+*KIRIN*
+Nie mam pojęcia, ale raczej nie. Nie byliby tacy pogodzeni ze swoim losem. [sb]Zauważa człowieka Gwiazdy.[/sb] Chciałeś czegoś?
+*POSZUKIWACZ PRAWDY*
+Zebraliście już zamówienia na viverię?
+*GRACZ*
+Tak, odwiedziliśmy właściwie wszystkich.
+*POSZUKIWACZ PRAWDY*
+To idźcie jeszcze do Jęczącej Zajęczycy. Dawno nie składała zamówień i Gwiazda Zaranna martwi się o nią. Tam ma swój kącik. [sb]Wskazuje kierunek.[/sb]
+*GRACZ*
+W porządku.{ETAP_71}
+
+##ETAP
+ETAP_71 ###Idź do Jęczącej Zajęczycy. ###Kiedy gracz zbliży się do wyznaczonego miejsca, zmienia się etap i automatycznie startuje gadka z Kirinem.
+//warunek: walk trigger przy kąciku Zajęczycy -> {ETAP_72}
+
+##ETAP
+ETAP_72 ###Porozmawiaj z Kirinem. ###Na polecenie Poszukiwacza Prawdy gracz idzie z Kirinem do Zajęczycy. Laska siedzi sama w najdalszej części jaskini — obłęd w oczach, kurtka wypchana maczaną viverią, otacza ją kłąb dymu. Ciągle jara.
+##DIALOG *KIRIN*
+*KIRIN*
+Nie wygląda, jakby brakowało jej maczanej viverii.
+*GRACZ*
+A podobno dawno nie zwracała się do Zarannej o dokładkę.
+*KIRIN*
+Może ma jakieś dojścia?
+*GRACZ*
+Mam przeczucie, że dowiemy się o niej czegoś, co nam pomoże.
+*KIRIN*
+Przeczucia w tym miejscu to groźna rzecz.
+*GRACZ*
+Będzie dobrze.{ETAP_73}
+
+##ETAP
+ETAP_73 ###Porozmawiaj z Jęczącą Zajęczycą. ###Dziewczyna siedzi pogrążona w kłębach dymu i snach.
+##DIALOG *JĘCZĄCA ZAJĘCZYCA*
+*JĘCZĄCA ZAJĘCZYCA*
+[sb]Dziewczyna siedzi pogrążona w kłębach dymu i swoich snach.[/sb]
+*GRACZ*
+Halo, słyszysz mnie? [sb]Potrząsasz ją za ramię.[/sb]
+*JĘCZĄCA ZAJĘCZYCA*
+[sb]Dziewczyna mruczy coś niezrozumiale.[/sb]
+*KIRIN*
+Żyje, to dobrze. Halo! Zajęczyca, jesteś tam?
+*JĘCZĄCA ZAJĘCZYCA*
+[sb]Dziewczyna zaczyna drżeć i wydawać dziwne dźwięki. Drżenie przechodzi w szarpanie się — wygląda, jakby śniła koszmar i chciała się z niego wydostać.[/sb]
+*GRACZ*
+Hej, obudź się! [sb]Wymierzasz jej policzek.[/sb]
+*JĘCZĄCA ZAJĘCZYCA*
+[sb]Policzek nie przyniósł oczekiwanego skutku. Dziewczyna nadal rzuca się uwięziona w swoim umyśle.[/sb]
+*KIRIN*
+[sb]Sięga po jej sziszę, która nadal pełna jest maczanej viverii.[/sb] Gruby, palisz?
+*GRACZ*
+[o]Jeśli to jedyna droga.[/o] [sb]Sięgasz po sziszę.[/sb]{ETAP_74}
+Raz zapaliłem i żyję. Zapalę i drugi. Dawaj to.{ETAP_74}
+Poczekaj. Ostatnia próba.
+*KIRIN*
+Tylko nie strzel jej za mocno w pysk. Nie chcesz jej zabić.
+*GRACZ*
+[sb]Wymierzasz dziewczynie naprawdę mocny policzek. Niestety bez efektu.[/sb]
+*KIRIN*
+[sb]Z wymowną miną oferuje ci sziszę.[/sb]
+*GRACZ*
+[sb]Bierzesz ustnik i tym razem zaciągasz się dymem viverii. Bardzo głęboko.[/sb]{ETAP_74}
+
+##ETAP
+ETAP_74 ###Porozmawiaj z Jęczącą Zajęczycą w sennej wizji. ###Palisz z sziszy Zajęczycy. Ściemnienie. W oparach snu przenosimy się do jaskini Onira — Zajęczyca kuca przy niecce pogrążona w katatonii.
+//Uwaga produkcyjna: animacja niecki Onira — plugawe jacuzzi pełne wijących się ciał. Co jakiś czas na powierzchni pojawia się kończyna, głowa, kolano. Towarzyszą temu dźwięki jakby Japończyk siorbał ramen uzupełnione o zmysłowe stęki.
+##DIALOG *JĘCZĄCA ZAJĘCZYCA*
+*JĘCZĄCA ZAJĘCZYCA*
+Czułam, że zjawicie się na moich ścieżkach snów.
+*GRACZ*
+Tam na jawie wyglądasz strasznie. Jakby cię coś więziło.
+*JĘCZĄCA ZAJĘCZYCA*
+Bo tak jest. Więzi mnie moje przeznaczenie. Nie mogę oderwać wzroku od tej wizji. Odrzuca mnie i pociąga jednocześnie.
+*GRACZ*
+Pomożemy ci stąd wyjść.
+*JĘCZĄCA ZAJĘCZYCA*
+[sb]Powoli kiwa głową.[/sb] Dobrze. Musisz siłą oderwać mnie od tego widoku. Inaczej się nie ruszę.
+*KIRIN*
+[sb]Podnosi dziewczynę i stawia ją na nogi.[/sb] [imie], stań tak, żeby nie widziała tego, co dzieje się w tej niecce.
+*GRACZ*
+Dobrze.{ETAP_75}
+
+##ETAP
+ETAP_75 ###Ustaw się w miejscu, gdzie przesłonisz dziewczynie widok niecki. ###Kiedy gracz znajdzie się w odpowiednim miejscu, skacze etap i odpala rozmowa z Zajęczycą.
+//warunek: gracz staje w odpowiednim miejscu -> {ETAP_94}
+
+##ETAP
+ETAP_94 ###Porozmawiaj z Jęczącą Zajęczycą. ###Gracz zasłonił Zajęczycy widok niecki.
+##DIALOG *KIRIN*
+*KIRIN*
+Tak lepiej? Możesz już chodzić?
+*JĘCZĄCA ZAJĘCZYCA*
+[sb]Przytakuje.[/sb] Wyprowadźcie mnie stąd.
+*GRACZ*
+Dobrze, chodź za mną.{ETAP_95}
+
+##ETAP
+ETAP_95 ###Zaprowadź Zajęczycę do wyjścia z groty. ###Gracz idzie do normalnego wyjścia, ale po kilku krokach cutscenka.
+//Uwaga produkcyjna: block walk, kamera centruje się na Zajęczycy, dymek: „Nie tędy. Tam mnie zobaczą. Znam inne przejście, pokażę wam."
+//Uwaga produkcyjna: tajne przejście nie może działać w dwie strony w rzeczywistości — sterczą z niego włosy Niksy, po których wchodzą do góry.
+//warunek: po cutscence -> {ETAP_96}
+
+##ETAP
+ETAP_96 ###Idź za Jęczącą Zajęczycą. ###Dziewczyna prowadzi do tajnego wyjścia. Dociera do otworu nad balkonem — na jej rozkaz z otworu wysuwają się włosy Niksy.
+//Uwaga produkcyjna: dymek Zajęczycy — „Wejdźcie do góry. Widzimy się po drugiej stronie." Dziewczyna podchodzi do pnączy i znika.
+//warunek: gracz klika na pnącza -> {ETAP_97}
+
+##ETAP
+ETAP_97 ###Wejdź po pnączach do tajemnego przejścia. ###Ściemnienie i gate do dużej groty. Rozjaśnienie — gracz, Kirin i Zajęczyca stoją przy wyjściu. Przed nimi Onir. Unosi dłoń i wskazuje na Zajęczycę. Start dialogu.
+##DIALOG *ONIR*
+*ONIR*
+Jesteś gotowa. Zostaniesz wyniesiona.
+*GRACZ*
+[sb]Czujesz, że nie możesz się ruszyć. Jesteś sparaliżowany, jak w koszmarze.[/sb]
+*ONIR*
+[sb]Przenosi wzrok na ciebie.[/sb]
+*GRACZ*
+[sb]Czujesz, jak jakaś brutalna siła pokonuje twój opór i boleśnie wrzyna ci się w umysł. Wszystkie twoje wstydliwe sekrety zostają wywleczone na powierzchnię. Czujesz, jak osuwasz się w ciemność.[/sb]{ETAP_98}
+
+##ETAP
+ETAP_98 ###Porozmawiaj z Gwiazdą Zaranną. ###Fadein i intertitle: „Masz wrażenie, jakbyś z wielką prędkością wynurzał się z dna głębokiego jeziora." Fadeout — budzisz się tam, gdzie wypaliliście viverkę. Cutscenka: Zajęczyca odchodzi w towarzystwie ludzi Gwiazdy. Gwiazda Zaranna stoi nad wami. Automatyczny start gadki.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+[sb]Spogląda za odprowadzaną dziewczyną.[/sb] Widzę, że poznaliście się z Jęczącą Zajęczycą w jej wyjątkowym dniu. Dniu, kiedy dostąpiła wyniesienia.
+*GRACZ*
+Nie wiem, czy to taki zaszczyt. Dziewczyna wydawała się psychicznie zgnębiona.
+*KIRIN*
+I tam w jaskini macie jakiegoś potwora. Czy to nie przeszkadza reszcie Tkaczy?
+*GWIAZDA ZARANNA*
+[sb]Uśmiecha się wyrozumiale.[/sb] Jesteście dopiero na początku waszej drogi i wielu spraw jeszcze nie rozumiecie. Onir — ten, jak to mówisz, potwór — to źródło naszych snów i połączenie, jakie między sobą mamy. To przyjaciel.
+*GRACZ*
+Ładny mi przyjaciel.
+*GWIAZDA ZARANNA*
+[o]przypau|1|Spełniliście moją prośbę, ja spełnię waszą.[/o]
+[o]przypau|0|Powoli wspinacie się w drodze świadomości Tkacza, ale jeszcze długa droga przed wami. Zanim dostąpicie wyniesienia, jak Zajęczyca, musicie okazać się przydatni dla naszej społeczności. Mam dla ciebie [tkaczowe imię gracza] zadanie.[/o]
+*GRACZ*
+[o]przypau|0|Zamieniam się w słuch.[/o]{1.2}
+[o]przypau|1|Zamieniam się w słuch.[/o]{1.3}
+{1.2}*GWIAZDA ZARANNA*
+Ty, [tkaczowe imię gracza], zastąpisz Kaleczącego Śpiewaka na wejściu do naszej groty. Będziesz witał nowoprzybyłych, tak jak sam byłeś przywitany.
+*GRACZ*
+Dość odpowiedzialne zadanie.
+*GWIAZDA ZARANNA*
+Zgadza się. My Tkacze Snów ufamy sobie w każdy sposób. Idź i przywitaj każdego, kto zechce do nas dołączyć.
+*KIRIN*
+A dla mnie masz jakieś zadanie?
+*GWIAZDA ZARANNA*
+Zamienisz [tkaczowe imię gracza] na jego stanowisku, kiedy nadejdzie czas. Na razie nic dla ciebie nie mam.
+*GRACZ*
+W porządku. Nie pozostaje mi nic innego, niż wypełnić mój obowiązek Tkacza.
+*GWIAZDA ZARANNA*
+[sb]Uśmiecha się, jakby doceniała twoją niezamierzoną ironię.[/sb] Powodzenia.
+*GRACZ*
+Dziękuję.{ETAP_76}
+{1.3}*GWIAZDA ZARANNA*
+[sb]Wyciąga Szypułkę. Jej obecność niemalże rozświetla jaskinię.[/sb] Spełniliście moją prośbę, dałam wam szansę na poznanie ścieżek snów, ale jeśli nadal nie chcecie do nas dołączyć — nie będę was zatrzymywać.
+*KIRIN*
+[sb]Z niedowierzaniem bierze szypułkę do rąk.[/sb] Dziękuję, Gwiazdo Zaranna. Miałem was za wariatów, ale nie jesteście tacy źli. Chyba.
+*GRACZ*
+Dziękuję, Gwiazdo Zaranna. Żegnaj.{ETAP_132}
+
+
+
+
+
+
+
+
+//BIT: Spotkanie z Silvio i decyzja o współpracy lub jej braku.
+##ETAP
+ETAP_76 ###Porozmawiaj z Kirinem ###Gwiazda Zaranna odchodzi i zostajecie sami z Kirinem.
+
+//DO PRZEMYŚLENIA: ewentualnie zostawić wersję bardziej zgodną z konceptem — nie wprowadzać jeszcze Onira, a scenę z Zajęczycą zrobić bardziej tajemniczo.
+
+##DIALOG *KIRIN*
+*KIRIN*
+[o]przypau|1|Kiedy ty będziesz pilnował wejścia, ja się tutaj rozejrzę. Dzięki tej biednej Jęczącej Zajęczycy wiemy, jak można wejść do komnaty gdzie trzymają viverię.
+*GRACZ*
+[o]przypau|1|Pytanie, czy da się wrócić tą samą drogą.
+[o]przypau|0| Przekonamy się. Jeśli będzie wymyślać coraz to nowe zadania, trzeba będzie działać samemu.
+*KIRIN*
+[o]przypau|1|Tego się nie dowiemy, gdybając. Rozejrzę się.[o]przypau|0|Ty idź rób co ci kazała, a ja się tutaj rozejrzę i pomyślę, jakie mamy możliwości.
+*GRACZ*
+Tylko uważaj na siebie.
+*KIRIN*
+Poradzę sobie. Niech to już się skończy. Nie mogę się doczekać, aż znowu zobaczę Ambrozję.
+*GRACZ*
+To już niedługo. Damy radę.{ETAP_77}
+
+##ETAP
+ETAP_77 ###Udaj się do przedsionka ###Gracz idzie do przedsionka, żeby objąć misję przekazaną mu przez Gwiazdę Zaranną.
+//warunek: dociera na miejsce -> {ETAP_78}
+
+##ETAP
+ETAP_78 ###Porozmawiaj z Kaleczącym Śpiewakiem ###Na miejscu nie ma Kaleczącego Śpiewaka, jest natomiast porzucony płaszcz. Można mniemać, że to właśnie jego.
+
+##DIALOG *JASKINIA*
+*JASKINIA*
+[sb]Przy pulpicie wartownika nie ma żywego ducha, natomiast na ziemi leży czyjś płaszcz.[/sb]
+*GRACZ*
+[sb]Podnosisz porzuconą odzież.[/sb]
+*JASKINIA*
+[sb]Płaszcz jest jeszcze ciepły i ma rozdarte zapięcie.[/sb]
+*GRACZ*
+[sb]Rozglądasz się. Już masz zacząć wołać za Kaleczącym Śpiewakiem, ale słyszysz jakieś dźwięki, które dobiegają zza węgła jaskini.[/sb]{ETAP_79}
+
+##ETAP
+ETAP_79 ###Idź tropem dziwnych dźwięków ###Miałeś zamienić Kaleczącego Śpiewaka na stanowisku wartownika przyjmującego nowoprzybyłych Tkaczy, ale nie zastałeś go na miejscu. Nieopodal słyszysz niepokojące dźwięki. Idź sprawdzić, co się tam dzieje.
+//warunek: walk trigger → {ETAP_80}
+
+##ETAP
+ETAP_80 ###Porozmawiaj z Silvio ###Cutscenka. Kamera wędruje na Silvio i jego oddział lavacrawlerów, którzy przytrzymują szarpiącego się chłopaka. Wygląda na to, że zabrali Kaleczącego z jego stanowiska pracy.
+
+##DIALOG *SILVIO*
+*SILVIO*
+[sb]Wskazuje na ciebie.[/sb] Jest następny, łapcie go.
+*GRACZ*
+Hej, ręce przy sobie. Nie jestem z Tkaczami.
+*SILVIO*
+[sb]Każe swoim ludziom się wstrzymać.[/sb] Z Tkaczami? To już dowiedziałem się więcej, niż od tego tutaj. Skoro nie trzymasz z nimi, co wobec tego tu robisz?
+*GRACZ*
+Jestem [imie]. Na zlecenie Amrila Cartela, razem z jego człowiekiem Kirinem, poszukujemy zaginionego przewodnika i ładunku, który miał dostarczyć. Jesteśmy blisko załatwienia naszej sprawy.
+*SILVIO*
+[sb]Spogląda na ciebie inaczej.[/sb] A, wysłannik Cartela. Słyszałem o tym. Ja jestem Silvio Bunga, w służbie barona Tiberiona Valkora, i mam zaszczyt dowodzić elitarną grupą lawapełzaczy. [sb]Nagle wali Śpiewaka otwartą dłonią w twarz.[/sb] Ty się tak kurwa nie szarp! Nikt ci krzywdy nie robi!
+*GRACZ*
+Czemu go trzymacie?
+*SILVIO*
+Bo on trzyma z tymi Tkaczami, jak ich nazwałeś. Przyszliśmy zbadać przyczynę wzrostu aktywności Niksy. [sb]Mężczyzna cmoka nieprzyjemnie i spluwa.[/sb] Najchętniej wypaliłbym tę całą Niksę do kości, ale jebana polityka. [sb]Silvio znów spluwa, jakby słowa Niksa i polityka budziły w nim wyjątkową odrazę.[/sb]
+*GRACZ*
+Co to znaczy wzrost aktywności Niksy?
+*SILVIO*
+Nie jestem tutaj od dawania wykładów o ohydzie, która trawi te ziemie od setek lat. Niech ci wystarczy, że płomienie Hvara są przyduszone przez niezwykle duży spust wód z rozlewisk, a Laerdmor dusi się od nadmiaru pary. Rada miasta jest zaniepokojona, a ta oślizgła szmata, niksowy baron Talos, udaje, że wszystko jest porządku.
+*GRACZ*
+Co Tkacze mają z tym wspólnego?
+*SILVIO*
+Ty mi powiedz, bo tamten [sb]wskazuje na Śpiewaka[/sb] zapomniał języka w gębie.
+*GRACZ*
+Działalność Tkaczy może mieć jakiś związek z tym co mówisz. Śnią sny zesłane przez jakiegoś wypaczonego śniącego, z którym łączą się poprzez palenie viverii, która chyba jest maczana w jego wydzielinach.
+*SILVIO*
+[sb]Wygląda, jakby zaraz miał zwymiotować.[/sb] Chłopcy, odpalajcie lance! Trzeba wypalić tę abominację!
+*GRACZ*
+Zaczekaj! Tam są ludzie!
+*SILVIO*
+[sb]Znowu spluwa przez zęby.[/sb] Utrudniasz, chłopcze/dziewucho. [sb]Bije się z myślami.[/sb] Dobra, ilu tam jest ludzi i czemu mam ich nie spalić?
+*GRACZ*
+Tkacze Snów nie są groźni. To tylko grupa ludzi szukających swojego miejsca na ziemi (zasób 1 - wspiera tkaczy).{1.1}
+Tkaczy Snów trzeba zlikwidować, ale jest wiele niewinnych osób. Trzeba ich ostrzec.{1.2}
+{1.1}*SILVIO*
+Każdy fanatyk Niksy i viverii jest groźny. Pod powierzchnią tych rozlewisk biegną pnącza, które łączą się w jednym punkcie: u źródła całego zła i szaleństwa, które trawi tę krainę. Każda osoba, każdy umysł, który łączy się z Niksą, dokłada swoją cegiełkę do chaosu, który nas wszystkich pogrąża. Są tacy, którzy widzą w tym szanse, ale ja nimi kurwa gardzę. Tylko czysty płomień Hvara i potęga hut Valkorów przyniosą mojej umęczonej ojczyźnie spokój i dobrobyt. Talos, Niksa, a teraz ci Tkacze, powinni zniknąć z powierzchni ziemi. Nie mogę zniszczyć ani Niksy, ani Talosa - jebana polityka - ale tych wszystkich Tkaczy zamienię w popiół.
+*GRACZ*
+Może da się kogoś uratować. Nie wszyscy tam są uzależnieni od viverii (zasób 1 - wspiera tkaczy).{2.2}
+Skoro tak stawiasz sprawę, to mam propozycję.{2.3}
+{1.2}*SILVIO*
+Każdy fanatyk Niksy i viverii jest winny. Pod powierzchnią tych rozlewisk biegną pnącza, które łączą się w jednym punkcie: u źródła całego zła i szaleństwa, które trawi tę krainę. Każda osoba, każdy umysł, który łączy się z Niksą, dokłada swoją cegiełkę do chaosu, który nas wszystkich pogrąża. Są tacy, którzy widzą w tym szanse, ale ja nimi kurwa gardzę. Tylko czysty płomień Hvara i potęga hut Valkorów przyniosą mojej umęczonej ojczyźnie spokój i dobrobyt. Talos, Niksa, a teraz ci Tkacze, powinni zniknąć z powierzchni ziemi. Nie mogę zniszczyć ani Niksy, ani Talosa - jebana polityka - ale tych wszystkich Tkaczy zamienię w popiół.
+*GRACZ*
+Może da się kogoś uratować. Nie wszyscy tam są uzależnieni od viverii (zasób 1 - wspiera tkaczy).{2.2}
+Skoro tak stawiasz sprawę, to mam propozycję.{2.3}
+//WARUNEK: poniższa kwestia tylko jeśli gracz ma 2 zasoby "wspiera tkaczy"
+{2.2}*SILVIO*
+[sb]Mruży podejrzliwie oczy i ponownie obrzydliwie cmoka.[/sb] Chyba mnie okłamałeś, że nie masz z nimi nic wspólnego. Wyjątkowo mocno im sprzyjasz. Bardzo mocno się zastanów, co mi teraz powiesz, bo od tego będzie dużo zależało. Co należy zrobić z tymi Tkaczami snów?
+*GRACZ*
+To są ludzie jak ty i ja. Pozwól im żyć swoim życiem.{3.1}
+Tkacze Snów sami w sobie nie są groźni. Wystarczy zlikwidować przywódczynię, a rozpierzchną się na cztery wiatry.{3.2}
+[sb]Spoglądasz w oczy Silvio.[/sb] Mam dla ciebie propozycję.{2.3}
+{3.1}*SILVIO*
+Podjąłeś decyzję, [imie]. Pojmać go! Reszta szykować lance. Wchodzimy wypalić to gniazdo zgnilizny!
+*GRACZ*
+[sb]Widzisz, jak doskakuje do ciebie dwóch lawopełzaczy.[/sb]{ETAP_81}
+{3.2}*SILVIO*
+[sb]Przygląda ci się nieufnie.[/sb] Co proponujesz?
+*GRACZ*
+Wystawię ci guru Tkaczy Snów, a ty oszczędzisz ludzi. Tylko potrzebuję trochę czasu.
+*SILVIO*
+Wyślę za tobą mojego człowieka. Jak tylko się dowiem, że coś kombinujesz - osobiście cię spalę.
+*GRACZ*
+Chcę tylko wykonać moją misję. Los Tkaczy jest mi obojętny, ale... po prostu szkoda mi ludzi, którzy tam są.
+*SILVIO*
+[sb]Kiwa głową.[/sb] Wydajesz się w porządku. To jaki masz plan?
+*GRACZ*
+Namówię ilu się da, żeby uciekali. Kiedy zobaczysz, że przestali pojawiać się nowi uciekinierzy - wkroczysz.
+*SILVIO*
+Dobrze. Zaopiekujemy się tymi, którzy zmądrzeli, a reszta, no cóż - uznam, że wybrali swój los.
+*GRACZ*
+Dzięki, Silvio, za tę szansę. [sb]Wracasz do jaskini.[/sb]{ETAP_83}
+
+{2.3}*SILVIO*
+Zamieniam się w słuch.
+*GRACZ*
+Tkacze snów wybrali swój los. Był[m]e[/m][f]a[/f]m wśród nich i zrozumiałem, że dobrowolnie zrzekli się życia. Potrzebuję tylko Wielkiej Szypułki i Kirina, z którym tu przyszedłem. Reszta mnie nie obchodzi.
+*SILVIO*
+[sb]Początkowo spogląda na ciebie podejrzliwie, ale po chwili rozchmurza się.[/sb] Dobrze. Załóżmy, że mogę ci ufać. Idź do Tkaczy, rób swoje, a my za chwilę zrobimy tam swoje. Ale jeśli natrafimy na jakiś opór - znajdę i spalę ciebie, tego Kirina i szypułkę. Mam nadzieję, że jesteś na to przygotowany.
+*GRACZ*
+Możesz mi ufać. Do zobaczenia.{ETAP_83}
+
+
+//DO ROZPISANIA — gałąź {2.3} "mam dla ciebie propozycję" jako osobna ścieżka. Notatka z tekstu: "propozycja gracza to kupienie czasu dla wykonania swojej misji. Obiecuje wprowadzić zamęt wśród Tkaczy, dzięki czemu Silvio łatwiej zrobi swoje."
+//DO ROZPISANIA — gałąź {3.2} wariant: "Silvio niechętnie się zgadza."
+
+##ETAP
+ETAP_81 ###Spróbuj się uwolnić ###Cutscenka. Gracz zostaje powalony na ziemię obok Kaleczącego Śpiewaka. Cały oddział lawopełzaczy znika w jaskini obok. Można dodać fxy, że w wejściu widać rozbłyski ognia. Silvio wchodzi na końcu. Gracz zostaje w towarzystwie Kaleczącego Śpiewaka i pilnującego ich lavacrawlera. Słychać krzyki ludzi palonych żywcem, huk płomieni i wykrzykiwane komendy. Wszystko stłumione odległością.
+
+##DIALOG *KALECZĄCY ŚPIEWAK*
+*KALECZĄCY ŚPIEWAK*
+Cholera, [imie tkaczowe], mogłeś mu coś nakłamać. Widziałeś jak dyszał żądzą mordu.
+*LAWAPEŁZACZ*
+Ej, morda tam.
+*GRACZ*
+Sam zamknij mordę! Lepiej nas puść. Masz szansę zapobiec rzezi.
+*LAWAPEŁZACZ*
+Ja tylko wykonuję polecenia.
+*GRACZ*
+Wszyscy zawsze tylko wykonują polecenia. Raz w życiu masz okazję zrobić, co należy.
+*LAWAPEŁZACZ*
+Stul ryj, mówię.
+*GRACZ*
+Pozwolisz na rzeź? Może tam jest twój ojciec, matka. Widziałem tam różnych ludzi!{1.1}
+[sb]Szturchasz Kaleczącego Śpiewaka, dając mu znak, żeby spróbował cię rozwiązać.[/sb]{1.2}
+{1.1}*LAWAPEŁZACZ*
+A może twoja stara?
+*GRACZ*
+Moja nie żyje. Zabita przez takich jak ty, co tylko wykonują polecenia.
+*LAWAPEŁZACZ*
+[sb]Na jego twarzy pojawił się cień zwątpienia.[/sb] A niech cię chuj. Stary mnie zabije.
+*GRACZ*
+[sb]Widzisz, jak lawapełzacz nachyla się w twoją stronę. Wyciągasz do niego spętane dłonie. W tej kwestii gracz wstaje z ziemi. Jest wolny.[/sb]
+*LAWAPEŁZACZ*
+Ale ten drugi zostaje.
+*GRACZ*
+Zrobiłeś dzisiaj dobry uczynek.{ETAP_82}
+{1.2}*KALECZĄCY ŚPIEWAK*
+[sb]Czujesz, jak manipuluje przy krępujących cię więzach. Jednocześnie pilnujący was lawapełzacz zaczyna wam się baczniej przyglądać.[/sb]
+*GRACZ*
+Co się tak gapisz?
+*KALECZĄCY ŚPIEWAK*
+[sb]Szturcha cię łokciem na znak, że jesteś wolny.[/sb]
+*GRACZ*
+[sb]Zrywasz się gwałtownym ruchem i stajesz przed lawapełzaczem.[/sb]
+*LAWAPEŁZACZ*
+Dobra, nie będę z tobą walczył. Idź robić, co tam musisz. Ale tamten drugi zostaje ze mną.
+*GRACZ*
+[sb]Zgadzasz się skinieniem głowy i biegniesz do jaskini.[/sb]{ETAP_82}
+
+//SCENA: jaskinia pogrążona w chaosie wywołanym rajdem ludzi Silvio.
+//Wszędzie widać płonących Tkaczy i palących ich lawapełzaczy. Nieliczni próbują stawić opór.
+//BIT: Powrót do jaskini Tkaczy Snów.
+##ETAP
+ETAP_82 ###Odnajdź Kirina. ###W panującym chaosie musisz odnaleźć Kirina, żeby dokończyć wasze zadanie. Udaj się do Groty Wyniesienia.
+//warunek: walk trigger -> {ETAP_85}
+//Gracz przedziera się przez płonącą grotę — płonący Tkacze, nieliczni stawią opór. Co jakiś czas wybuchają płomienie blokujące drogę. Kirina nigdzie nie ma. Cel: dotrzeć do Groty wyniesienia z Wielką Szypułką.
+
+##ETAP
+ETAP_85 ###Porozmawiaj z Kirinem ###Cutscenka: Silvio stoi naprzeciwko Niry — kobieta ledwo żyje. Po lewej Kirin z Wielką Szypułką. Silvio podpala Kirina i Szypułkę. Gracz drze się: „Nieee!" — to zwraca uwagę Silvio. Ten moment wykorzystuje Nira, która resztką sił dziabie Silvio w plecy. Silvio pada i umiera. Nira też pada — ale jeszcze nie umiera.
+//warunek: zakończenie cutscenki -> {ETAP_86}
+
+##ETAP
+ETAP_86 ###Porozmawiaj z Gwiazdą Zaranną ###Na podłodze dopalają się szczątki Kirina i szypułki. Nira pluje krwią, ale jest w stanie mówić.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+[sb]Spluwa krwią i bierze haust powietrza.[/sb] Wszystko, co budowałam... Przeklęty Hvar i jego sługusy!
+*GRACZ*
+Próbowałem was ostrzec.
+*GWIAZDA ZARANNA*
+Wiedziałeś o tym?!
+*GRACZ*
+Silvio schwytał mnie, kiedy wyszedłem z groty. Próbowałem go przekonać, żeby pozwolił odejść ludziom.
+*GWIAZDA ZARANNA*
+[sb]Uśmiecha się odsłaniając zakrwawione zęby. Oddycha coraz ciężej.[/sb] Jesteś dobrym człowiekiem, ale nie znasz naszej odwiecznej alarilskiej wojny. Ogień nigdy nie wybaczy wodzie, że płynie gdzie chce. Woda zawsze będzie chciała zapanować nad ogniem.
+*GRACZ*
+Hvar i Niksa.
+*GWIAZDA ZARANNA*
+Tak. Ale ogień nigdy nie dotrze do ścieżek snów. Ja umrę, ale on... Onir... Quentis... mój syn... Zawsze tu będzie i przypomni o moim dziele. Odwiedź go czasem na Ścieżkach snów, zanim on... [sb]Kobieta milknie.[/sb]
+*GRACZ*
+Gwiazdo Zaranna? [sb]Podchodzisz do niej, ale widzisz, że wraca do żywych.[/sb]
+*GWIAZDA ZARANNA*
+[sb]Łapie haust powietrza, ale tym razem chrapliwie. Wręcza ci klucz.[/sb] Wszystkie skarby Tkaczy. Za to, że chciałeś ratować nasze sny... [sb]Kobieta umiera.[/sb]
+*GRACZ*
+//Uwaga produkcyjna: po tej kwestii cutscenka — Onir wyłazi z niecki. Gracz otrzymuje kluczyk do skrytki.
+[sb]Zamykasz jej powieki.[/sb]{ETAP_87}
+
+##ETAP
+ETAP_87 ###Porozmawiaj z Onirem ###Onir zbiera się ze swojej niecki i staje przed graczem. Wyciąga do niego rękę — tak jak wcześniej do Jęczącej Zajęczycy.
+##DIALOG *ONIR*
+*ONIR*
+Twoje sny należą do mnie...
+*GRACZ*
+Byłem pewien, że do tego dojdzie. [sb]Walka.[/sb]{ETAP_88}
+
+##ETAP
+ETAP_88 ###Pokonaj Onira. ###Jeśli gracz nie radzi sobie samodzielnie, dołączają lawanurkowie Silvio.
+//warunek: zabicie Onira -> {ETAP_89}
+
+##ETAP
+ETAP_89 ###Porozmawiaj z Florentem ###Onir nie żyje. Pojawił się Florent — siedzi przy zwłokach Kirina.
+##DIALOG *FLORENT*
+*FLORENT*
+Nie chciałem, żeby to się tak skończyło.
+*GRACZ*
+A jednak. Mogłeś oddać tę szypułkę.
+*FLORENT*
+Powiedziałem wam, gdzie jest. Tyle mogłem zrobić.
+*GRACZ*
+Mogłeś w ogóle nie zabierać ładunku.
+*FLORENT*
+Ale zabrałem! Nie zwalaj wszystkiego na mnie, bo sam mogłeś to inaczej rozegrać.
+*GRACZ*
+Może mogłem.
+*FLORENT*
+Żegnaj, Kirin. Uwolniłeś się od rozlewisk i viverii i osady zbieraczy.
+*GRACZ*
+Co ja teraz powiem Ambrozji? Mieli tyle wspólnych marzeń.
+*FLORENT*
+A musisz coś mówić? Swoje zrobiłeś.
+*GRACZ*
+Masz rację — nie muszę, ale powinienem.{ETAP_90}
+
+##ETAP
+ETAP_90 ###Odnajdź skrytkę ze skarbami Gwiazdy Zarannej. ###Podczas tego etapu wszyscy wychodzą z groty. Gracz zostaje sam z trupami.
+##DIALOG *SKRYTKA*
+*SKRYTKA*
+[sb]W skalnym załomie dostrzegasz dziurkę od klucza.[/sb]
+*GRACZ*
+[sb]Wkładasz klucz od Gwiazdy Zarannej i odbierasz nagrodę.[/sb]{ETAP_91}
+
+##ETAP
+ETAP_91 ###Wróć do Amrila — albo zniknij. ###Nie wypełniłeś zleconej ci misji. Kirin zginął. Jego bliscy zasługują, aby dowiedzieć się, jaki los go spotkał. Udaj się do Amrila Cartela zakończyć zadanie — albo po prostu zniknij. Rozmowa startuje automatycznie.
+##DIALOG *SUMIENIE*
+*SUMIENIE*
+[sb]Sumienie nakazuje ci wrócić do Cartela i zmierzyć się ze swoją porażką. Ale właściwie co im jesteś winien? Porażki się zdarzają, takie jest życie.[/sb]
+*GRACZ*
+A jebać to. Mam lepsze rzeczy do roboty, niż tłumaczyć się obcym ludziom. [sb]Koniec zadania.[/sb]{-1}
+Wrócę do Amrila Cartela. W osadzie powinni wiedzieć, co się wydarzyło.{ETAP_92}
+
+##ETAP
+ETAP_92 ###Wróć do Amrila Cartela ###Zamelduj, że nie wykonałeś zadania. Przechodząc do biura mijasz Ambrozję — jej sprite obraca się w twoim kierunku. Gracz może do niej zagadać.
+##DIALOG *AMBROZJA*
+*AMBROZJA*
+[sb]Patrzy to na ciebie, to na drzwi, jakby oczekiwała, że za tobą wejdzie Kirin.[/sb]
+*GRACZ*
+Potem porozmawiamy.{-1}
+
+##DIALOG *AMRIL CARTEL*
+*AMRIL CARTEL*
+[sb]Na twój widok aż wstaje od stołu.[/sb] Jesteś wreszcie. Gdzie Kirin?
+*GRACZ*
+Kirin nie żyje.
+*AMRIL CARTEL*
+[sb]Jak szybko wstał, tak szybko usiadł.[/sb] A Florent? Szypułka? Viveria?
+*GRACZ*
+Wszystko przepadło. Pojawił się jakiś Silvio z zakutą w stal bandą i wszystko spalili. I prawie wszystkich.
+*AMRIL CARTEL*
+[sb]Patrzy na ciebie z niedowierzaniem.[/sb] Silvio?! Miał tylko zbadać czemu Niksa stała się aktywniejsza.
+*GRACZ*
+To zbadał. Sam też przypłacił to życiem.
+*AMRIL CARTEL*
+Co tam się właściwie wydarzyło?
+*GRACZ*
+Amril, nie mam siły o tym rozmawiać. Na północnym krańcu rozlewisk jest grota, która stała się grobem. Tam znajdziesz odpowiedzi.
+*AMRIL CARTEL*
+[sb]Trawi to, co przed chwilą usłyszał.[/sb] Wiesz, że wobec tego nie mogę ci nic zapłacić?
+*GRACZ*
+[sb]Machasz ręką.[/sb] Przyszedłem tutaj tylko po to, żebyś wiedział, co się wydarzyło. Nic od ciebie nie chcę.
+*AMRIL CARTEL*
+Więc to by było na tyle. Talos w najlepszym wypadku rzuci mnie Niksie na pożarcie, a w najgorszym zepchnie do rozpadliny.
+*GRACZ*
+Może to i tak lepsze, niż być spalonym żywcem przez ludzi Silvio.
+*AMRIL CARTEL*
+[sb]Rzuca ci cierpki uśmiech.[/sb] Żegnaj.
+*GRACZ*
+[sb]Odchodzisz bez słowa.[/sb]{ETAP_93}
+
+##ETAP
+ETAP_93 ###Porozmawiaj z Ambrozją ###Ambrozja — już w widocznej ciąży — czeka na swojego Kirina. Jesteś jej winien kilka słów wyjaśnienia.
+##DIALOG *AMBROZJA*
+*AMBROZJA*
+[sb]Patrzy na ciebie pytająco.[/sb]
+*GRACZ*
+Tylko ja wróciłem. Przykro mi.
+*AMBROZJA*
+[sb]Prostuje się i za wszelką cenę stara się nie poddać emocjom. Tylko jedna łza spływa jej po policzku.[/sb] Co teraz ze mną... [sb]Kładzie dłoń na brzuchu.[/sb] Z nami... będzie?
+*GRACZ*
+[sb]Bez słowa wkładasz jej w dłoń skarby znalezione w skrytce Gwiazdy Zarannej.[/sb]{-1}
+[sb]Odchodzisz bez słowa.[/sb]{-1}
+
+##ETAP
+ETAP_83 ###Wróć do jaskini Tkaczy Snów. ###Kiedy gracz wejdzie, automatyczny awans etapu i start gadki z Kirinem.
+//warunek: walk trigger w jaskinis -> {ETAP_84}
+
+##ETAP
+ETAP_84 ###Porozmawiaj z Kirinem ###Kirin znalazł boczne wejście do jaskini z monstrum. Grozi im Silvio.
+##DIALOG *KIRIN*
+*KIRIN*
+Nie uwierzysz! Znalazłem to boczne wejście jaskini z tym monstrum. Jest dokładnie takie, jak w tym śnie z Zajęczycą.
+*GRACZ*
+Ty masz dobrą wiadomość, ja mam złą.
+*KIRIN*
+[sb]Mina mu rzednie.[/sb] Co znowu?
+*GRACZ*
+W jaskini obok jest jakiś Silvio z oddziałem zakutych w stal ludzi. Grozi, że wszystkich tutaj spali.
+*KIRIN*
+[sb]Zaklął pod nosem.[/sb] To nie mamy dużo czasu. Jeśli miasto wysłało tutaj ludzi Valkorów, sprawa jest poważna.
+*GRACZ*
+Myślisz, że faktycznie Tkacze stanowią takie zagrożenie?
+*KIRIN*
+Potem sobie po tym pogadamy. Teraz musimy się spieszyć. Ten Silvio nie będzie czekał w nieskończoność.
+*GRACZ*
+Kupiłem nam trochę czasu. Silvio pozwolił mi ostrzec zwykłych Tkaczy, żeby mieli szansę uciec.
+*KIRIN*
+To miło z jego strony, ale to nam nie pomoże przekraść się po Szypułkę.
+*GRACZ*
+Jak to?
+*KIRIN*
+Kiedy ludzie zaczną masowo uciekać z jaskini, Gwiazda Zaranna zacznie wszystko sprawdzać. Będzie czujniejsza. [sb]Kirin zamyśla się.[/sb] To ją powinieneś ostrzec! Wtedy rzuci swoje siły na wejście do jaskini, żeby powstrzymać Silvio, a my w tym czasie zdobędziemy, po co przyszliśmy.
+*GRACZ*
+Ale wtedy wszyscy zginą.
+*KIRIN*
+Oni i tak zginą, [imie]. Jak nie w tej jaskini, to w jakiejś alejce w Laerdmor albo na rozlewiskach. Oni należą do viverii. Nic już z tym nie zrobisz.
+*GRACZ*
+Nie zgadzam się z tobą.
+*KIRIN*
+A ten potwór tam w jaskini?! [sb]Kirin wskazuje na wejście do bocznej groty.[/sb] Oni wszyscy tylko czekają, żeby dać mu się pożreć. Nie [imie], nie pozwolę, żeby twoje dobre serce naraziło nasze zadanie. Dla mnie najważniejsza jest Ambrozja, a nie oni!
+*GRACZ*
+Tutaj się różnimy. Nie wybaczę sobie, jeśli nie spróbuję uratować choćby jednego Tkacza.{1.1}
+Masz rację. Tkacze wybrali swój los. Skupmy się na naszym zadaniu.{1.2}
+{1.1}*KIRIN*
+[sb]Patrzy na ciebie rozczarowany.[/sb] Rób co uważasz, ale Amril się o tym dowie. Ja nie mam zamiaru czekać, aż Silvio wszystko tutaj spali. Idę po Szypułkę, a ty rób co chcesz.
+*GRACZ*
+Robię to, co uważam za słuszne.{ETAP_100}
+{1.2}*KIRIN*
+Dobra decyzja. Idź do Gwiazdy Zarannej i nastrasz ją Silvio. Kiedy zacznie panikować, ja przemknę się po Szypułkę.
+*GRACZ*
+Do dzieła.{ETAP_102}
+
+##ETAP
+ETAP_100 ###Ostrzeż Tkaczy Snów przed zagrożeniem ze strony Silvio. ###Zdecydowałeś, że spróbujesz ostrzec jak najwięcej Tkaczy przed wkroczeniem oddziału Silvio.
+
+//DO PRZEMYŚLENIA: możliwość przypisania jednego dialogu kilku NPC-om (grupy poniżej).
+
+//Grupa dziadków: Pyzaty Pejs, Wzniosła Melodia, Powiew Wiatru
+##DIALOG *POWIEW WIATRU*
+*POWIEW WIATRU*
+Witaj. Miło cię widzieć.
+*GRACZ*
+Wzajemnie, ale mam złe wieści. Musicie natychmiast stąd uciekać. Jeśli tu zostaniecie - zginiecie.
+*POWIEW WIATRU*
+[sb]Uśmiecha się do ciebie łagodnie.[/sb] Ale przecież wiesz, że dokładnie po to tu jesteśmy.
+*GRACZ*
+Żeby dać się spalić żywcem? A tak się stanie, jeśli zostaniecie.
+*POWIEW WIATRU*
+[sb]Przez chwilę widzisz w jego oczach wyraz trwogi, ale natychmiast zostaje zastąpiony tą samą łagodnością, co wcześniej.[/sb] Nawet jeśli. Na zewnątrz może czeka nas gorszy koniec. Co ma być, to będzie.
+*WZNIOSŁA MELODIA*
+Ale dziękujemy ci za ostrzeżenie. To bardzo miłe z twojej strony.
+*GRACZ*
+Niech was cholera!{-1}
+
+//Grupa imprezowa: Nerwowy Jeleń, Rumiana Drwina, Słaniająca się Łania
+##DIALOG *RUMIANA DRWINA*
+*RUMIANA DRWINA*
+[sb]Patrzy na ciebie pozytywnie zaskoczona.[/sb] Jednak zdecydowałeś się do nas dołączyć?
+*NERWOWY JELEŃ*
+[sb]Przyciąga ją do siebie.[/sb] On tylko roznosi viverię. Hej, nie potrzebujemy więcej. Możesz odejść.
+*GRACZ*
+Musicie stąd uciekać! Natychmiast! Zaraz wpadną tutaj ludzie Valkorów i wszystkich spalą!
+*NERWOWY JELEŃ*
+Co ty bredzisz? [sb]Przygląda się twoim oczom.[/sb] No, tak jak myślałem. Zjarany jak szmata.
+*RUMIANA DRWINA*
+[sb]Nie jest taka pewna jak jej towarzysz.[/sb] Może warto to sprawdzić? Dawno nie byliśmy na powierzchni.
+*NERWOWY JELEŃ*
+No co wy, przecież on bredzi. Zostajemy tutaj.
+*GRACZ*
+[sb]Ignorujesz Jelenia i zwracasz się do kobiet.[/sb] Macie jedno życie. Uciekajcie natychmiast.
+*SŁANIAJĄCA SIĘ ŁANIA*
+Noooo, moooże faktycznie. Trochę się tutaj zasiedzieliśmy. Ty, Fontanna, może pora się przewietrzyć?
+*RUMIANA DRWINA*
+Dobra, to my spadamy. Nara, Jeleń.
+*NERWOWY JELEŃ*
+Dziewczyny, no co wy? [sb]Do ciebie.[/sb] Zapłacisz mi za to!
+*GRACZ*
+Zamknij ryj i idź z nimi.{ETAP_101}
+
+##DIALOG *FLORENT*
+*FLORENT*
+[sb]Podnosi na ciebie zamglony wzrok.[/sb] Czego tutaj? Jeszcze nie dość się nagadaliście?
+*GRACZ*
+Florent, nie czas na pozy. Zaraz tutaj wpadnie Silvio ze swoimi lawanurkami i spali to miejsce.
+*FLORENT*
+Słuchaj, jeśli myślisz, że dam się nabrać na te sztuczki Kirina, to jesteś w błędzie. Znam go lepiej od ciebie. Odejdź i przestań tracić mój czas.
+*GRACZ*
+Rób co chcesz, ale ostrzegłem cię.{-1}
+
+//Badacz — uzależniony od viverii
+##DIALOG *BŁĄDZĄCY WZROK*
+*BŁĄDZĄCY WZROK*
+[sb]Jest pogrążony w snach.[/sb]
+*GRACZ*
+[sb]Potrząsasz nim.[/sb] Hej, obudź się. Musisz uciekać!
+*BŁĄDZĄCY WZROK*
+[sb]Twoje działania nie przynoszą żadnego efektu.[/sb]
+*GRACZ*
+Obudź się, do cholery! [sb]Widzisz, że nic z tego.[/sb] A niech was wszystkich szlag trafi!{-1}
+
+##ETAP
+ETAP_101 ###Porozmawiaj z Gwiazdą Zaranną ###Niezależnie od tego, czy gracz pogadał z wszystkimi Tkaczami — odesłanie imprezowiczów prowokuje Gwiazdę Zaranną do interwencji. Zjawia się przy graczu z pytaniami.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+[imie], chciałam zapytać, czy wszystko w porządku. Wydajesz się czymś zaniepokojony. Czemu oni wyszli?
+*GRACZ*
+[sb]Wzruszasz ramionami.[/sb] Nie mam pojęcia. Musisz ich zapytać.
+*GWIAZDA ZARANNA*
+Mam wrażenie, że nie mówisz mi prawdy. Rozmawialiście, dość gwałtownie, i potem wyszli.
+*GRACZ*
+[sb]Wzdychasz.[/sb] W grocie obok jest oddział lawonurków. Mają rozkaz spalić wszystkich żywcem. Kupiłem nam trochę czasu, żeby ostrzec jak najwięcej ludzi.{1.1}
+Dobra, przejrzałaś mnie. Miałem dla nich wiadomości z powierzchni i musieli iść pozałatwiać swoje sprawy. Na początku nie chcieli mi uwierzyć.{1.2}
+{1.1}*GWIAZDA ZARANNA*
+[sb]Z twarzy kobiety znika jej charakterystyczny łagodny uśmiech.[/sb] Przeklęci ludzie ognia! Nic nie rozumieją! Dziękuję za ostrzeżenie, [imie_tkacza]. Chodź za mną.
+*GRACZ*
+[sb]Idziesz za kobietą.[/sb]{ETAP_105}
+{1.2}*GWIAZDA ZARANNA*
+[sb]Jej łagodny uśmiech poszerza się.[/sb] Za to ja ci wierzę. Chodź za mną, pokażę ci coś.
+*GRACZ*
+Emm, co takiego?{1.3}
+[sb]Idziesz za kobietą.[/sb]{ETAP_120}
+{1.3}*GWIAZDA ZARANNA*
+Pokażę ci, o co w tym wszystkim chodzi.
+*GRACZ*
+W porządku. [sb]Idziesz za kobietą.[/sb]{ETAP_120}
+
+##ETAP
+ETAP_102 ###Idź do Gwiazdy Zarannej i ostrzeż ją przed Silvio. ###Zdecydowałeś, że plan Kirina wydaje się rozsądniejszy. Co prawda zginie więcej Tkaczy, ale to poświęcenie, które jesteś gotowy ponieść.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+[sb]Patrzy na ciebie pytająco.[/sb]
+*GRACZ*
+W grocie obok jest oddział lawonurków. Mają rozkaz spalić wszystkich żywcem. Kupiłem nam trochę czasu, żeby ostrzec jak najwięcej ludzi.
+*GWIAZDA ZARANNA*
+[sb]Z twarzy kobiety znika jej charakterystyczny łagodny uśmiech.[/sb] Przeklęci ludzie ognia! Nic nie rozumieją! Dziękuję za ostrzeżenie, [imie_tkacza]. Chodź za mną.
+*GRACZ*
+[sb]Idziesz za kobietą.[/sb]{ETAP_105}
+
+##ETAP
+ETAP_105 ###Idź za Gwiazdą Zaranną. ###Ostrzegłeś ją przed Silvio i ingerencją lawonurków. Gwiazda Zaranna przygotowuje obronę.
+//warunek: walk trigger po follow z Gwiazdą -> {ETAP_106}
+
+##ETAP
+ETAP_106 ###Porozmawiaj z Gwiazdą Zaranną ###Po dotarciu do wejścia do bocznej jaskini etap awansuje automatycznie. Stoją w towarzystwie ochroniarzy: Poszukiwacza Prawdy i Niosącego Nadzieję.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+[imie_tkacza] mówi, że u naszych bram są sługi Hvara i chcą nas spalić.
+*POSZUKIWACZ PRAWDY*
+Jesteśmy gotowi.
+*NIOSĄCY NADZIEJĘ*
+I tak długo czekali. Niech przychodzą. Zgasimy ten ich płomień.
+*GRACZ*
+[sb]Patrzysz to na jednego, to na drugiego.[/sb] Jak we dwójkę chcecie pokonać cały oddział Silvio? Oni mają pancerze i broń.
+*GWIAZDA ZARANNA*
+Jesteś z nami za krótko, żeby pojąć naszą prawdziwą siłę. Zobaczysz, do czego jesteśmy zdolni, kiedy trzeba bronić ścieżek snów.
+*GRACZ*
+Mam nadzieję, że wiesz, co robisz.
+*GWIAZDA ZARANNA*
+[imie_tkacza] zostań tutaj pilnować wejścia do jaskini wyniesienia. Wiem, że mogę ci ufać.
+*GRACZ*
+Dowiodłem tego.
+*GWIAZDA ZARANNA*
+My idziemy przygotować się na wejście ludzi Silvio. Nikt mi nie odbierze mojego dzieła zjednoczenia świata na ścieżkach snów.
+*GRACZ*
+[sb]Milczysz.[/sb]{ETAP_107}
+
+##ETAP
+ETAP_107 ###Pilnuj wejścia do jaskini wyniesienia. ###Gwiazda Zaranna oddaliła się w stronę wejścia do jaskini. Kamera wędruje za odchodzącą Nirą i centruje się na Kirinie, który podchodzi do gracza.
+##DIALOG *KIRIN*
+*KIRIN*
+[sb]Rozgląda się czujnie na boki.[/sb] [o]gracz_deklarowal_ochrone_tkaczy|1|Widzę, że zmieniłeś zdanie. Bardzo dobrze. Dzięki temu droga do Szypułki i viverii stoi przed nami otworem.[/o][o]Widzisz, od początku wiedziałem, że lepiej powiedzieć Zarannej o Silvio.[/o] Dzięki temu droga do Szypułki i viverii stoi przed nami otworem. Nie wiem czy wchodzić tędy, czy jednak użyć tego tajnego przejścia od Zajęczycy.
+*GRACZ*
+Idź tym przejściem od Zajęczycy. Tak będzie bezpieczniej, bo cholera wie, co zastaniesz w środku.{1.1}
+Właź szybko głównym wejściem. Im szybciej wejdziesz, tym szybciej wyjdziesz. Nie ma czasu kombinować.{1.2}
+{1.2}*KIRIN*
+Dobra, masz rację. Szybka akcja. Czekaj tu na mnie i miej oczy dookoła głowy.
+*GRACZ*
+Jak tylko się pojawisz, spadamy stąd.{ETAP_108}
+//UWAGA: wariant — Kirin wychodzi pobity.
+{1.1}*KIRIN*
+Robi mi się niedobrze, jak pomyślę, że mam się przeciskać przez ten tunel, ale masz rację. Tak będzie bezpieczniej.
+*GRACZ*
+Tak myślę. Ruszaj już. Jak tylko wrócisz, spadamy stąd.{ETAP_109}
+//UWAGA: wariant — Kirin wraca cały i zdrowy.
+
+##ETAP
+ETAP_108 ###Z groty wychodzi pobity Kirin. Pojawia się też Gwiazda Zaranna. ###Pkt 96 w konspekcie. DO ROZPISANIA.
+//Ściemnienie: „Minęło kilka minut. Z oddali słychać dźwięki narastającej walki." Rozjaśnienie. Kamera centruje na Kirinie, który wychodzi z groty z kieszeniami wyładowanymi viverią. Kirin wyraźnie utyka. Pojawia się też Nira w obstawie swoich ludzi.
+
+*KIRIN*
+[sb]Woła do ciebie z daleka.[/sb] To jak to będzie, kolego? Bawimy się, czy ściemniamy?
+
+##ETAP
+ETAP_109 ###Porozmawiaj z Kirinem ###Słyszysz dźwięki narastającej walki. Porozmawiaj z Kirinem.
+
+//Ściemnienie: „Minęło kilka minut. Z oddali słychać dźwięki narastającej walki." Rozjaśnienie. Kamera centruje na Kirinie, który wychodzi z groty z kieszeniami wyładowanymi viverią. Pojawia się też Nira w obstawie swoich ludzi.
+
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+[sb]Patrzy z niedowierzaniem to na ciebie, to na Kirina.[/sb] Oferowałam wam pomoc, chciałam wam dać to, po co przyszliście. Jedyne czego oczekiwałam, to szczerość.
+*GRACZ*
+Baliśmy się.
+*GWIAZDA ZARANNA*
+Słaba wymówka.
+*GRACZ*
+Chciałaś szczerości, a mówisz, że to wymówka?
+*GWIAZDA ZARANNA*
+[sb]Jej spojrzenie mięknie.[/sb] Masz rację. Przy pierwszym kontakcie Onir potrafi być przerażający, ale mogliście przyjść ze swoimi wątpliwościami do mnie.
+*KIRIN*
+Można uznać, że przychodzimy z nimi teraz?
+*GWIAZDA ZARANNA*
+
+
+##ETAP
+ETAP_120 ###Idź za Gwiazdą Zaranną. ###Skłamałeś Gwieździe Zarannej i zataiłeś obecność Silvio. Idź za nią. Przed wejściem do jaskini wyniesienia pauza i start rozmowy z Gwiazdą.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+Czemu się zatrzymałeś?
+*GRACZ*
+Nie wejdę tam.
+*GWIAZDA ZARANNA*
+[sb]Na jej twarz wraca znajomy łagodny uśmiech.[/sb] Wejdziesz. Kirin już tam na ciebie czeka. Pamiętasz, jak mówiłam, że chcę wam pomóc, wystarczy powiedzieć, czego szukacie?
+*GRACZ*
+Tak, pamiętam.
+*GWIAZDA ZARANNA*
+Więc zapraszam. Nie lękaj się.
+*GRACZ*
+[sb]Wchodzisz za kobietą do jaskini.[/sb]{ETAP_121}
+
+##ETAP
+ETAP_121 ###Porozmawiaj z Gwiazdą Zaranną. ###W jaskini Kirin schwytany — łysi od Niry trzymają go między sobą. Jeden z nich ma przed sobą skrzynię z szypułką i viverią.
+##DIALOG *KIRIN*
+*KIRIN*
+[imie], ratuj mnie! Raaatuj!
+*NIOSĄCY NADZIEJĘ*
+[sb]Brutalnie knebluje Kirina.[/sb]
+*GWIAZDA ZARANNA*
+Przychodzicie do mnie, do mojego domu, do domu moich sióstr, moich braci. Do domu mojego syna. [sb]Kobieta czułym spojrzeniem obrzuca leżącego w niecce stwora.[/sb] I po co? Siać zamęt? Kraść? Odwodzić Tkaczy od ścieżek snów? Dlaczego?
+*GRACZ*
+[sb]Milczysz.[/sb]{1.1}
+Chcieliśmy tylko zabrać Szypułkę i viverię, która należy do wioski zbieraczy.{1.2}
+{1.1}*GWIAZDA ZARANNA*
+Powiesz coś?
+*GRACZ*
+Co mam mówić? Przyszliśmy tutaj tylko po Szypułkę i viverię.{1.2}
+{1.2}*GWIAZDA ZARANNA*
+I ja chciałam wam to dać. Wiedziałam od początku, że nie zamierzacie wstąpić na ścieżki snów, ale oczekiwałam szczerości. Zamiast niej dostałam kłamstwa, zamęt i burzenie więzi pomiędzy Tkaczami.
+*GRACZ*
+Baliśmy się ciebie. I — [sb]wskazujesz na stwora[/sb] — tego.
+*GWIAZDA ZARANNA*
+Tego? Tego?! Mówisz o moim synu! Najpotężniejszym śniącym, jaki kiedykolwiek istniał. Onir zbudował nasze ścieżki snów i to jego wspaniały umysł daje nam łaskę bliskości z drugim człowiekiem. A ty mówisz o nim to!
+*GRACZ*
+Wybacz, Gwiazdo Zaranna. Nie chciałem cię urazić.
+*GWIAZDA ZARANNA*
+Ale zrobiłeś to. Onir pożywi się teraz waszymi snami, żeby nasz świat był jeszcze bogatszy. [sb]Daje znak Niosącemu Nadzieję.[/sb]
+*GRACZ*
+[sb]Zanim zdążysz zareagować, Kirin zostaje wrzucony do sadzawki.[/sb]{ETAP_122}
+
+//KONFLIKT NUMERACJI: w oryginale dwa etapy oznaczone „122".
+//Pierwszy (cutscenka + dalsza konfrontacja z Nirą) → ETAP_122.
+//Drugi (walka) → ETAP_122B. Proszę o weryfikację i docelową renumerację.
+
+##ETAP
+ETAP_122 ###Porozmawiaj z Gwiazdą Zaranną. ###Cutscenka: „Widzisz jak szamoczącego się Kirina wpychają pod wodę. W szarpaninie udaje mu się odkneblować. Ambrozja! Ambrozja, kocham cię!" Po rozjaśnieniu sadzawka uspokaja się.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+Teraz on. Zabierzcie go!
+*GRACZ*
+//Uwaga produkcyjna: po tej kwestii do jaskini wpada zakrwawiona Śpiew Przestrzeni.
+Łapy przy sobie, bo pozabijam!
+*ŚPIEW PRZESTRZENI*
+Ludzie Valkorów! Lawonurkowie! Wszystkich mordują, wszystkich palą!
+*GWIAZDA ZARANNA*
+[sb]Patrzy na ciebie, jakby dopiero co zrozumiała.[/sb] To o tym rozmawiałeś z moimi Tkaczami! Wiedziałeś, że chcą nas zaatakować.
+*GRACZ*
+Tak. I chciałem uratować tylu Tkaczy, ilu zdołam, przed twoim szaleństwem i — tym. [sb]Wskazujesz na monstrum w sadzawce.[/sb]
+*GWIAZDA ZARANNA*
+Giń! A twoje sny niech popadną w zapomnienie.
+*GRACZ*
+Nikomu nie życzę przeżywać moich koszmarów. [sb]Walka.[/sb]{ETAP_129}
+
+##ETAP
+ETAP_129 ###Pokonaj Gwiazdę Zaranną. ###W trakcie walki dołącza Silvio. Walka może zakończyć się wygraną lub przegraną gracza.
+//Wariant A (gracz_deklarowal_ochrone_tkaczy): Silvio: „Zrobiłeś co mogłeś, żeby ich ratować, ale wybrali swój los."
+//Wariant B: Silvio: „Przybyłem w samą porę. Wypalimy tę niksową zarazę!"
+//warunek: pokonanie Gwiazdy Zarannej -> {ETAP_123}
+//warunek: gracz ginie w walce z Gwiazdą Zaranną -> {ETAP_131}
+
+##ETAP
+ETAP_123 ###Porozmawiaj z Silvio ###Gracz pokonał Nirę. Nira kona, Silvio przeżył i stoi nad nią. Rozmowa startuje automatycznie.
+##DIALOG *SILVIO*
+*SILVIO*
+[sb]Stoi nad Gwiazdą Zaranną i mierzy do niej z ognistej lancy.[/sb] Twoje knucie dobiegło końca.
+*GWIAZDA ZARANNA*
+[sb]Uśmiecha się odsłaniając zakrwawione zęby. Oddycha coraz ciężej.[/sb] Wasz ogień nigdy nie dotrze do ścieżek snów. Ja umrę, ale on... Onir... Quentis... mój syn... Zawsze tu będzie!
+*SILVIO*
+Zaraz spalę tę twoją abominację.
+*GRACZ*
+[sb]Czujesz jakiś dziwny, coraz mocniejszy zapach, który unosi się z sadzawki Onira.[/sb]
+*SILVIO*
+Co to za przeklęty opar?
+*GRACZ*
+//Uwaga produkcyjna: po tej kwestii Silvio pada na ziemię.
+[sb]Zaczynasz tracić przytomność.[/sb]
+//Cutscenka: dym z sadzawki wypełnia grotę. Silvio osuwa się na ziemię. Ściemnienie.
+//Napis: „Dziwny opar powalił dowódcę lawanurków, ale ty zdajesz się być na niego odporny."
+//warunek: -> {ETAP_124}
+
+##ETAP
+ETAP_124 ###Porozmawiaj z Onirem ###Rozjaśnienie. Silvio leży w kałuży krwi u stóp Onira. Onir wyciąga rękę w kierunku gracza.
+##DIALOG *ONIR*
+*ONIR*
+Twoje sny należą do mnie...
+*GRACZ*
+Byłem pewien, że do tego dojdzie. [sb]Walka.[/sb]{ETAP_125}
+
+##ETAP
+ETAP_125 ###Pokonaj Onira ###W trakcie walki, jeśli gracz nie radzi sobie samodzielnie, dołączają lawanurkowie Silvio.
+
+//warunek: zabicie Onira -> {ETAP_126}
+
+##ETAP
+ETAP_126 ###Porozmawiaj z Florentem ###Gracz pokonał Onira. Rozmowa startuje automatycznie.
+
+
+##DIALOG *FLORENT*
+*FLORENT*
+[sb]Rozgląda się po grocie.[/sb] Gdzie Kirin?
+*GRACZ*
+[sb]Wskazujesz na nieckę.[/sb]
+*FLORENT*
+Niech to szlag. Nie chciałem, żeby to się tak skończyło. [sb]Patrzy na skrzynię z szypułką.[/sb]
+*GRACZ*
+A jednak. Mogłeś odesłać zbieraczy i samemu przyjść do tej jaskini.
+*FLORENT*
+Nie zrzucaj wszystkiego na mnie. Też mogłeś inaczej to rozegrać.
+*GRACZ*
+Może mogłem.
+*FLORENT*
+Żegnaj, Kirin. Uwolniłeś się od rozlewisk i viverii i osady zbieraczy.
+*GRACZ*
+Biedna Ambrozja. Mieli tyle wspólnych marzeń.
+*FLORENT*
+Bardzo się kochali. Żegnaj, [imie], a raczej [tkaczowe_imie]. Nie wracam do osady, ani do Laerdmor.
+*GRACZ*
+Twoje życie, twoje sumienie. Żegnaj.{ETAP_128}
+
+##ETAP
+ETAP_128 ###Zabierz szypułkę. ###Cutscenka: Florent wychodzi. Kamera centruje się na skrzynce z szypułką.
+
+//warunek: zabierz Szypułkę -> {ETAP_130}
+
+##ETAP
+ETAP_130 ###Wróć do Amrila Cartela ###Zdobyłeś Wielką Szypułkę, ale Kirin nie przeżył. Wróć do osady zbieraczy. 
+
+//Przechodząc do biura mijasz Ambrozję — jej sprite obraca się w twoim kierunku. Gracz może do niej zagadać.
+##DIALOG *AMBROZJA*
+*AMBROZJA*
+[sb]Patrzy to na ciebie, to na drzwi, jakby oczekiwała, że za tobą wejdzie Kirin.[/sb]
+*GRACZ*
+Potem porozmawiamy.{-1}
+
+##DIALOG *AMRIL CARTEL*
+*AMRIL CARTEL*
+[sb]Na twój widok aż wstaje od stołu.[/sb] Jesteś wreszcie. Gdzie Kirin?
+*GRACZ*
+Kirin nie żyje.
+*AMRIL CARTEL*
+[sb]Jak szybko wstał, tak szybko usiadł.[/sb] A Florent? Szypułka? Viveria?
+*GRACZ*
+Wszystko przepadło. Pojawił się jakiś Silvio z zakutą w stal bandą i wszystko spalili. I prawie wszystkich.
+*AMRIL CARTEL*
+[sb]Patrzy na ciebie z niedowierzaniem.[/sb] Silvio?! Miał tylko zbadać czemu Niksa stała się aktywniejsza.
+*GRACZ*
+To zbadał. Sam też przypłacił to życiem.
+*AMRIL CARTEL*
+Co tam się właściwie wydarzyło?
+*GRACZ*
+Amril, nie mam siły o tym rozmawiać. Na północnym krańcu rozlewisk jest grota, która stała się grobem. Tam znajdziesz odpowiedzi. Proszę, oto twoja Wielka Szypułka. Wypłać mi za robotę.
+*AMRIL CARTEL*
+[sb]Na jego twarzy pojawił się wyraz ogromnej ulgi.[/sb]
+*GRACZ*
+Wiedziałem, że tylko o to ci chodziło. Los twoich ludzi nie miał dla ciebie znaczenia.{1.1}
+Dawaj złoto.{1.2}
+{1.1}*AMRIL CARTEL*
+Będziesz mi tutaj moralizował? Sam podjąłeś się zadania tylko dla pieniędzy. [sb]Kładzie na stół pełną sakiewkę.[/sb]
+*GRACZ*
+[sb]Bierzesz pieniądze.[/sb] Żegnaj, Cartel.{ETAP_127}
+{1.2}*AMRIL CARTEL*
+[sb]Kładzie na stół pełną sakiewkę.[/sb]
+*GRACZ*
+[sb]Bierzesz pieniądze.[/sb] Żegnaj, Cartel.{ETAP_127}
+
+##ETAP
+ETAP_127 ###Porozmawiaj z Ambrozją ###Kiedy gracz znajdzie się w pobliżu Ambrozji, ta podchodzi i atakuje rozmową.
+##DIALOG *AMBROZJA*
+*AMBROZJA*
+Gdzie Kirin?
+*GRACZ*
+Kirin bardzo cię kochał. Nie żyje.
+*AMBROZJA*
+Wiedziałam, że tak będzie. Mgła, która wypełniała moje sny. Byłeś przy nim, kiedy umierał?
+*GRACZ*
+Tak. Kazał powiedzieć, że zawsze będzie cię kochał.
+*AMBROZJA*
+[sb]Po policzkach zaczynają płynąć jej łzy, ale powstrzymuje szloch.[/sb] To miało być jego ostatnie wyjście na rozlewiska.
+*GRACZ*
+I było. Słuchaj, wasze marzenia o domu w Laerdmor. Może to pomoże. [sb]Wkładasz jej w dłoń sakiewkę od Amrila.[/sb]{1.1}
+Przykro mi, Ambrozja. Żegnaj.{-1}
+{1.1}*AMBROZJA*
+[sb]Ściska wręczony jej przedmiot, aż bieleją jej kłykcie.[/sb] Kirin... Wróć do mnie, choćby we snach.
+*GRACZ*
+[sb]Odchodzisz.[/sb]{-1}
+//Uwaga produkcyjna: „odchodzisz" = gate poza chatę, żeby nie stać obok niemych NPC-ów.
+
+##ETAP
+ETAP_131 ###Porozmawiaj z Gwiazdą Zaranną ###Gracz poległ w walce. Budzi się i widzi martwego Silvio w kałuży krwi oraz dogorywającą Gwiazdę Zaranną.
+##DIALOG *GWIAZDA ZARANNA*
+*GWIAZDA ZARANNA*
+[sb]Uśmiecha się odsłaniając zakrwawione zęby. Oddycha coraz ciężej.[/sb] Wasz ogień nigdy nie dotrze do ścieżek snów! Pokonałam cię, przeklęty sługusie Hvara! [sb]Próbuje splunąć w kierunku Silvio, ale jest już zbyt słaba.[/sb]
+*GRACZ*
+Dlaczego zabiłaś Kirina?!
+*GWIAZDA ZARANNA*
+Chciałam wam pomóc, ale... zrozumiałam, że wam nie da się pomóc. To była jedyna szansa, żeby zrozumiał — [sb]Oddech kobiety przechodzi w rzężenie.[/sb] — Żeby zrozumiał ścieżki snów.
+*GRACZ*
+Nie ma już Tkaczy, nie ma waszych obłąkanych ścieżek.
+*GWIAZDA ZARANNA*
+Mylisz się! Ja umrę, ale on... Onir... Quentis... mój syn... Zawsze tu będzie! A razem z nim, ścieżki snów. [sb]Kobieta umiera.[/sb]
+*GRACZ*
+[sb]Czujesz jakiś dziwny, coraz mocniejszy zapach, który unosi się z sadzawki Onira.[/sb]{ETAP_124}
+
+##ETAP
+ETAP_132 ###Opuść jaskinię ###Gwiazda Zaranna saskoczyła was i spełniła swoją obietnicę. Dała tobie i Kirinowi Wielką Szypułkę. Nic nie stoi na przeszkodzie, abyście wrócili do Amrila.
+
+//Gracz po wyjściu z jaskini natrafia na Silvio, który ich zatrzymuje.
+
+##DIALOG *SILVIO*
