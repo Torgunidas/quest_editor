@@ -1,0 +1,32 @@
+Communication job:
+Po prezentacji uczestnicy konferencji — projektanci narracji, writerzy i developerzy narzędzi — mają rozumieć, że Quest Editor łączy szybkość pisania w lekkim formacie tekstowym z kontrolą struktury, testowaniem i review, ponieważ jeden tekst jest interpretowany jako model wykonywalnego questa.
+
+Narracja:
+1. Otwieramy napięciem: plik jest szybki, ale gałęzie przestają być widoczne.
+2. Pokazujemy ideę: tekst pozostaje źródłem prawdy, a narzędzie tworzy z niego kilka zsynchronizowanych perspektyw.
+3. Wyjaśniamy język zapisu i potok parse → model → lint → widoki.
+4. Demonstrujemy trzy realne widoki produktu.
+5. Odsłaniamy decyzje implementacyjne i ich konsekwencje.
+6. Pokazujemy test na dużym, rzeczywistym queście.
+7. Zamykamy wnioskiem: tekst narracyjny może być jednocześnie dokumentem dla człowieka i wykonywalną strukturą dla narzędzia.
+
+System wizualny:
+- Domyślna biblioteka Codex Grid: białe tło, czarna typografia, jasnoszare pola i cienkie linie.
+- Akcent fioletowy #7C3AED dla decyzji gracza i zielony #059669 dla przepływu/etapów; czerwony tylko dla błędu lintera.
+- Font Helvetica Neue / Arial; duże tytuły, mało tekstu, pełnoekranowe screenshoty produktu.
+- Sylwetki: okładka, duży komunikat, diagram potoku, 3-kolumnowe zasady, slajdy produktowe z dużym screenshotem, metryki, oś procesu, zamknięcie.
+
+Plan 13 slajdów:
+01 Quest Editor — od tekstu do działającej fabuły
+02 Plik rośnie liniowo. Złożoność questa — wykładniczo.
+03 Jedno źródło prawdy, pięć sposobów patrzenia
+04 Format jest prosty dla autora i jednoznaczny dla parsera
+05 Ten sam model zasila kontrolę, wizualizację i wykonanie
+06 Autor pisze tekst i od razu widzi mapę całego questa
+07 Graf ujawnia błąd, a Play pokazuje jego konsekwencję
+08 Character Lens zmienia review z wyszukiwania w pracę kontekstową
+09 Cztery założenia, które utrzymują narzędzie w ryzach
+10 Wykonanie: lokalna aplikacja bez łańcucha builda
+11 Jakość sprawdzamy na strukturze, nie na zrzutach
+12 Docelowy rytm pracy: napisz → sprawdź → przejdź → zreviewuj → wyeksportuj
+13 Quest staje się kodem, który nadal dobrze się czyta

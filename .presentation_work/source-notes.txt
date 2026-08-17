@@ -1,0 +1,17 @@
+Prezentacja konferencyjna: Quest Editor
+
+Źródła wewnętrzne projektu:
+- /Users/torgerd/Documents/GitHub/quest_editor/index.html — implementacja produktu, wersja v31.22 · Review GDocs Layout.
+- /Users/torgerd/Documents/GitHub/quest_editor/tests/snapshot.js — zakres i baseline testów parsera, lintera, osiągalności BFS oraz layoutu Flow.
+- /Users/torgerd/Documents/GitHub/quest_editor/tests/fixtures/tkacze_snow_full.txt — pełny quest testowy.
+- /Users/torgerd/Documents/GitHub/quest_editor/.presentation_work/screens/01_text_flow.png — lokalny zrzut aplikacji: Tekst + Flow questa.
+- /Users/torgerd/Documents/GitHub/quest_editor/.presentation_work/screens/02_graph_play.png — lokalny zrzut aplikacji: Graf + Play z diagnostyką.
+- /Users/torgerd/Documents/GitHub/quest_editor/.presentation_work/screens/03_character_text.png — lokalny zrzut aplikacji: Character Lens + Tekst.
+
+Zweryfikowane liczby:
+- index.html: 10 398 linii, 472 202 bajty, 1 blok script, brak zewnętrznych skryptów i arkuszy stylów.
+- 366 nazwanych funkcji w index.html (pomiar regex; liczba opisuje skalę implementacji, nie API publiczne).
+- Testy snapshot: 14 zaliczonych, 0 niezaliczonych.
+- Fixture Tkacze Snów: 119 etapów, 126 krawędzi między etapami, 119/119 etapów osiągalnych od startu i 119/119 etapów z pozycją w layoucie Flow.
+
+Brak zewnętrznych twierdzeń i zewnętrznych materiałów wizualnych. Wszystkie widoczne przykłady, liczby i screenshoty pochodzą z repozytorium albo z lokalnie uruchomionej aplikacji.

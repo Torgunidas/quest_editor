@@ -1,0 +1,216 @@
+{"kind":"deck","id":"pr/56qysq","name":"Deck"}
+{"kind":"layout","layoutId":"390710a1-ec39-41fc-8523-b486b1553e12","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"e851ff70-ac92-4931-ae1c-be9982ef87b9","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/g2bvo5","slide":1,"title":"PREZENTACJA KONFERENCYJNA · v31.22","textShapes":4}
+{"kind":"textbox","id":"sh/dsjip0rq","slide":1,"name":"cover-kicker","text":"PREZENTACJA KONFERENCYJNA · v31.22","textPreview":"PREZENTACJA KONFERENCYJNA · v31.22","textChars":34,"textLines":1,"bbox":[42,42,640,42]}
+{"kind":"textbox","id":"sh/qpsze5sz","slide":1,"name":"cover-title","text":"Quest Editor","textPreview":"Quest Editor","textChars":12,"textLines":1,"bbox":[42,165,1040,104]}
+{"kind":"textbox","id":"sh/rq10na9k","slide":1,"name":"cover-subtitle","text":"od tekstu do działającej fabuły","textPreview":"od tekstu do działającej fabuły","textChars":31,"textLines":1,"bbox":[42,270,1040,104]}
+{"kind":"textbox","id":"sh/0vu1kfah","slide":1,"name":"cover-description","text":"Lekki format tekstowy, kontrola struktury i symulacja wyborów w jednym lokalnym narzędziu.","textPreview":"Lekki format tekstowy, kontrola struktury i symulacja wyborów w jednym lokalnym narzędziu.","textChars":90,"textLines":1,"bbox":[42,505,720,90]}
+{"kind":"shape","id":"sh/1g3itkrm","slide":1,"name":"rule-1","bbox":[934,68,304,0]}
+{"kind":"notes","id":"nt/g2bvo5","slide":1,"text":"Otwórz pytaniem: czy narzędzie dla narracji może zachować szybkość zwykłego pliku tekstowego, a jednocześnie dawać kontrolę znaną z edytorów grafowych?\nQuest Editor powstał jako odpowiedź na ten konflikt. Nie zastępuje sposobu pisania — dodaje do niego strukturę, diagnostykę i możliwość wykonania.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html"}
+{"kind":"slide","id":"sl/k1b72p","slide":2,"title":"PROBLEM","textShapes":4}
+{"kind":"textbox","id":"sh/50zup0r6","slide":2,"name":"text-2","text":"PROBLEM","textPreview":"PROBLEM","textChars":7,"textLines":1,"bbox":[42,42,220,36]}
+{"kind":"textbox","id":"sh/idove58f","slide":2,"name":"text-3","text":"TEKST ≠ WIDOCZNA STRUKTURA","textPreview":"TEKST ≠ WIDOCZNA STRUKTURA","textChars":26,"textLines":1,"bbox":[828,42,410,36]}
+{"kind":"textbox","id":"sh/jehcnq90","slide":2,"name":"text-4","text":"Plik rośnie liniowo.\nZłożoność questa — wykładniczo.","textPreview":"Plik rośnie liniowo. | Złożoność questa — wykładniczo.","textChars":52,"textLines":2,"bbox":[42,206,1130,260]}
+{"kind":"textbox","id":"sh/wb6dcvqp","slide":2,"name":"text-5","text":"Nie widać martwych gałęzi, błędnych skoków ani tego, co naprawdę przejdzie gracz.","textPreview":"Nie widać martwych gałęzi, błędnych skoków ani tego, co naprawdę przejdzie gracz.","textChars":81,"textLines":1,"bbox":[42,520,770,80]}
+{"kind":"notes","id":"nt/k1b72p","slide":2,"text":"Sam format tekstowy świetnie skaluje się dla autora: jest szybki, wersjonowalny i łatwy do przenoszenia.\nProblem pojawia się wtedy, gdy rośnie liczba etapów, kotwic i przejść. Autor nadal widzi linie, choć gracz zobaczy graf decyzji.\nTo właśnie tę różnicę perspektyw ma zlikwidować narzędzie.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html\n- /Users/torgerd/Documents/GitHub/quest_editor/tests/fixtures/tkacze_snow_full.txt"}
+{"kind":"slide","id":"sl/0ae6e9","slide":3,"title":"Jeden tekst, pięć perspektyw","textShapes":16}
+{"kind":"textbox","id":"sh/83a90b21","slide":3,"name":"slide-3-title","text":"Jeden tekst, pięć perspektyw","textPreview":"Jeden tekst, pięć perspektyw","textChars":28,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/ni18761g","slide":3,"name":"rule-6","bbox":[376,389,144,0]}
+{"kind":"shape","id":"sh/mh8ry1kb","slide":3,"name":"rule-7","bbox":[720,211,112,0]}
+{"kind":"shape","id":"sh/x8jqd0jy","slide":3,"name":"rule-8","bbox":[720,287,112,0]}
+{"kind":"shape","id":"sh/w7a94v2d","slide":3,"name":"rule-9","bbox":[720,363,112,0]}
+{"kind":"shape","id":"sh/v618bq1s","slide":3,"name":"rule-10","bbox":[720,439,112,0]}
+{"kind":"shape","id":"sh/a5sr2lk7","slide":3,"name":"rule-11","bbox":[720,515,112,0]}
+{"kind":"shape","id":"sh/5c3ah0ju","slide":3,"name":"vrule-12","bbox":[720,211,0,304]}
+{"kind":"shape","id":"sh/4bu98v29","slide":3,"name":"shape-13","bbox":[42,246,334,286]}
+{"kind":"textbox","id":"sh/29wj6hgj","slide":3,"name":"text-14","text":"TEKST","textPreview":"TEKST","textChars":5,"textLines":1,"bbox":[74,280,260,58]}
+{"kind":"textbox","id":"sh/3a5kzmh4","slide":3,"name":"text-15","text":"Autor pisze dialogi, etapy, kotwice i warunki w lekkim DSL-u.","textPreview":"Autor pisze dialogi, etapy, kotwice i warunki w lekkim DSL-u.","textChars":61,"textLines":1,"bbox":[74,358,260,112]}
+{"kind":"shape","id":"sh/oby18ryp","slide":3,"name":"shape-16","bbox":[520,316,200,146]}
+{"kind":"textbox","id":"sh/pc721wza","slide":3,"name":"text-17","text":"MODEL\nQUESTA","textPreview":"MODEL | QUESTA","textChars":12,"textLines":2,"bbox":[538,342,164,92]}
+{"kind":"textbox","id":"sh/qdgja1gv","slide":3,"name":"text-18","text":"Tekst","textPreview":"Tekst","textChars":5,"textLines":1,"bbox":[832,181,280,34]}
+{"kind":"textbox","id":"sh/bepk36h0","slide":3,"name":"text-19","text":"pisanie i autocomplete","textPreview":"pisanie i autocomplete","textChars":22,"textLines":1,"bbox":[832,215,360,32]}
+{"kind":"textbox","id":"sh/cfy1cbyl","slide":3,"name":"text-20","text":"Graf","textPreview":"Graf","textChars":4,"textLines":1,"bbox":[832,257,280,34]}
+{"kind":"textbox","id":"sh/d0725gz6","slide":3,"name":"text-21","text":"lokalne rozgałęzienia","textPreview":"lokalne rozgałęzienia","textChars":21,"textLines":1,"bbox":[832,291,360,32]}
+{"kind":"textbox","id":"sh/6hcjyx0b","slide":3,"name":"text-22","text":"Flow questa","textPreview":"Flow questa","textChars":11,"textLines":1,"bbox":[832,333,280,34]}
+{"kind":"textbox","id":"sh/7ilkr2hw","slide":3,"name":"text-23","text":"mapa etapów i warunków","textPreview":"mapa etapów i warunków","textChars":22,"textLines":1,"bbox":[832,367,360,32]}
+{"kind":"textbox","id":"sh/vm1gzyxo","slide":3,"name":"text-24","text":"Character Lens","textPreview":"Character Lens","textChars":14,"textLines":1,"bbox":[832,409,280,34]}
+{"kind":"textbox","id":"sh/alsz6tg3","slide":3,"name":"text-25","text":"review w kontekście postaci","textPreview":"review w kontekście postaci","textChars":27,"textLines":1,"bbox":[832,443,360,32]}
+{"kind":"textbox","id":"sh/xojy18fu","slide":3,"name":"text-26","text":"Play","textPreview":"Play","textChars":4,"textLines":1,"bbox":[832,485,280,34]}
+{"kind":"textbox","id":"sh/wnah83y9","slide":3,"name":"text-27","text":"wykonanie ścieżki gracza","textPreview":"wykonanie ścieżki gracza","textChars":24,"textLines":1,"bbox":[832,519,360,32]}
+{"kind":"textbox","id":"sh/nihgvyxs","slide":3,"name":"footer-3","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/mh8z2tg7","slide":3,"name":"footer-num-3","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"notes","id":"nt/0ae6e9","slide":3,"text":"Centralne założenie brzmi: nie utrzymujemy pięciu kopii danych. Utrzymujemy jeden tekst i pięć perspektyw wyprowadzanych z tego samego modelu.\nDzięki temu poprawka w dialogu natychmiast zmienia graf, mapę etapów, lens postaci i symulację.\nTo eliminuje synchronizację między dokumentem pisarskim a osobnym schematem technicznym.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:1982\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:2856"}
+{"kind":"slide","id":"sl/074nr7","slide":4,"title":"Prosty dla autora, jednoznaczny dla parsera","textShapes":10}
+{"kind":"textbox","id":"sh/yxcryhoz","slide":4,"name":"slide-4-title","text":"Prosty dla autora, jednoznaczny dla parsera","textPreview":"Prosty dla autora, jednoznaczny dla parsera","textChars":43,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/l0na9wna","slide":4,"name":"shape-28","bbox":[42,157,690,468]}
+{"kind":"textbox","id":"sh/0zu90r6p","slide":4,"name":"text-29","text":"//BIT: Odprawa u kapitana\n##ETAP\nETAP_1 ###Idź na odprawę ###Kapitan czeka.\n##DIALOG *WARNIK*\n*WARNIK*\nWreszcie jesteście.\n*GRACZ*\nPytam o szczegóły.{1.1}\nRuszamy dalej.{ETAP_2}\n{1.1}*WARNIK*\nUtorczycy wzięli jeńców.","textPreview":"//BIT: Odprawa u kapitana | ##ETAP | ETAP_1 ###Idź na odprawę ###Kapitan czeka. | ##DIALOG *WARNIK* | *WARNIK* | Wreszcie jesteście. | *G...","textChars":216,"textLines":11,"bbox":[72,185,630,410]}
+{"kind":"textbox","id":"sh/n25sb65g","slide":4,"name":"text-30","text":"ETAP_n","textPreview":"ETAP_n","textChars":6,"textLines":1,"bbox":[784,196,200,40]}
+{"kind":"textbox","id":"sh/m1wr21ov","slide":4,"name":"text-31","text":"definiuje węzeł i jego opis","textPreview":"definiuje węzeł i jego opis","textChars":27,"textLines":1,"bbox":[784,244,410,58]}
+{"kind":"shape","id":"sh/9onadwnm","slide":4,"name":"rule-32","bbox":[784,307,410,0]}
+{"kind":"textbox","id":"sh/83e94r61","slide":4,"name":"text-33","text":"*GRACZ*","textPreview":"*GRACZ*","textChars":7,"textLines":1,"bbox":[784,322,200,40]}
+{"kind":"textbox","id":"sh/vq5sf65c","slide":4,"name":"text-34","text":"zamienia kolejne linie w wybory","textPreview":"zamienia kolejne linie w wybory","textChars":31,"textLines":1,"bbox":[784,370,410,58]}
+{"kind":"shape","id":"sh/apwr61o7","slide":4,"name":"rule-35","bbox":[784,433,410,0]}
+{"kind":"textbox","id":"sh/4nid0zyh","slide":4,"name":"text-36","text":"{…}","textPreview":"{…}","textChars":3,"textLines":1,"bbox":[784,448,200,40]}
+{"kind":"textbox","id":"sh/pobet4z2","slide":4,"name":"text-37","text":"tworzy kotwicę, przejście lub koniec","textPreview":"tworzy kotwicę, przejście lub koniec","textChars":36,"textLines":1,"bbox":[784,496,410,58]}
+{"kind":"textbox","id":"sh/2l0vy9gr","slide":4,"name":"footer-4","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/3m9wruhw","slide":4,"name":"footer-num-4","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"notes","id":"nt/074nr7","slide":4,"text":"Format wykorzystuje kilka rozpoznawalnych znaczników: etap, speaker, opcje gracza, kotwice i skoki.\nAutor nie klika w rozbudowane formularze; pisze naturalnym rytmem, a składnia dopowiada strukturę.\nParser normalizuje identyfikatory etapów i rozwiązuje kotwice w obrębie konkretnego bloku dialogowego.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:1962\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:1982"}
+{"kind":"slide","id":"sl/jkzefx","slide":5,"title":"Jeden model napędza wszystkie widoki","textShapes":16}
+{"kind":"textbox","id":"sh/u5grqd0n","slide":5,"name":"slide-5-title","text":"Jeden model napędza wszystkie widoki","textPreview":"Jeden model napędza wszystkie widoki","textChars":36,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/h8rq1szy","slide":5,"name":"rule-38","bbox":[144,368,992,0]}
+{"kind":"shape","id":"sh/g7i9snid","slide":5,"name":"shape-39","bbox":[134,350,20,20]}
+{"kind":"textbox","id":"sh/3a9832h4","slide":5,"name":"text-40","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[74,214,72,34]}
+{"kind":"textbox","id":"sh/i90rux0j","slide":5,"name":"text-41","text":"PARSE","textPreview":"PARSE","textChars":5,"textLines":1,"bbox":[74,254,230,48]}
+{"kind":"textbox","id":"sh/5crq5sza","slide":5,"name":"text-42","text":"tekst → etapy, dialogi, opcje, krawędzie","textPreview":"tekst → etapy, dialogi, opcje, krawędzie","textChars":40,"textLines":1,"bbox":[74,410,236,118]}
+{"kind":"shape","id":"sh/4bi9wnip","slide":5,"name":"shape-43","bbox":[439,350,20,20]}
+{"kind":"textbox","id":"sh/je58ry10","slide":5,"name":"text-44","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[379,214,72,34]}
+{"kind":"textbox","id":"sh/ydw7it0f","slide":5,"name":"text-45","text":"MODEL","textPreview":"MODEL","textChars":5,"textLines":1,"bbox":[379,254,230,48]}
+{"kind":"textbox","id":"sh/kjqd072p","slide":5,"name":"text-46","text":"dwa grafy: dialogowy i międzyetapowy","textPreview":"dwa grafy: dialogowy i międzyetapowy","textChars":36,"textLines":1,"bbox":[379,410,236,118]}
+{"kind":"shape","id":"sh/lkzutcja","slide":5,"name":"shape-47","bbox":[744,350,20,20]}
+{"kind":"textbox","id":"sh/yh8vyxkj","slide":5,"name":"text-48","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[684,214,72,34]}
+{"kind":"textbox","id":"sh/jihcr214","slide":5,"name":"text-49","text":"LINT","textPreview":"LINT","textChars":4,"textLines":1,"bbox":[684,254,230,48]}
+{"kind":"textbox","id":"sh/8nqd472l","slide":5,"name":"text-50","text":"błędy skoków, kotwic i granic gałęzi","textPreview":"błędy skoków, kotwic i granic gałęzi","textChars":36,"textLines":1,"bbox":[684,410,236,118]}
+{"kind":"shape","id":"sh/tojexcj6","slide":5,"name":"shape-51","bbox":[1049,350,20,20]}
+{"kind":"textbox","id":"sh/6l8v2hkv","slide":5,"name":"text-52","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[989,214,72,34]}
+{"kind":"textbox","id":"sh/7mhcvm1g","slide":5,"name":"text-53","text":"WIDOKI","textPreview":"WIDOKI","textChars":6,"textLines":1,"bbox":[989,254,230,48]}
+{"kind":"textbox","id":"sh/or6dsn2h","slide":5,"name":"text-54","text":"SVG, lens, play, review i eksport","textPreview":"SVG, lens, play, review i eksport","textChars":33,"textLines":1,"bbox":[989,410,236,118]}
+{"kind":"textbox","id":"sh/9sfulsj2","slide":5,"name":"text-55","text":"Zmiana źródła unieważnia cache; po debounce odświeżają się wyłącznie widoki pochodne.","textPreview":"Zmiana źródła unieważnia cache; po debounce odświeżają się wyłącznie widoki pochodne.","textChars":85,"textLines":1,"bbox":[180,576,920,52]}
+{"kind":"textbox","id":"sh/pcn29kre","slide":5,"name":"footer-5","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/4be10fq9","slide":5,"name":"footer-num-5","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"notes","id":"nt/jkzefx","slide":5,"text":"Silnik najpierw parsuje tekst do modelu, a potem buduje osobny graf dialogów i graf etapów.\nLinter pracuje na strukturze, więc potrafi nazwać błąd i wskazać linię źródła.\nWidoki są pochodne: po zmianie tekstu współdzielony parse i lint są buforowane, a odświeżenie jest opóźniane tak, by edytor pozostał responsywny.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:1982\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:2372\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:2748"}
+{"kind":"slide","id":"sl/c8g437","slide":6,"title":"Piszesz tekst i od razu widzisz mapę questa","textShapes":7}
+{"kind":"textbox","id":"sh/g32pg72p","slide":6,"name":"slide-6-title","text":"Piszesz tekst i od razu widzisz mapę questa","textPreview":"Piszesz tekst i od razu widzisz mapę questa","textChars":43,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/f298nm14","slide":6,"name":"shape-56","bbox":[40,148,922,520]}
+{"kind":"shape","id":"sh/tgrqlcjy","slide":6,"name":"shape-57","bbox":[992,190,5,30]}
+{"kind":"textbox","id":"sh/sfipc72d","slide":6,"name":"text-58","text":"PISANIE","textPreview":"PISANIE","textChars":7,"textLines":1,"bbox":[1010,188,228,34]}
+{"kind":"textbox","id":"sh/7e98j21s","slide":6,"name":"text-59","text":"Kolorowanie składni zachowuje rytm zwykłego pliku tekstowego.","textPreview":"Kolorowanie składni zachowuje rytm zwykłego pliku tekstowego.","textChars":61,"textLines":1,"bbox":[1010,232,228,104]}
+{"kind":"shape","id":"sh/6d07axkn","slide":6,"name":"shape-60","bbox":[992,407,5,30]}
+{"kind":"textbox","id":"sh/dcvqxwj2","slide":6,"name":"text-61","text":"ORIENTACJA","textPreview":"ORIENTACJA","textChars":10,"textLines":1,"bbox":[1010,405,228,34]}
+{"kind":"textbox","id":"sh/cbm9or2x","slide":6,"name":"text-62","text":"Flow grupuje etapy w bity i pokazuje relacje między nimi.","textPreview":"Flow grupuje etapy w bity i pokazuje relacje między nimi.","textChars":57,"textLines":1,"bbox":[1010,449,228,104]}
+{"kind":"textbox","id":"sh/6d0fu5gn","slide":6,"name":"footer-6","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/7e9wnax8","slide":6,"name":"footer-num-6","text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"image","id":"im/raxkj2dg","slide":6,"name":"","geometry":"roundRect","alt":"Quest Editor: tekst po lewej i Flow questa po prawej","bbox":[42,150,918,516]}
+{"kind":"notes","id":"nt/c8g437","slide":6,"text":"To jest podstawowy tryb pracy: po lewej pozostaje pełny tekst, po prawej mapa etapów.\nAutor nie musi przerywać pisania, żeby przełączyć się do osobnego narzędzia diagramowego.\nZaznaczenia, nawigacja i skupienie działają między widokami, więc mapa służy również do poruszania się po źródle.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/.presentation_work/screens/01_text_flow.png\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html"}
+{"kind":"slide","id":"sl/v6nyms","slide":7,"title":"Graf ujawnia błąd, Play pokazuje konsekwencję","textShapes":7}
+{"kind":"textbox","id":"sh/x0v6hgr2","slide":7,"name":"slide-7-title","text":"Graf ujawnia błąd, Play pokazuje konsekwencję","textPreview":"Graf ujawnia błąd, Play pokazuje konsekwencję","textChars":45,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/axknm18r","slide":7,"name":"shape-63","bbox":[40,148,922,520]}
+{"kind":"shape","id":"sh/ov25kbql","slide":7,"name":"shape-64","bbox":[992,182,5,30]}
+{"kind":"textbox","id":"sh/pwb6dgr6","slide":7,"name":"text-65","text":"LINT","textPreview":"LINT","textChars":4,"textLines":1,"bbox":[1010,180,228,34]}
+{"kind":"textbox","id":"sh/29kni18f","slide":7,"name":"text-66","text":"Nielegalny skok speakera jest opisany i podlinkowany do źródła.","textPreview":"Nielegalny skok speakera jest opisany i podlinkowany do źródła.","textChars":63,"textLines":1,"bbox":[1010,224,228,104]}
+{"kind":"shape","id":"sh/nutor690","slide":7,"name":"shape-67","bbox":[992,422,5,30]}
+{"kind":"textbox","id":"sh/07i5grq9","slide":7,"name":"text-68","text":"PLAY","textPreview":"PLAY","textChars":4,"textLines":1,"bbox":[1010,420,228,34]}
+{"kind":"textbox","id":"sh/18r6pwru","slide":7,"name":"text-69","text":"Ten sam model zatrzymuje się na wyborze i wykonuje decyzję gracza.","textPreview":"Ten sam model zatrzymuje się na wyborze i wykonuje decyzję gracza.","textChars":66,"textLines":1,"bbox":[1010,464,228,104]}
+{"kind":"textbox","id":"sh/lk7y1sja","slide":7,"name":"footer-7","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/kjyx8nip","slide":7,"name":"footer-num-7","text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"image","id":"im/qpcjet0z","slide":7,"name":"","geometry":"roundRect","alt":"Quest Editor: graf dialogu, komunikat lintera i tryb Play","bbox":[42,150,918,516]}
+{"kind":"notes","id":"nt/v6nyms","slide":7,"text":"Na tym ujęciu widać najważniejszą pętlę jakościową: struktura mówi nie tylko, że coś jest niepoprawne, ale dlaczego.\nObok działa symulator. Nie renderuje statycznego podglądu; wykonuje dialog, obsługuje kotwice, przejścia, warunki i cofanie do wcześniejszego wyboru.\nAutor może więc przejść od diagnozy do odtworzenia zachowania bez eksportu do gry.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/.presentation_work/screens/02_graph_play.png\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:2372\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:9311"}
+{"kind":"slide","id":"sl/tdwb4v","slide":8,"title":"Character Lens porządkuje review postaci","textShapes":7}
+{"kind":"textbox","id":"sh/nut8vmhg","slide":8,"name":"slide-8-title","text":"Character Lens porządkuje review postaci","textPreview":"Character Lens porządkuje review postaci","textChars":40,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/of2947il","slide":8,"name":"shape-70","bbox":[40,148,922,520]}
+{"kind":"shape","id":"sh/ahkr6h0r","slide":8,"name":"shape-71","bbox":[992,182,5,30]}
+{"kind":"textbox","id":"sh/bit8zmhc","slide":8,"name":"text-72","text":"SOCZEWKA","textPreview":"SOCZEWKA","textChars":8,"textLines":1,"bbox":[1010,180,228,34]}
+{"kind":"textbox","id":"sh/wj298ryx","slide":8,"name":"text-73","text":"Zbiera wszystkie kwestie postaci wraz z sąsiadującą interakcją.","textPreview":"Zbiera wszystkie kwestie postaci wraz z sąsiadującą interakcją.","textChars":63,"textLines":1,"bbox":[1010,224,228,104]}
+{"kind":"shape","id":"sh/xkvq1wzi","slide":8,"name":"shape-74","bbox":[992,422,5,30]}
+{"kind":"textbox","id":"sh/yl4ra1g3","slide":8,"name":"text-75","text":"EDYCJA","textPreview":"EDYCJA","textChars":6,"textLines":1,"bbox":[1010,420,228,34]}
+{"kind":"textbox","id":"sh/jmd836h8","slide":8,"name":"text-76","text":"Zmiana bloku wraca do dokładnego zakresu linii w źródle.","textPreview":"Zmiana bloku wraca do dokładnego zakresu linii w źródle.","textChars":56,"textLines":1,"bbox":[1010,464,228,104]}
+{"kind":"textbox","id":"sh/nytkvilo","slide":8,"name":"footer-8","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/mxkjmd43","slide":8,"name":"footer-num-8","text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"image","id":"im/ova5kzux","slide":8,"name":"","geometry":"roundRect","alt":"Quest Editor: Character Lens z blokami postaci i kontekstem źródła","bbox":[42,150,918,516]}
+{"kind":"notes","id":"nt/tdwb4v","slide":8,"text":"Character Lens odpowiada na realny problem review: kwestie jednej postaci są rozrzucone po wielu etapach i gałęziach.\nWidok indeksuje wystąpienia, liczy bloki i słowa, a następnie pokazuje kwestie postaci razem z sąsiadującymi reakcjami.\nBlok można poprawić bezpośrednio, a narzędzie bezpiecznie podmienia odpowiadający mu zakres linii.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/.presentation_work/screens/03_character_text.png\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:2288\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:6915"}
+{"kind":"slide","id":"sl/wjxc9y","slide":9,"title":"Cztery zasady utrzymują spójność","textShapes":15}
+{"kind":"textbox","id":"sh/43adcrap","slide":9,"name":"slide-9-title","text":"Cztery zasady utrzymują spójność","textPreview":"Cztery zasady utrzymują spójność","textChars":32,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/3i1cj6t4","slide":9,"name":"rule-77","bbox":[42,382,1196,0]}
+{"kind":"shape","id":"sh/ihsva1sz","slide":9,"name":"vrule-78","bbox":[640,170,0,430]}
+{"kind":"textbox","id":"sh/hgzuhwbe","slide":9,"name":"text-79","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[42,178,64,34]}
+{"kind":"textbox","id":"sh/gfqd8rat","slide":9,"name":"text-80","text":"Tekst jest źródłem prawdy","textPreview":"Tekst jest źródłem prawdy","textChars":25,"textLines":1,"bbox":[120,174,470,44]}
+{"kind":"textbox","id":"sh/vehcfmt8","slide":9,"name":"text-81","text":"Graf i symulacja nigdy nie żyją własnym życiem.","textPreview":"Graf i symulacja nigdy nie żyją własnym życiem.","textChars":47,"textLines":1,"bbox":[120,232,470,78]}
+{"kind":"textbox","id":"sh/ud8v6hsn","slide":9,"name":"text-82","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[684,178,64,34]}
+{"kind":"textbox","id":"sh/tczudcb2","slide":9,"name":"text-83","text":"Błąd jest częścią modelu","textPreview":"Błąd jest częścią modelu","textChars":24,"textLines":1,"bbox":[762,174,470,44]}
+{"kind":"textbox","id":"sh/8bqd47ah","slide":9,"name":"text-84","text":"Diagnostyka zna typ problemu i linię powrotu.","textPreview":"Diagnostyka zna typ problemu i linię powrotu.","textChars":45,"textLines":1,"bbox":[762,232,470,78]}
+{"kind":"textbox","id":"sh/y9cjihcv","slide":9,"name":"text-85","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[42,418,64,34]}
+{"kind":"textbox","id":"sh/zalkbmdg","slide":9,"name":"text-86","text":"Widoki są pochodne","textPreview":"Widoki są pochodne","textChars":18,"textLines":1,"bbox":[120,414,470,44]}
+{"kind":"textbox","id":"sh/0bulk7u1","slide":9,"name":"text-87","text":"Jeden parse zasila wszystkie perspektywy i cache.","textPreview":"Jeden parse zasila wszystkie perspektywy i cache.","textChars":49,"textLines":1,"bbox":[120,472,470,78]}
+{"kind":"textbox","id":"sh/lw32dcvm","slide":9,"name":"text-88","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[684,418,64,34]}
+{"kind":"textbox","id":"sh/q5sjexcz","slide":9,"name":"text-89","text":"Local-first, eksport jawny","textPreview":"Local-first, eksport jawny","textChars":26,"textLines":1,"bbox":[762,414,470,44]}
+{"kind":"textbox","id":"sh/b61k72d4","slide":9,"name":"text-90","text":"Szkic zapisuje się lokalnie; plik i HTML są świadomą decyzją.","textPreview":"Szkic zapisuje się lokalnie; plik i HTML są świadomą decyzją.","textChars":61,"textLines":1,"bbox":[762,472,470,78]}
+{"kind":"textbox","id":"sh/c7u1g7up","slide":9,"name":"footer-9","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/d8329cva","slide":9,"name":"footer-num-9","text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"notes","id":"nt/wjxc9y","slide":9,"text":"Te założenia są ważniejsze niż lista funkcji, bo określają granice systemu.\nTekst jest kanoniczny; błędy należą do modelu; widoki nie kopiują danych; lokalny autosave nie udaje świadomego zapisu pliku.\nDzięki temu narzędzie pozostaje lekkie, a zachowanie poszczególnych trybów daje się przewidzieć.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:1381\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:2748\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:8348"}
+{"kind":"slide","id":"sl/nt2c4g","slide":10,"title":"Wykonanie: lokalna aplikacja bez builda","textShapes":14}
+{"kind":"textbox","id":"sh/uhsji1kb","slide":10,"name":"slide-10-title","text":"Wykonanie: lokalna aplikacja bez builda","textPreview":"Wykonanie: lokalna aplikacja bez builda","textChars":39,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"textbox","id":"sh/hkj2tgjm","slide":10,"name":"text-91","text":"HTML, CSS i JavaScript działają bez serwera, a SVG powstaje bezpośrednio z modelu questa.","textPreview":"HTML, CSS i JavaScript działają bez serwera, a SVG powstaje bezpośrednio z modelu questa.","textChars":89,"textLines":1,"bbox":[42,126,1040,62]}
+{"kind":"shape","id":"sh/wja1kb21","slide":10,"name":"shape-92","bbox":[42,248,374,330]}
+{"kind":"textbox","id":"sh/jm1kvq1s","slide":10,"name":"text-93","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[74,286,310,108]}
+{"kind":"textbox","id":"sh/ils3mlk7","slide":10,"name":"text-94","text":"plik aplikacji","textPreview":"plik aplikacji","textChars":14,"textLines":1,"bbox":[74,408,310,46]}
+{"kind":"textbox","id":"sh/5832x0jy","slide":10,"name":"text-95","text":"Cały interfejs i silnik w index.html","textPreview":"Cały interfejs i silnik w index.html","textChars":36,"textLines":1,"bbox":[74,476,310,76]}
+{"kind":"shape","id":"sh/47alov2d","slide":10,"name":"shape-96","bbox":[453,248,374,330]}
+{"kind":"textbox","id":"sh/ralkzq1o","slide":10,"name":"text-97","text":"0","textPreview":"0","textChars":1,"textLines":1,"bbox":[485,286,310,108]}
+{"kind":"textbox","id":"sh/69c3qlk3","slide":10,"name":"text-98","text":"zewnętrznych bibliotek","textPreview":"zewnętrznych bibliotek","textChars":22,"textLines":1,"bbox":[485,408,310,46]}
+{"kind":"textbox","id":"sh/cbq54vux","slide":10,"name":"text-99","text":"Brak runtime'owych skryptów i CSS z sieci","textPreview":"Brak runtime'owych skryptów i CSS z sieci","textChars":41,"textLines":1,"bbox":[485,476,310,76]}
+{"kind":"shape","id":"sh/xczmx0bi","slide":10,"name":"shape-100","bbox":[864,248,374,330]}
+{"kind":"textbox","id":"sh/a98325c7","slide":10,"name":"text-101","text":"5 s","textPreview":"5 s","textChars":3,"textLines":1,"bbox":[896,286,310,108]}
+{"kind":"textbox","id":"sh/bah4vats","slide":10,"name":"text-102","text":"autosave","textPreview":"autosave","textChars":8,"textLines":1,"bbox":[896,408,310,46]}
+{"kind":"textbox","id":"sh/kfa58fu9","slide":10,"name":"text-103","text":"Szkic w localStorage + jawny zapis pliku","textPreview":"Szkic w localStorage + jawny zapis pliku","textChars":40,"textLines":1,"bbox":[896,476,310,76]}
+{"kind":"textbox","id":"sh/l0jm1kbu","slide":10,"name":"text-104","text":"10 398 linii · 366 nazwanych funkcji · 133 rejestracje zdarzeń","textPreview":"10 398 linii · 366 nazwanych funkcji · 133 rejestracje zdarzeń","textChars":62,"textLines":1,"bbox":[42,616,1100,32]}
+{"kind":"textbox","id":"sh/yd8n65c3","slide":10,"name":"footer-10","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/zeh4zato","slide":10,"name":"footer-num-10","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"notes","id":"nt/nt2c4g","slide":10,"text":"Wykonanie jest celowo pragmatyczne: jeden plik aplikacji, jedna IIFE, zero zewnętrznych skryptów i arkuszy stylów.\nTo ogranicza narzut uruchomienia i dystrybucji, ale przenosi odpowiedzialność na dyscyplinę modułów wewnętrznych i testy strukturalne.\nGrafy są generowane jako SVG, a szkic jest automatycznie zapisywany co pięć sekund w localStorage.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html:8348"}
+{"kind":"slide","id":"sl/ynpdv6","slide":11,"title":"Testujemy strukturę, nie zrzuty ekranu","textShapes":14}
+{"kind":"textbox","id":"sh/zahc7q54","slide":11,"name":"slide-11-title","text":"Testujemy strukturę, nie zrzuty ekranu","textPreview":"Testujemy strukturę, nie zrzuty ekranu","textChars":38,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"textbox","id":"sh/0bat0v6p","slide":11,"name":"text-105","text":"Test snapshot uruchamia kod edytora w pamięci i kontroluje parser, lint, osiągalność BFS oraz layout Flow.","textPreview":"Test snapshot uruchamia kod edytora w pamięci i kontroluje parser, lint, osiągalność BFS oraz layout Flow.","textChars":106,"textLines":1,"bbox":[42,126,1080,70]}
+{"kind":"shape","id":"sh/lcju90na","slide":11,"name":"shape-106","bbox":[42,248,374,330]}
+{"kind":"textbox","id":"sh/q58bulon","slide":11,"name":"text-107","text":"119","textPreview":"119","textChars":3,"textLines":1,"bbox":[72,286,314,112]}
+{"kind":"textbox","id":"sh/b6hs3qp8","slide":11,"name":"text-108","text":"etapów","textPreview":"etapów","textChars":6,"textLines":1,"bbox":[72,410,314,42]}
+{"kind":"textbox","id":"sh/c7qtwv6t","slide":11,"name":"text-109","text":"wszystkie osiągalne od startu","textPreview":"wszystkie osiągalne od startu","textChars":29,"textLines":1,"bbox":[72,476,314,70]}
+{"kind":"shape","id":"sh/d8za507y","slide":11,"name":"shape-110","bbox":[453,248,374,330]}
+{"kind":"textbox","id":"sh/2hobqlob","slide":11,"name":"text-111","text":"126","textPreview":"126","textChars":3,"textLines":1,"bbox":[483,286,314,112]}
+{"kind":"textbox","id":"sh/3ixsz6pw","slide":11,"name":"text-112","text":"krawędzi","textPreview":"krawędzi","textChars":8,"textLines":1,"bbox":[483,410,314,42]}
+{"kind":"textbox","id":"sh/fal8zals","slide":11,"name":"text-113","text":"graf międzyetapowy pełnego questa","textPreview":"graf międzyetapowy pełnego questa","textChars":33,"textLines":1,"bbox":[483,476,314,70]}
+{"kind":"shape","id":"sh/e9c7q5k7","slide":11,"name":"shape-114","bbox":[864,248,374,330]}
+{"kind":"textbox","id":"sh/1c3q103y","slide":11,"name":"text-115","text":"14/14","textPreview":"14/14","textChars":5,"textLines":1,"bbox":[894,286,314,112]}
+{"kind":"textbox","id":"sh/0bupsv2d","slide":11,"name":"text-116","text":"sprawdzeń","textPreview":"sprawdzeń","textChars":9,"textLines":1,"bbox":[894,410,314,42]}
+{"kind":"textbox","id":"sh/nel83al4","slide":11,"name":"text-117","text":"zero niezaliczonych testów","textPreview":"zero niezaliczonych testów","textChars":26,"textLines":1,"bbox":[894,476,314,70]}
+{"kind":"textbox","id":"sh/2dc7u5kj","slide":11,"name":"text-118","text":"Pełny fixture „Tkacze Snów” · 119/119 etapów otrzymuje kolumnę i pozycję Y w layoucie Flow","textPreview":"Pełny fixture „Tkacze Snów” · 119/119 etapów otrzymuje kolumnę i pozycję Y w layoucie Flow","textChars":90,"textLines":1,"bbox":[42,616,1130,34]}
+{"kind":"textbox","id":"sh/pgnq5k3u","slide":11,"name":"footer-11","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/ofepwf29","slide":11,"name":"footer-num-11","text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"notes","id":"nt/ynpdv6","slide":11,"text":"Test nie porównuje obrazków. Wyciąga z aplikacji funkcje parse, lint i layoutFlow, a następnie uruchamia je na dwóch fixture'ach.\nNajważniejszy test to pełny quest Tkacze Snów: 119 etapów, 126 krawędzi i pełna osiągalność od startu.\nDodatkowo każdy etap musi otrzymać poprawną pozycję w layoucie Flow. Błędy realnego fixture'a są jawnie kalibrowane w baseline, a nie zamiatane pod dywan.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/tests/snapshot.js\n- /Users/torgerd/Documents/GitHub/quest_editor/tests/fixtures/tkacze_snow_full.txt"}
+{"kind":"slide","id":"sl/gwix6p","slide":12,"title":"Nowy rytm pracy skraca pętlę do decyzji","textShapes":19}
+{"kind":"textbox","id":"sh/t0retoje","slide":12,"name":"slide-12-title","text":"Nowy rytm pracy skraca pętlę do decyzji","textPreview":"Nowy rytm pracy skraca pętlę do decyzji","textChars":39,"textLines":1,"bbox":[42,34,1196,98]}
+{"kind":"shape","id":"sh/6x0vi9kn","slide":12,"name":"rule-119","bbox":[96,350,1088,0]}
+{"kind":"shape","id":"sh/ry9cre18","slide":12,"name":"shape-120","bbox":[136,339,22,22]}
+{"kind":"textbox","id":"sh/4vydgz2h","slide":12,"name":"text-121","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[72,242,42,28]}
+{"kind":"textbox","id":"sh/5w7up4j2","slide":12,"name":"text-122","text":"NAPISZ","textPreview":"NAPISZ","textChars":6,"textLines":1,"bbox":[72,278,190,40]}
+{"kind":"textbox","id":"sh/itgve9kr","slide":12,"name":"text-123","text":"tekst i autocomplete","textPreview":"tekst i autocomplete","textChars":20,"textLines":1,"bbox":[72,404,190,74]}
+{"kind":"shape","id":"sh/jupcnu1c","slide":12,"name":"shape-124","bbox":[378,339,22,22]}
+{"kind":"textbox","id":"sh/w7ydcz2l","slide":12,"name":"text-125","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[314,242,42,28]}
+{"kind":"textbox","id":"sh/hs7ul4j6","slide":12,"name":"text-126","text":"SPRAWDŹ","textPreview":"SPRAWDŹ","textChars":7,"textLines":1,"bbox":[314,278,190,40]}
+{"kind":"textbox","id":"sh/5cfex0f2","slide":12,"name":"text-127","text":"lint w tej samej chwili","textPreview":"lint w tej samej chwili","textChars":23,"textLines":1,"bbox":[314,404,190,74]}
+{"kind":"shape","id":"sh/kbmdovyh","slide":12,"name":"shape-128","bbox":[620,339,22,22]}
+{"kind":"textbox","id":"sh/jadwvqxw","slide":12,"name":"text-129","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[556,242,42,28]}
+{"kind":"textbox","id":"sh/i94vmlgb","slide":12,"name":"text-130","text":"ZOBACZ","textPreview":"ZOBACZ","textChars":6,"textLines":1,"bbox":[556,278,190,40]}
+{"kind":"textbox","id":"sh/xovetgfq","slide":12,"name":"text-131","text":"graf i Flow questa","textPreview":"graf i Flow questa","textChars":18,"textLines":1,"bbox":[556,404,190,74]}
+{"kind":"shape","id":"sh/wnmdkvy5","slide":12,"name":"shape-132","bbox":[862,339,22,22]}
+{"kind":"textbox","id":"sh/vmdwrqx0","slide":12,"name":"text-133","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[798,242,42,28]}
+{"kind":"textbox","id":"sh/al4vilgf","slide":12,"name":"text-134","text":"PRZEJDŹ","textPreview":"PRZEJDŹ","textChars":7,"textLines":1,"bbox":[798,278,190,40]}
+{"kind":"textbox","id":"sh/9kbepgfu","slide":12,"name":"text-135","text":"Play z wyborami","textPreview":"Play z wyborami","textChars":15,"textLines":1,"bbox":[798,404,190,74]}
+{"kind":"shape","id":"sh/8j2dgby9","slide":12,"name":"shape-136","bbox":[1104,339,22,22]}
+{"kind":"textbox","id":"sh/036xwb65","slide":12,"name":"text-137","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1040,242,42,28]}
+{"kind":"textbox","id":"sh/14fe5gnq","slide":12,"name":"text-138","text":"ZREVIEWUJ","textPreview":"ZREVIEWUJ","textChars":9,"textLines":1,"bbox":[1040,278,190,40]}
+{"kind":"textbox","id":"sh/e1ovu1oz","slide":12,"name":"text-139","text":"lens, diff i eksport","textPreview":"lens, diff i eksport","textChars":20,"textLines":1,"bbox":[1040,404,190,74]}
+{"kind":"textbox","id":"sh/z2xw365k","slide":12,"name":"text-140","text":"Każdy krok korzysta z tego samego tekstu — bez ręcznego przepisywania danych między narzędziami.","textPreview":"Każdy krok korzysta z tego samego tekstu — bez ręcznego przepisywania danych między narzędziami.","textChars":96,"textLines":1,"bbox":[164,550,952,60]}
+{"kind":"textbox","id":"sh/sz6dsb6t","slide":12,"name":"footer-12","text":"QUEST EDITOR · v31.22","textPreview":"QUEST EDITOR · v31.22","textChars":21,"textLines":1,"bbox":[42,675,500,20]}
+{"kind":"textbox","id":"sh/d0fe1gne","slide":12,"name":"footer-num-12","text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1184,675,54,20]}
+{"kind":"notes","id":"nt/gwix6p","slide":12,"text":"Najważniejszym efektem nie jest pojedyncza funkcja, lecz skrócenie pętli pracy.\nAutor pisze, od razu dostaje kontrolę struktury, może zobaczyć mapę, przejść ścieżkę, zrobić review i wyeksportować wynik.\nPonieważ każdy krok korzysta z tego samego źródła, znika koszt ręcznego utrzymywania zgodności między dokumentami.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html"}
+{"kind":"slide","id":"sl/hef0np","slide":13,"title":"WNIOSEK","textShapes":9}
+{"kind":"textbox","id":"sh/na1ofatg","slide":13,"name":"text-141","text":"WNIOSEK","textPreview":"WNIOSEK","textChars":7,"textLines":1,"bbox":[42,42,220,36]}
+{"kind":"textbox","id":"sh/oba5ofu1","slide":13,"name":"text-142","text":"Quest staje się kodem,\nktóry nadal dobrze się czyta.","textPreview":"Quest staje się kodem, | który nadal dobrze się czyta.","textChars":52,"textLines":2,"bbox":[42,172,1060,270]}
+{"kind":"shape","id":"sh/pcj6h0b6","slide":13,"name":"rule-143","bbox":[42,488,1196,0]}
+{"kind":"textbox","id":"sh/adsnq5cr","slide":13,"name":"text-144","text":"SZYBCIEJ PISAĆ","textPreview":"SZYBCIEJ PISAĆ","textChars":14,"textLines":1,"bbox":[42,532,360,34]}
+{"kind":"textbox","id":"sh/be1ojatc","slide":13,"name":"text-145","text":"bez opuszczania tekstu","textPreview":"bez opuszczania tekstu","textChars":22,"textLines":1,"bbox":[42,578,360,46]}
+{"kind":"textbox","id":"sh/cfa5sfux","slide":13,"name":"text-146","text":"WCZEŚNIEJ WYKRYWAĆ","textPreview":"WCZEŚNIEJ WYKRYWAĆ","textChars":18,"textLines":1,"bbox":[453,532,360,34]}
+{"kind":"textbox","id":"sh/xg36lkbi","slide":13,"name":"text-147","text":"zanim błąd trafi do integracji","textPreview":"zanim błąd trafi do integracji","textChars":30,"textLines":1,"bbox":[453,578,360,46]}
+{"kind":"textbox","id":"sh/6honelcn","slide":13,"name":"text-148","text":"ŚWIADOMIE TESTOWAĆ","textPreview":"ŚWIADOMIE TESTOWAĆ","textChars":18,"textLines":1,"bbox":[864,532,360,34]}
+{"kind":"textbox","id":"sh/rih47qt8","slide":13,"name":"text-149","text":"tak jak przejdzie to gracz","textPreview":"tak jak przejdzie to gracz","textChars":26,"textLines":1,"bbox":[864,578,360,46]}
+{"kind":"textbox","id":"sh/7udk32xc","slide":13,"name":"text-150","text":"QUEST EDITOR · PYTANIA?","textPreview":"QUEST EDITOR · PYTANIA?","textChars":23,"textLines":1,"bbox":[980,42,258,34]}
+{"kind":"notes","id":"nt/hef0np","slide":13,"text":"Wróć do pytania z początku: czy można zachować szybkość tekstu i zyskać kontrolę grafu? W tym projekcie odpowiedzią jest wykonywalny model wyprowadzany z tekstu.\nQuest Editor traktuje narrację jak kod tylko tam, gdzie pomaga to autorowi: w walidacji, wizualizacji, testowaniu i review.\nZamknij trzema efektami: szybciej pisać, wcześniej wykrywać i świadomie testować. Następnie przejdź do pytań lub krótkiego demo na żywo.\n\n[Sources]\n- /Users/torgerd/Documents/GitHub/quest_editor/index.html\n- /Users/torgerd/Documents/GitHub/quest_editor/tests/snapshot.js"}
